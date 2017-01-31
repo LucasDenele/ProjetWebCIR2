@@ -160,7 +160,8 @@ function collectStar (player, star) {
 }
 function isFinished(player, score){
     if(120 == score){
-        game.add.text(400, 600, 'Gagné!!', { fontSize: '60px', fill: '#000' });
+        win = game.add.text(400, 300, 'Gagné!!', { fontSize: '60px', fill: '#000' });
+        console.log(win);
         player.kill();
     }
 }
