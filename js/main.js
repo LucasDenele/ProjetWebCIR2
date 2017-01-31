@@ -20,7 +20,7 @@ require.config({
     }
 });
 
-require(['core/test.js', 'jquery', 'handlebars','phaser'], 
-function(test, $, Handlebars, Phaser){
-    var exe = new test();
+require(['js/core/test.js', 'jquery', 'handlebars','phaser'], 
+function(Test, $, Handlebars, Phaser){
+    var exe = new Test();
 });
