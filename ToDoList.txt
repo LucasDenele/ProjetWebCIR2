@@ -1,0 +1,18 @@
+# ProjetWebCIR2
+Développement d'un serious game sur le thème du smart bulding en CIR2 à l'ISEN
+
+TO DO LIST :
+---------
+-> Pour Mardi 7/02 : 
+- Faire le tuto Phaser
+- Trouver les deux autre jeux sur Batiments Intelligents
+- Définition "propre" de Batiment Intelligent
+-> Réunion du Mardi 7/02 :
+- Commencer le cahier des charges
+
+---------
+-> Dans les 2/3 prochaines semaines :
+- Mise en place des rôles
+- Cahier des Charges au complet
+- Commencer recherches design
+- Commencer le menu du jeu
