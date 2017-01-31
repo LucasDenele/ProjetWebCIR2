@@ -8,6 +8,14 @@ function(Phaser){
     var score = 0;
     var scoreText;
 
+    var isFinished = function(game ,player, score){
+        if(120 == score){
+            win = game.add.text(400, 300, 'Gagné!!', { fontSize: '60px', fill: '#000' });
+            console.log(win);
+            player.kill();
+        }
+    }
+
     var Test = function(){
         this._game = new Phaser.Game(800, 600, Phaser.AUTO, '', 
         { preload: Test.prototype.preload, create: Test.prototype.create, update: Test.prototype.update });
@@ -64,8 +72,8 @@ function(Phaser){
         this.physics.arcade.enable(player);
 
         //  Player physics properties. Give the little guy a slight bounce.
-        player.body.bounce.y = 0.2;
-        player.body.gravity.y = 300;
+        player.body.bounce.y = 0;
+        player.body.gravity.y = 0;
         player.body.collideWorldBounds = true;
 
         //  Our two animations, walking left and right.
@@ -106,37 +114,45 @@ function(Phaser){
         this.physics.arcade.collide(stars, platforms);
 
         //  Checks to see if the player overlaps with any of the stars, if he does call the collectStar function
-        this.physics.arcade.overlap(player, stars, Test.prototype.collectStar, null, this);
+        this.physics.arcade.overlap(player, stars, Test.prototype.collectStar.bind(this), null, this);
 
         //  Reset the players velocity (movement)
         player.body.velocity.x = 0;
+        player.body.velocity.y = 0;
 
-        if (cursors.left.isDown)
-        {
+        if (cursors.left.isDown){
+
             //  Move to the left
             player.body.velocity.x = -150;
 
             player.animations.play('left');
         }
-        else if (cursors.right.isDown)
-        {
+        else if (cursors.right.isDown){
+
             //  Move to the right
             player.body.velocity.x = 150;
 
             player.animations.play('right');
         }
-        else
-        {
+        else if (cursors.up.isDown){
+
+            // Move to the top
+            player.body.velocity.y = -150;
+
+            player.animations.play('right');
+        }
+        else if (cursors.down.isDown){
+
+            // Move to the bottom
+            player.body.velocity.y = 150;
+
+            player.animations.play('left');
+        }
+        else{
             //  Stand still
             player.animations.stop();
 
             player.frame = 4;
-        }
-        
-        //  Allow the player to jump if they are touching the ground.
-        if (cursors.up.isDown && player.body.touching.down)
-        {
-            player.body.velocity.y = -350;
         }
     }
 
@@ -148,17 +164,8 @@ function(Phaser){
         //  Add and update the score
         score += 10;
         scoreText.text = 'Score: ' + score;
-        Test.prototype.isFinished(player, score);
+        isFinished(this, player, score);
 
-    }
-
-    Test.prototype.isFinished = function(player, score){
-        console.log(this);
-        if(10 == score){
-            win = this.add.text(400, 300, 'Gagné!!', { fontSize: '60px', fill: '#000' });
-            console.log(win);
-            player.kill();
-        }
     }
 
     return Test;

@@ -1,5 +1,12 @@
 # ProjetWebCIR2
 Développement d'un serious game sur le thème du smart bulding en CIR2 à l'ISEN
+DONE :
+--------
+-> Mardi 31/01 :
+- Commencer recherche définition Batiments Intelligents
+- Recherche des jeux serious sur le sujet
+- Mise en place du git (https://github.com/LucasDenele/ProjetWebCIR2.git)
+- Mise en place du require.js
 
 TO DO LIST :
 ---------
