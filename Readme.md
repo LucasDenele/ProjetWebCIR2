@@ -55,7 +55,7 @@ Récupérer le dépot git ainsi que les changements :
 Ajouter changements d'un (ou plusieurs) fichier(s) sur le dépot git
 1. Toujours pareil
 2. Vérifier que l'on a bien pull avant
-3. Taper "git commit -m "MettreUnCommentaireIci" " (Je ne demande pas des commentaires ultra précis mais au moins de quoi comprendre ce qui a été changer)
+3. Taper "git commit -a -m "MettreUnCommentaireIci" " (Je ne demande pas des commentaires ultra précis mais au moins de quoi comprendre ce qui a été changer)
 4. Taper "git push NomDuProjet NomDeLaBranche" (ici de préférence : "git push origin master")
 5. Taper vos identifiants git (Pseudo/MDP)
 
