@@ -23,4 +23,5 @@ require.config({
 require(['js/core/test.js', 'jquery', 'handlebars','phaser'], 
 function(Test, $, Handlebars, Phaser){
     var exe = new Test();
+    exe.help();
 });
