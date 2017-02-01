@@ -41,7 +41,7 @@ Tuto git :
 
 --------
 Créer un dépot git :
-1. Créer un dossier dans le répertoire apache (Ubuntu : "**sudo service apache2 start**"; Fedora : "**sudo systemctl start httpd**")
+1. Créer un dossier dans le répertoire apache (Ubuntu : "`sudo service apache2 start`"; Fedora : "**sudo systemctl start httpd**")
 2. Ouvrir le terminal et se placer dans le dossier créer
 3. Taper "**git init**"
 4. Taper "**git remote add NomDuProjet LienDuDépotGit**" (ici de préférence : "**git remote add origin https://github.com/LucasDenele/ProjetWebCIR2.git**")
