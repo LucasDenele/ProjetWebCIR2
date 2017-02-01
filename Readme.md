@@ -13,13 +13,13 @@ DONE :
 - Recherche des jeux serious sur le sujet
 - Mise en place du git (https://github.com/LucasDenele/ProjetWebCIR2.git)
 - Mise en place du require.js
+- Mise en place d'une backup qui sera fait tous les 2 jours environs
 
 --------
 TO DO LIST :
 
 --------
 -> EN URGENCE! :
-- Branche git de backup 
 
 --------
 -> Pour Mardi 7/02 : 
