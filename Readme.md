@@ -26,6 +26,8 @@ TO DO LIST :
 - Faire le tuto Phaser
 - Trouver les deux autre jeux sur Batiments Intelligents
 - Définition "propre" de Batiment Intelligent
+
+--------
 -> Réunion du Mardi 7/02 :
 - Commencer le cahier des charges
 

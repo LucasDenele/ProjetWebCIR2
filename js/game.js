@@ -20,8 +20,13 @@ require.config({
     }
 });
 
-require(['js/core/test.js', 'jquery', 'handlebars','phaser'], 
-function(Test, $, Handlebars, Phaser){
-    var exe = new Test();
-    exe.help();
+require(['js/core/boot.js', 'js/core/load.js', 'js/core/play.js', 'jquery', 'handlebars','phaser'], 
+function(boot, load, play, $, Handlebars, Phaser){
+    var game = new Phaser.Game(800, 600, Phaser.AUTO, 'GameDiv');
+
+    game.state.add('boot', boot(game));
+    game.state.add('load', load(game));
+    game.state.add('play', play(game));
+
+    game.state.start('boot');
 });

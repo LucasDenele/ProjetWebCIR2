@@ -17,7 +17,7 @@ function(Phaser){
     }
 
     var Test = function(){
-        this._game = new Phaser.Game(800, 600, Phaser.AUTO, '', 
+        this._game = new Phaser.Game(800, 600, Phaser.AUTO, 'GameDiv', 
         { preload: Test.prototype.preload, create: Test.prototype.create, update: Test.prototype.update });
         this._variable;
         console.log(this);
