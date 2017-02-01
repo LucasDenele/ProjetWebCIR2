@@ -2,10 +2,16 @@
 Développement d'un serious game sur le thème du smart bulding en CIR2 à l'ISEN
 
 ----------------
-Emploie du temps :
+##Emploie du temps :
 
 --------
-DONE :
+-> Réunion du Mardi 7/02 :
+- Commencer le cahier des charges (Voir TO DO LIST pour préparation de la réunion) 
+
+##Le jeu :
+
+--------
+#DONE :
 
 --------
 -> Mardi 31/01 :
@@ -16,20 +22,17 @@ DONE :
 - Mise en place d'une backup qui sera fait tous les 2 jours environs
 
 --------
-TO DO LIST :
+#TO DO LIST :
 
 --------
 -> EN URGENCE! :
+- Winter is comming
 
 --------
 -> Pour Mardi 7/02 : 
 - Faire le tuto Phaser
 - Trouver les deux autre jeux sur Batiments Intelligents
 - Définition "propre" de Batiment Intelligent
-
---------
--> Réunion du Mardi 7/02 :
-- Commencer le cahier des charges
 
 --------
 -> Dans les 2/3 prochaines semaines :
