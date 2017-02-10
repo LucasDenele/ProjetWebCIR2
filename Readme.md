@@ -5,7 +5,7 @@ Développement d'un serious game sur le thème du smart bulding en CIR2 à l'ISE
 #Emploie du temps :
 
 --------
--> Réunion du Mardi 7/02 :
+-> Réunion du Vendredi 10/02 :
 - Commencer le cahier des charges (Voir TO DO LIST pour préparation de la réunion) 
 
 #Le jeu :
@@ -28,14 +28,10 @@ Développement d'un serious game sur le thème du smart bulding en CIR2 à l'ISE
 -> EN URGENCE! :
 - Winter is comming
 
---------
--> Pour Mardi 7/02 : 
-- Faire le tuto Phaser
-- Trouver les deux autre jeux sur Batiments Intelligents
-- Définition "propre" de Batiment Intelligent
 
 --------
 -> Dans les 2/3 prochaines semaines :
+- Finir cachier des charges
 - Mise en place des rôles
 - Cahier des Charges au complet
 - Commencer recherches design
