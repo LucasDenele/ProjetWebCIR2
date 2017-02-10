@@ -1,3 +1,12 @@
+var game;
+var player;
+var platforms;
+var cursors;
+var stars;
+var star;
+var score = 0;
+var scoreText;
+
 require.config({
     urlArgs: "bust=" + (new Date()).getTime(),
     baseUrl: 'js',
@@ -20,13 +29,13 @@ require.config({
     }
 });
 
-require(['js/core/boot.js', 'js/core/load.js', 'js/core/play.js', 'jquery', 'handlebars','phaser'], 
-function(boot, load, play, $, Handlebars, Phaser){
-    var game = new Phaser.Game(800, 600, Phaser.AUTO, 'GameDiv');
+require(['jquery', 'handlebars', 'phaser', 'js/core/preload.js', 'js/core/create.js', 'js/core/update.js'], 
+function($, Handlebars, Phaser, _preload, _create, _update){
+    game = new Phaser.Game(800, 600, Phaser.AUTO, 'GameDiv');
 
-    game.state.add('boot', boot(game));
-    game.state.add('load', load(game));
-    game.state.add('play', play(game));
+    game.state.add('preload', _preload);
+    game.state.add('create', _create);
+    game.state.add('update', _update);
+    game.state.start('preload');
 
-    game.state.start('boot');
 });
