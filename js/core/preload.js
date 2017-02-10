@@ -3,7 +3,7 @@ define(['phaser'],function(phaser){
 		preload:function(){
 			console.log('Preload');
 
-			let loadingLabel = game.add.text(80, 150, 'loadding...', {font: '30px Courier', fill: '#ffffff'})
+			let loadingLabel = game.add.text(80, 150, 'loading...', {font: '30px Courier', fill: '#ffffff'});
 			
 			game.load.image('sky', 'js/assets/sky.png');
 	    	game.load.image('ground', 'js/assets/platform.png');

@@ -38,28 +38,28 @@ define(['phaser','methodes/updateMethodes'],function(phaser){
 	            //  Move to the left
 	            player.body.velocity.x = -150;
 
-	            player.animations.play('left');
+	            //player.animations.play('left');
 	        }
 	        else if (cursors.right.isDown){
 
 	            //  Move to the right
 	            player.body.velocity.x = 150;
 
-	            player.animations.play('right');
+	            //player.animations.play('right');
 	        }
 	        else if (cursors.up.isDown){
 
 	            // Move to the top
 	            player.body.velocity.y = -150;
 
-	            player.animations.play('right');
+	            //player.animations.play('right');
 	        }
 	        else if (cursors.down.isDown){
 
 	            // Move to the bottom
 	            player.body.velocity.y = 150;
 
-	            player.animations.play('left');
+	            //player.animations.play('left');
 	        }
 	        else{
 	            //  Stand still

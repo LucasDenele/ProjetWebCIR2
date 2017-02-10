@@ -43,8 +43,8 @@ define(['phaser'],function(phaser){
         player.body.collideWorldBounds = true;
 
         //  Our two animations, walking left and right.
-        player.animations.add('left', [0, 1, 2, 3], 10, true);
-        player.animations.add('right', [5, 6, 7, 8], 10, true);
+        //player.animations.add('left', [0, 1, 2, 3], 10, true);
+        //player.animations.add('right', [5, 6, 7, 8], 10, true);
 
         //  Finally some stars to collect
         stars = game.add.group();
@@ -53,8 +53,7 @@ define(['phaser'],function(phaser){
         stars.enableBody = true;
 
         //  Here we'll create 12 of them evenly spaced apart
-        for (let i = 0; i < 12; i++)
-        {
+        for (let i = 0; i < 12; i++){
             //  Create a star inside of the 'stars' group
             star = stars.create(i * 70, 0, 'star');
 
