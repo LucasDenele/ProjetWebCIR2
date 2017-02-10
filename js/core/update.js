@@ -22,6 +22,7 @@ define(['phaser','methodes/updateMethodes'],function(phaser){
 	var _update = {
 		
 		update:function(){
+
 			//  Collide the player and the stars with the platforms
 	        game.physics.arcade.collide(player, platforms);
 	        game.physics.arcade.collide(stars, platforms);
