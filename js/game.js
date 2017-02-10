@@ -14,7 +14,7 @@ require.config({
         jquery:     'libs/jquery',
         handlebars: 'libs/handlebars',
         text:       'libs/text',
-        phaser:     'libs/phaser.min',  
+        phaser:     'libs/phaser',  
     },
     shim: {
         jquery: {
