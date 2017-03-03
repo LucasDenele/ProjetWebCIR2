@@ -1,0 +1,18 @@
+Diagramme de Classes Préliminaire :
+
+Classes: 
+	- PNJ => Persoonage que le joueur doit guider/corriger les actions
+	- Incident => Element Aléatoire
+	- Item => Objet/amélioration disponible pour le joueur
+
+PNJ:
+	- ID
+	- Score
+
+Incident:
+	- ID
+	- Description/Effet
+
+Item:
+	- ID
+	- Effet
