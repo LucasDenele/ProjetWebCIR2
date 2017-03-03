@@ -9,7 +9,7 @@ define(['phaser'],function(phaser){
 
 		game.add.sprite(0,0,'background');
 
-		_optionsButton = game.add.button(game.world.centerX - 200, game.world.centerY, 'button', launchOptions, this, 2, 1, 0);
+		_optionsButton = game.add.button(700, 500, 'Optionsbutton', launchOptions, this, 2, 1, 0);
 	
 	}
 

@@ -5,7 +5,7 @@ define(['phaser'],function(phaser){
 		let loadingLabel = game.add.text(80, 150, 'loading...', {font: '30px Courier', fill: '#ffffff'});
 
 		game.load.image('background', 'assets/sky.png');
-	    game.load.image('button', 'assets/platform.png');
+	    game.load.image('Optionsbutton', 'assets/options.png');
 
 	}
 
