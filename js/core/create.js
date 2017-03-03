@@ -1,7 +1,5 @@
 define(['phaser'],function(phaser){
-	var _create = {
-		create:function(){
-		console.log('Create');
+	var _create = function(game){
 
 		//  We're going to be using physics, so enable the Arcade Physics system
         game.physics.startSystem(Phaser.Physics.ARCADE);
@@ -71,7 +69,6 @@ define(['phaser'],function(phaser){
         cursors = game.input.keyboard.createCursorKeys();
 
 		game.state.start('update');
-		}
 	}
 
 	return _create;

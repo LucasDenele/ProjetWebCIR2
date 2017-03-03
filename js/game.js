@@ -1,4 +1,4 @@
-var game;
+//var game;
 var player;
 var platforms;
 var cursors;
@@ -29,13 +29,12 @@ require.config({
     }
 });
 
-require(['jquery', 'handlebars', 'phaser', 'core/preload', 'core/create', 'core/update'], 
-function($, Handlebars, Phaser, _preload, _create, _update){
-    game = new Phaser.Game(800, 600, Phaser.AUTO, 'GameDiv');
+require(['jquery', 'handlebars', 'phaser', 'core/boot'], 
+function($, Handlebars, Phaser, boot){
+    var game = new Phaser.Game(800, 600, Phaser.AUTO, 'GameDiv');
 
-    game.state.add('preload', _preload);
-    game.state.add('create', _create);
-    game.state.add('update', _update);
-    game.state.start('preload');
+    game.state.add('boot', boot);
+
+    game.state.start('boot');
 
 });

@@ -1,6 +1,5 @@
 define(['phaser'],function(phaser){
-	var _preload = {
-		preload:function(){
+	var _preload = function(game){
 			console.log('Preload');
 
 			let loadingLabel = game.add.text(80, 150, 'loading...', {font: '30px Courier', fill: '#ffffff'});
@@ -12,7 +11,6 @@ define(['phaser'],function(phaser){
 
 			game.state.start('create');
 		}
-	}
 
 	return _preload;
 });

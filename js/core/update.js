@@ -19,9 +19,7 @@ define(['phaser','methodes/updateMethodes'],function(phaser){
         isFinished(player, score);
 	}
 
-	var _update = {
-		
-		update:function(){
+	var _update = function(game){
 
 			//  Collide the player and the stars with the platforms
 	        game.physics.arcade.collide(player, platforms);
@@ -68,7 +66,6 @@ define(['phaser','methodes/updateMethodes'],function(phaser){
 
 	            player.frame = 4;
 	        }
-	    }
 	}
 
 	return _update;
