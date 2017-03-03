@@ -20,11 +20,12 @@ require.config({
     }
 });
 
-require(['jquery', 'handlebars', 'phaser', 'states/home/home'], 
-function($, Handlebars, Phaser, home){
+require(['jquery', 'handlebars', 'phaser', 'states/home/home', 'states/options/options'], 
+function($, Handlebars, Phaser, _homeState, _optionsState){
     var game = new Phaser.Game(800, 600, Phaser.AUTO, 'GameDiv');
 
-    game.state.add('home', home);
+    game.state.add('home', _homeState);
+    game.state.add('options', _optionsState);
 
     game.state.start('home');
 
