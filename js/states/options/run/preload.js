@@ -1,6 +1,6 @@
 define(['phaser'],function(phaser){
 	var preload = function(game){
-		console.log('Preload Home');
+		console.log('Preload Options');
 		
 		let loadingLabel = game.add.text(80, 150, 'loading...', {font: '30px Courier', fill: '#ffffff'});
 
