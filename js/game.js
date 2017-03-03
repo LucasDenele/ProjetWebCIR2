@@ -29,7 +29,7 @@ require.config({
     }
 });
 
-require(['jquery', 'handlebars', 'phaser', 'js/core/preload.js', 'js/core/create.js', 'js/core/update.js'], 
+require(['jquery', 'handlebars', 'phaser', 'core/preload', 'core/create', 'core/update'], 
 function($, Handlebars, Phaser, _preload, _create, _update){
     game = new Phaser.Game(800, 600, Phaser.AUTO, 'GameDiv');
 
