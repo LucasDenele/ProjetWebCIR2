@@ -5,7 +5,7 @@ function(phaser, preload, create, update){
 
 		};
 	};
-
+	//Etats du menu :
 	_homeState.prototype = {
 		preload: function(){
 			preload(this.game);
