@@ -1,12 +1,3 @@
-//var game;
-var player;
-var platforms;
-var cursors;
-var stars;
-var star;
-var score = 0;
-var scoreText;
-
 require.config({
     urlArgs: "bust=" + (new Date()).getTime(),
     baseUrl: 'js',
@@ -29,12 +20,12 @@ require.config({
     }
 });
 
-require(['jquery', 'handlebars', 'phaser', 'core/boot'], 
-function($, Handlebars, Phaser, boot){
+require(['jquery', 'handlebars', 'phaser', 'states/home/home'], 
+function($, Handlebars, Phaser, home){
     var game = new Phaser.Game(800, 600, Phaser.AUTO, 'GameDiv');
 
-    game.state.add('boot', boot);
+    game.state.add('home', home);
 
-    game.state.start('boot');
+    game.state.start('home');
 
 });
