@@ -79,7 +79,7 @@ Développement d'un serious game sur le thème du smart bulding en CIR2 à l'ISE
 
 --------
 **Créer une nouvelle branche / Voir les branches existantes :**
-- Vérifier que la branche n'existe pas avant avec "'git branch`"
+- Vérifier que la branche n'existe pas avant avec "`git branch`"
 - Taper "`git branch NomDeLaNouvelleBranche`" (Création d'une branche, sans s'y positionner)
 - Taper "`git checkout -b NomDeLaNouvelleBranche`" (Création d'une nouvelle branche en s'y positionnant)
 
