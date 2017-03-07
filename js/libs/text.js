@@ -406,3 +406,4 @@ define(['module'], function (module) {
     }
     return text;
 });
+
