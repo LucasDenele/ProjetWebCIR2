@@ -9,7 +9,7 @@ define(['phaser'],function(phaser){
 		}
 		console.log('Create Home');		
 		
-		game.add.text(250, 50, 'LE TITRE DU JEU', {font: '30px Courier', fill: '#ffffff'});
+		this._gameTitle = game.add.text(0, 0, 'LE TITRE DU JEU', {font: '30px Courier', fill: '#ffffff'});
 		
 		//Ajout du fond d'écran :
 		this._background = game.add.sprite(0,0,'background');

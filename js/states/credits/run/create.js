@@ -23,7 +23,10 @@ define(['phaser'],function(phaser){
 		this._decolnet.inputEnabled = true;
 		this._denele.inputEnabled = true;
 		
-		game.add.button(700, 500, 'backButton', backToMenu, this, 2, 1, 0);
+		//Ajout du bouton de retour au menu :
+		this._backButton = game.add.button(0, 0, 'backButton', backToMenu, this, 2, 1, 0);
+		this._backButton.centerX = game.width - this._backButton.width;
+		this._backButton.centerY = game.height - this._backButton.height;
 
 	}
 	return create;
