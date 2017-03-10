@@ -1,7 +1,10 @@
 define(['phaser'],function(phaser){
 	var create = function(game){
 
-		function launchOptions(){
+		function launchLvl1(){
+			game.state.start('level1');
+		}
+        function launchOptions(){
 			game.state.start('options');
 		}
 		function launchCredits(){
@@ -23,7 +26,7 @@ define(['phaser'],function(phaser){
 		this._creditsButton.centerY = game.height - this._creditsButton.height/2 - 10;
         
         //Affichage des boutons niveaux
-        this._level1Button = game.add.button(0, 0, 'Lvl1button', launchOptions, this, 1, 0, 2);
+        this._level1Button = game.add.button(0, 0, 'Lvl1button', launchLvl1, this, 1, 0, 2);
         this._level2Button = game.add.button(0, 0, 'Lvl2button', launchOptions, this, 1, 0, 2);
         this._level3Button = game.add.button(0, 0, 'Lvl3button', launchOptions, this, 1, 0, 2);
         this._level4Button = game.add.button(0, 0, 'Lvl4button', launchOptions, this, 1, 0, 2);
