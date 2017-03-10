@@ -1,9 +1,8 @@
 define(['phaser', 'states/home/run/preload', 'states/home/run/create', 'states/home/run/update'], 
 function(phaser, preload, create, update){
 	var _homeState = function(game){
-		this._variables = {
-
-		};
+		this._optionsButton;
+		this._creditsButton;
 	};
 	//Etats du menu :
 	_homeState.prototype = {
