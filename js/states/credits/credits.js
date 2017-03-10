@@ -6,6 +6,7 @@ function(phaser, preload, create, update){
 			this._decolnet;
 			this._denele;
 			this._portrait;
+			this._backButton;
 	};
 
 	_creditsState.prototype = {
