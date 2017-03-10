@@ -6,7 +6,7 @@ define(['phaser'],function(phaser){
 
 		game.load.image('background', 'assets/background.gif');
 	    game.load.image('Optionsbutton', 'assets/options.png');
-	    game.load.image('Creditsbutton', 'assets/credits.png');
+	    game.load.image('Creditsbutton', 'assets/Credits.png');
 
 	}
 
