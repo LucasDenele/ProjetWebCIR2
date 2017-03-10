@@ -3,6 +3,10 @@ function(phaser, preload, create, update){
 	var _homeState = function(game){
 		this._optionsButton;
 		this._creditsButton;
+        this._level1Button;
+        this._level2Button;
+        this._level3Button;
+        this._level4Button;
 	};
 	//Etats du menu :
 	_homeState.prototype = {
