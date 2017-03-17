@@ -34,7 +34,7 @@ define(['phaser'],function(phaser){
 		this._optionsButton.centerY = game.height - this._optionsButton.height/2 - 40;
 	
 		//Affichage du boutton credits :
-		this._creditsButton = game.add.button(0, 0, 'Creditsbutton', launchCredits, this, 2, 1, 0);
+		this._creditsButton = game.add.button(0, 0, 'Creditsbutton', launchCredits, this, 1, 0, 2);
 		this._creditsButton.centerX = this._creditsButton.width/2 + 10; // + 10 pour éviter qu'il colle à la bordure
 		this._creditsButton.centerY = game.height - this._creditsButton.height/2 - 10;
   
