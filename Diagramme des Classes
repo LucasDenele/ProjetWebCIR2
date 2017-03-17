@@ -1,8 +1,8 @@
 Diagramme de Classes Préliminaire :
 
-Classes: 
+Classes:
+    - Map => Définit les positions des actions
 	- PNJ => Persoonage que le joueur doit guider/corriger les actions
-	- Incident => Element Aléatoire
 	- Item => Objet/amélioration disponible pour le joueur
 
 PNJ:
@@ -16,3 +16,8 @@ Incident:
 Item:
 	- ID
 	- Effet
+
+Map: 
+    - Items[]
+    - PNJ[]
+    - Incidents[]
