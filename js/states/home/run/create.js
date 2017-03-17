@@ -18,8 +18,8 @@ define(['phaser'],function(phaser){
 		
 		//Affichage du boutton options :
 		this._optionsButton = game.add.button(0, 0, 'Optionsbutton', launchOptions, this, 2, 1, 0);
-		this._optionsButton.centerX = game.width - this._optionsButton.width/2 - 10; // -10 pour éviter qu'il colle à la bordure
-		this._optionsButton.centerY = game.height - this._optionsButton.height/2 - 10;
+		this._optionsButton.centerX = game.width - this._optionsButton.width/2 - 40; // -10 pour éviter qu'il colle à la bordure
+		this._optionsButton.centerY = game.height - this._optionsButton.height/2 - 40;
 	
 		//Affichage du boutton credits :
 		this._creditsButton = game.add.button(0, 0, 'Creditsbutton', launchCredits, this, 2, 1, 0);
