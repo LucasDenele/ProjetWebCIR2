@@ -8,13 +8,13 @@ define(['phaser'],function(phaser){
 	    
 	    game.load.spritesheet('Optionsbutton', 'assets/buttons/options.png',118,40);
 	    game.load.spritesheet('Creditsbutton', 'assets/buttons/credits.png', 110, 40);
-        game.load.spritesheet('Helpbutton','assets/buttons/Help.png', 78, 34);
+        game.load.spritesheet('Helpbutton','assets/buttons/Help.png', 117, 40);
         
         //Boutons pour les niveaux
-        game.load.spritesheet('Lvl1button', 'assets/buttons/level1.png', 107, 40);
-        game.load.spritesheet('Lvl2button', 'assets/buttons/level2.png', 107, 40);
-        game.load.spritesheet('Lvl3button', 'assets/buttons/level3.png', 107, 40);
-        game.load.spritesheet('Lvl4button', 'assets/buttons/level4.png', 107, 40);
+        game.load.spritesheet('Lvl1button', 'assets/buttons/level1.png', 132, 40);
+        game.load.spritesheet('Lvl2button', 'assets/buttons/level2.png', 132, 40);
+        game.load.spritesheet('Lvl3button', 'assets/buttons/level3.png', 132, 40);
+        game.load.spritesheet('Lvl4button', 'assets/buttons/level4.png', 132, 40);
 	}
 
 	return preload;
