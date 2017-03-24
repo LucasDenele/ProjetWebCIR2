@@ -6,6 +6,7 @@ define(['phaser'],function(phaser){
 
 		game.load.image('background', 'assets/background.jpg');
 		game.load.image('backButton', 'assets/buttons/back.png');
+        game.load.spritesheet('npc', 'assets/npc.png', 41, 36);
 
 	}
 
