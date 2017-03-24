@@ -42,7 +42,8 @@ define(['phaser'],function(phaser){
 		this._creditsButton.centerY = game.height - this._creditsButton.height/2 - 10;
   
         //Affichage du boutton Help :
-		this._helpButton = game.add.button(0, 0, 'Helpbutton', launchHelp, this, 2, 1, 0);
+		this._helpButton = game.add.button(0, 0, 'Helpbutton', launchHelp, this, 1, 0, 2);
+		this._helpButton.scale.setTo(110/78, 40/34);
 		this._helpButton.centerX = game.width/2 - this._helpButton.width/2 + 10; // - 10 pour éviter qu'il colle à la bordure
 		this._helpButton.centerY = game.height - this._helpButton.height/2 - 10;
 
