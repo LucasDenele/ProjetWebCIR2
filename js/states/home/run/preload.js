@@ -8,7 +8,7 @@ define(['phaser'],function(phaser){
 	    
 	    game.load.image('Optionsbutton', 'assets/buttons/Options.png');
 	    game.load.spritesheet('Creditsbutton', 'assets/buttons/credits.png', 110, 40);
-        game.load.image('Helpbutton','assets/buttons/Help.png');
+        game.load.spritesheet('Helpbutton','assets/buttons/Help.png', 78, 34);
         
         //Boutons pour les niveaux
         game.load.spritesheet('Lvl1button', 'assets/buttons/level1.png', 107, 40);
