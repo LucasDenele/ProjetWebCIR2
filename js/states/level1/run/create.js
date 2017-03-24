@@ -16,8 +16,12 @@ define(['phaser', 'class/npc'],function(phaser, Npc){
         this._npc = game.add.sprite(100, 100, 'npc');
         this._npc.animations.add('left', [10, 11, 12], 10, true);
         this._npc.animations.add('right', [3, 4, 5], 10, true);
+        this._npc.animations.add('down', [0, 1, 2], 10, true);
+        this._npc.animations.add('up', [6, 7, 8], 10, true);
         
+        game.physics.startSystem(Phaser.Physics.ARCADE);
         game.physics.arcade.enable(this._npc);
+        
         this._cursors = game.input.keyboard.createCursorKeys();
 	}
 
