@@ -2,6 +2,8 @@ define(['phaser', 'states/level2/run/preload', 'states/level2/run/create', 'stat
 function(phaser, preload, create, update){
     var _lvl2State = function(game){
 		this._backButton;
+		this._light;
+		this._npc;
 	};
     
 	_lvl2State.prototype = {

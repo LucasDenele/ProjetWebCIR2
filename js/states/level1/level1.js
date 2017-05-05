@@ -4,6 +4,9 @@ function(phaser, preload, create, update){
 		this._backButton;
         this._npc;
         this._cursors;
+        this._lamp;
+        this._lamp2;
+        this.map;
 	};
     
 	_lvl1State.prototype = {
