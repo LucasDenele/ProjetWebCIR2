@@ -15,7 +15,7 @@ define(['phaser'],function(phaser){
         game.add.text(10, 100, 'Prochainement...', {font: '30px Courier', fill: '#ffffff'});
 		
 		//Ajout du bouton de retour au menu :
-		this._backButton = game.add.button(0, 0, 'backButton', backToMenu, this, 2, 1, 0);
+		this._backButton = game.add.button(0, 0, 'backButton', backToMenu, this, 1, 0, 2);
 		this._backButton.centerX = game.width - this._backButton.width;
 		this._backButton.centerY = game.height - this._backButton.height;
 

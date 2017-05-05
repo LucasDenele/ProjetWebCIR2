@@ -32,9 +32,9 @@ define(['phaser'],function(phaser){
 		this._background.height = game.height;
 		
 		//Affichage du boutton options :
-		this._optionsButton = game.add.button(0, 0, 'Optionsbutton', launchOptions, this, 2, 1, 0);
-		this._optionsButton.centerX = game.width - this._optionsButton.width/2 - 40; // -10 pour éviter qu'il colle à la bordure
-		this._optionsButton.centerY = game.height - this._optionsButton.height/2 - 40;
+		this._optionsButton = game.add.button(0, 0, 'Optionsbutton', launchOptions, this, 1, 0, 2);
+		this._optionsButton.centerX = game.width - this._optionsButton.width/2 - 10; // -10 pour éviter qu'il colle à la bordure
+		this._optionsButton.centerY = game.height - this._optionsButton.height/2 - 10;
 	
 		//Affichage du boutton credits :
 		this._creditsButton = game.add.button(0, 0, 'Creditsbutton', launchCredits, this, 1, 0, 2);
@@ -42,8 +42,8 @@ define(['phaser'],function(phaser){
 		this._creditsButton.centerY = game.height - this._creditsButton.height/2 - 10;
   
         //Affichage du boutton Help :
-		this._helpButton = game.add.button(0, 0, 'Helpbutton', launchHelp, this, 2, 1, 0);
-		this._helpButton.centerX = game.width/2 - this._helpButton.width/2 + 10; // - 10 pour éviter qu'il colle à la bordure
+		this._helpButton = game.add.button(0, 0, 'Helpbutton', launchHelp, this, 1, 0, 2);
+		this._helpButton.centerX = game.width/2 - this._helpButton.width/2 + 30; // - 10 pour éviter qu'il colle à la bordure
 		this._helpButton.centerY = game.height - this._helpButton.height/2 - 10;
 
         //Affichage des boutons niveaux
