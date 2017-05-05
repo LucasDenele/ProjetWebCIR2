@@ -6,9 +6,17 @@ define(['phaser'],function(phaser){
 			game.state.start('home');
 		}
 
-		game.add.sprite(0,0,'background');
+		this._gameLocation=game.add.sprite(0,0,'background');
+        this._gameLocation.width = 800;
+        this._gameLocation.length = 640;
+        
+        this._gameInterface=game.add.sprite(0,0,'interfaceBack');
+        this._gameInterface.centerX = game.width - this._gameInterface.width/2;
+        
 		game.add.text(10, 10, 'Level 1 :', {font: '30px Courier', fill: '#ffffff'});
-		game.add.button(700, 500, 'backButton', backToMenu, this, 1, 0, 2);
+		this._back=game.add.button(0,0, 'backButton', backToMenu, this, 1, 0, 2);
+        this._back.centerX = game.width - this._back.width/2 - 10; // -10 pour éviter qu'il colle à la bordure
+		this._back.centerY = game.height - this._back.height/2 - 570;
 
 	}
 
