@@ -1,5 +1,41 @@
 define(['phaser'],function(phaser){
 	var update = function(game){
+        
+        function putItemOn(npc, item){
+            item.animations.play('on');
+            console.log('putItemOn');
+        }
+        
+        function putItemOff(item){
+            console.log('putItemOff');
+            item.sprite.animations.stop();
+            switch (item.type){
+                case 1:
+                    item.sprite.frame = 10;
+                    break;
+                    
+                case 2:
+                    item.sprite.frame = 4;
+                    break;
+                    
+                case 3:
+                    item.sprite.frame = 0;
+                    break;
+                }
+        }
+        
+        game.physics.arcade.overlap(this._npc.sprite, this._tv.sprite, putItemOn, null, this);
+        game.physics.arcade.overlap(this._npc.sprite, this._wash.sprite, putItemOn, null, this);
+        game.physics.arcade.overlap(this._npc.sprite, this._pc.sprite, putItemOn, null, this);
+        
+        
+        if(game.input.activePointer.leftButton.isDown){
+            putItemOff(this._tv);
+            putItemOff(this._pc);
+            putItemOff(this._wash);
+            
+        }
+        
         //Le PNJ se dirige vers le curseur
         //game.physics.arcade.moveToPointer(this._npc, 60, game.input.activePointer, 500);
         
@@ -31,6 +67,9 @@ define(['phaser'],function(phaser){
             this._npc.sprite.animations.stop();
             this._npc.sprite.frame = 1;
         }
+    
+        //this._tv.animations.play('on');
+        
 	}
 
 	return update;
