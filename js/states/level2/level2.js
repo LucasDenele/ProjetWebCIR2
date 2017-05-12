@@ -1,9 +1,7 @@
-define(['phaser', 'states/level2/run/preload', 'states/level2/run/create', 'states/level2/run/update'], 
-function(phaser, preload, create, update){
+define(['phaser', 'states/level2/run/preload', 'states/level2/run/create', 'states/level2/run/update', 'ROOM','NPC'], 
+function(phaser, preload, create, update, Room, Npc){
     var _lvl2State = function(game){
-		this._backButton;
-		this._light;
-		this._npc;
+    	
 	};
     
 	_lvl2State.prototype = {

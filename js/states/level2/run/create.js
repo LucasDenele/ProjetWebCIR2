@@ -2,11 +2,6 @@ define(['phaser'],function(phaser){
 	var create = function(game){
 		console.log('Create Lvl2');
 
-		function test(sprite){
-			if(sprite.alive){
-				sprite.kill();
-			}
-		};
 		//Start the Arcade Physics systems
 	    game.physics.startSystem(Phaser.Physics.ARCADE);
 	 
@@ -32,42 +27,55 @@ define(['phaser'],function(phaser){
 	    //******************************************************************************* 
 	    //Before you can use the collide function you need to set what tiles can collide
 
-	    this.map.setCollisionBetween(1, 10000, true, 'collidersBlocks');
+	    this.map.setCollisionBetween(1, 100000, true, 'collidersBlocks');
 	    //Change the world size to match the size of this layer
 	    //*******************************************************************************
-	    //  Player physics properties. Give the little guy a slight bounce.
-	    player = game.add.sprite(32, game.world.height - 500, 'npc');
+	    //  this._npc physics properties. Give the little guy a slight bounce.
+	    this._npc = game.add.sprite(32, game.world.height - 500, 'npc');
 
-	    //  We need to enable physics on the player
-	    game.physics.arcade.enable(player);
+	    //  We need to enable physics on the this._npc
+	    game.physics.arcade.enable(this._npc);
 
 
-	    player.body.collideWorldBounds = true;
+	    this._npc.body.collideWorldBounds = true;
 
 	    //  Our two animations, walking left and right.
-	    player.animations.add('left', [0, 1, 2, 3], 10, true);
-	    player.animations.add('right', [5, 6, 7, 8], 10, true);
+	    this._npc.animations.add('left', [0, 1, 2, 3], 10, true);
+	    this._npc.animations.add('right', [5, 6, 7, 8], 10, true);
+
+	    this._cursors = game.input.keyboard.createCursorKeys();
 
 	    this.CollidersBlocks.resizeWorld();
 
-	    cursors = game.input.keyboard.createCursorKeys();
+	    //*********************************************************************************
+	    this._rooms = new Array();
+	    
+	    //Room 0 : Bedroom
+	    this._rooms.push(new Room(game, 0));
+	    this._rooms[0].addLamp(0, 0, 200);
+	    this._rooms[0].addSwitch(0, 155);
 
-		this._npc = game.add.sprite(400, 400, 'npc');
-        this._npc.animations.add('left', [10, 11, 12], 10, true);
-        this._npc.animations.add('right', [3, 4, 5], 10, true);
-        this._npc.animations.add('down', [0, 1, 2], 10, true);
-        this._npc.animations.add('up', [6, 7, 8], 10, true);
+	    //Room 1 : Kitchen
+	    this._rooms.push(new Room(game, 1));
+	    this._rooms[1].addLamp(225, 0, 170);
+	    this._rooms[1].addSwitch(225, 155);
 
-        this._npc.animations.play('down',5,true);
-		
-		this._light = game.add.sprite(0, 0, 'light');
-		this._light.centerX = this._npc.centerX;
-		this._light.centerY = this._npc.centerY;
-		this._light.alpha = 0.2;
+	    //Room 2 : Bathroom
+	    this._rooms.push(new Room(game, 2));
+	    this._rooms[2].addLamp(220, 250, 170);
+	    this._rooms[2].addSwitch(211, 371);
 
-		this._light.inputEnabled = true;
-		this._light.events.onInputDown.add(test, this);
-	}
+	    //Room 3 : Toilet
+	    this._rooms.push(new Room(game, 3));
+	    this._rooms[3].addLamp(84, 305, 100);
+	    this._rooms[3].addSwitch(84, 305);
+
+	    //Room 4 : Livingroom
+	    this._rooms.push(new Room(game, 4));
+	    this._rooms[4].addLamp(39, 198, 100);
+	    this._rooms[4].addLamp(268, 195, 50);
+	    this._rooms[4].addSwitch(0, 315);
+	 	}
 
 	return create;
 });
