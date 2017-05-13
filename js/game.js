@@ -5,7 +5,9 @@ require.config({
         jquery:     'libs/jquery',
         handlebars: 'libs/handlebars',
         text:       'libs/text',
-        phaser:     'libs/phaser',  
+        phaser:     'libs/phaser',
+        NPC:        'class/npc',
+        ITEM:       'class/item',
     },
     shim: {
         jquery: {
