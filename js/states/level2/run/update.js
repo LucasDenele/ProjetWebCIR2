@@ -1,9 +1,17 @@
 define(['phaser'],function(phaser){
 	var update = function(game){
-		game.physics.arcade.collide(this._npc.sprite, this.CollidersBlocks); 
-		game.debug.inputInfo(500, 500);
-
-		        //Le PNJ se dirige vers le curseur
+        
+        //Collision du PNJ avec Item
+        function putItemOn(npc, item){
+            item.animations.play('on');
+            console.log('putItemOn');
+        }
+        
+        game.physics.arcade.overlap(this._npc.sprite, this._tv.sprite, putItemOn, null, this);
+        game.physics.arcade.overlap(this._npc.sprite, this._wash.sprite, putItemOn, null, this);
+        game.physics.arcade.overlap(this._npc.sprite, this._pc.sprite, putItemOn, null, this);
+        
+        //Le PNJ se dirige vers le curseur
         //game.physics.arcade.moveToPointer(this._npc, 60, game.input.activePointer, 500);
         
         //Le PNJ est controlé par les flèches
@@ -34,6 +42,10 @@ define(['phaser'],function(phaser){
             this._npc.sprite.animations.stop();
             this._npc.sprite.frame = 1;
         }
+<<<<<<< HEAD
+=======
+        
+>>>>>>> d61b59897777cbc4f23bedba314ba82c51047ce2
 	}
 
 	return update;

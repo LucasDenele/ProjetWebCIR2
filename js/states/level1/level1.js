@@ -1,6 +1,7 @@
-define(['phaser', 'NPC', 'ITEM', 'states/level1/run/preload', 'states/level1/run/create', 'states/level1/run/update'], 
-function(phaser, NPC, Item, preload, create, update){
+define(['phaser', 'states/level1/run/preload', 'states/level1/run/create', 'states/level1/run/update'], 
+function(phaser, preload, create, update){
     var _lvl1State = function(game){
+        
 	};
     
 	_lvl1State.prototype = {
