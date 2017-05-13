@@ -80,6 +80,10 @@ Item.prototype.putItemOff = function(){
                 case 4:
                     this.sprite.frame = 0;
                     break;
+            
+                case 5:
+                    this.sprite.frame = 0;
+                    break;
                 }
 };
 
@@ -124,6 +128,17 @@ Item.prototype.setObjectType = function(game, type){
             this.sprite.events.onInputDown.add(this.putItemOff , this);
             game.world.add(this.sprite);
             break;
+        
+        case 5:
+            this.sprite = new Phaser.Sprite(game,0,0,'oven',0);
+            this.sprite.animations.add('on',[1,2],2,true);
+            this.sprite.scale.setTo(0.06,0.06);
+            this.type = 5;
+            this.sprite.inputEnabled = true;
+            this.sprite.events.onInputDown.add(this.putItemOff, this);
+            game.world.add(this.sprite);
+            break;
+            
             
         default:
             //this.sprite = game.add.sprite(0, 0, '');

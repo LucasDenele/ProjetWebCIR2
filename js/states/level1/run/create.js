@@ -60,6 +60,12 @@ define(['phaser'], function(phaser){
         this._sink.setY(100);
         game.physics.arcade.enable(this._sink.sprite);
         
+        this._oven = new Item(game);
+        this._oven.setObjectType(game, 5);
+        this._oven.setX(200);
+        this._oven.setY(200);
+        game.physics.arcade.enable(this._oven.sprite);
+        
         //Déclaration du PNJ
         this._npc = new Npc(game);
         game.physics.arcade.enable(this._npc.sprite);
