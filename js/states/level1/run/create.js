@@ -26,6 +26,7 @@ define(['phaser'],function(phaser){
         this._television_upgrade=game.add.button(990,460, 'television_UP');
         this._washing_upgrade=game.add.button(1050,460, 'washing_UP');
         this._bathroom_upgrade=game.add.button(1110,460, 'bathroom_UP');
+        this._oven_upgrade=game.add.button(1170,460,'oven_UP');
 
 
 		this._back=game.add.button(0,0, 'backButton', backToMenu, this, 1, 0, 2);
