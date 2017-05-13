@@ -19,14 +19,13 @@ define(['phaser'],function(phaser){
         game.add.text(840, 250, 'Consommation :', {font: '20px Courier', fill: '#ffffff'});
         game.add.text(840, 325, 'Energie gagnée :', {font: '20px Courier', fill: '#ffffff'});
         game.add.text(810, 400, 'Magasin :', {font: '30px Courier', fill: '#ffffff'});
-        game.add.text(810, 500, 'Lumières :', {font: '30px Courier', fill: '#ffffff'});
         
-        this._R1=game.add.button(810,550, 'LightR1');
-        this._R2=game.add.button(850,550, 'LightR2');
-        this._R3=game.add.button(890,550, 'LightR3');
-        this._R4=game.add.button(930,550, 'LightR4');
-        this._R5=game.add.button(970,550, 'LightR5');
-        this._R6=game.add.button(1010,550, 'LightR6');
+        this._light_Upgrade=game.add.button(810,460, 'Light_UP');
+        this._heat_upgrade=game.add.button(870,460, 'heat_UP');
+        this._computer_upgrade=game.add.button(930,460, 'computer_UP');
+        this._television_upgrade=game.add.button(990,460, 'television_UP');
+        this._washing_upgrade=game.add.button(1050,460, 'washing_UP');
+        this._bathroom_upgrade=game.add.button(1110,460, 'bathroom_UP');
 
 
 		this._back=game.add.button(0,0, 'backButton', backToMenu, this, 1, 0, 2);
