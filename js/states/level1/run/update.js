@@ -10,6 +10,7 @@ define(['phaser'],function(phaser){
         game.physics.arcade.overlap(this._npc.sprite, this._wash.sprite, putItemOn, null, this);
         game.physics.arcade.overlap(this._npc.sprite, this._pc.sprite, putItemOn, null, this);
         game.physics.arcade.overlap(this._npc.sprite, this._sink.sprite, putItemOn, null, this);
+        game.physics.arcade.overlap(this._npc.sprite, this._oven.sprite,putItemOn, null, this);
         
         //Le PNJ se dirige vers le curseur
         //game.physics.arcade.moveToPointer(this._npc, 60, game.input.activePointer, 500);
