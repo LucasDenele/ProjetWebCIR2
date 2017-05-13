@@ -23,12 +23,13 @@ define(['phaser', 'NPC', 'ITEM'], function(phaser, NPC, ITEM){
         game.add.text(810, 400, 'Magasin :', {font: '30px Courier', fill: '#ffffff'});
         
         //Déclaration Shop
-        this._light_Upgrade = game.add.button(810,460, 'Light_UP');
-        this._heat_upgrade = game.add.button(870,460, 'heat_UP');
-        this._computer_upgrade = game.add.button(930,460, 'computer_UP');
-        this._television_upgrade = game.add.button(990,460, 'television_UP');
-        this._washing_upgrade = game.add.button(1050,460, 'washing_UP');
-        this._bathroom_upgrade = game.add.button(1110,460, 'bathroom_UP');
+        this._light_Upgrade = game.add.button(810, 460, 'Light_UP');
+        this._heat_upgrade = game.add.button(870, 460, 'heat_UP');
+        this._computer_upgrade = game.add.button(930, 460, 'computer_UP');
+        this._television_upgrade = game.add.button(990, 460, 'television_UP');
+        this._washing_upgrade = game.add.button(1050, 460, 'washing_UP');
+        this._bathroom_upgrade = game.add.button(1110, 460, 'bathroom_UP');
+        this._oven_upgrade = game.add.button(1170, 460, 'oven_UP');
 
         //Menu Pause
 		this._back = game.add.button(0,0, 'backButton', backToMenu, this, 1, 0, 2);

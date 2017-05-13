@@ -14,6 +14,7 @@ define(['phaser'],function(phaser){
         game.load.image('television_UP','assets/icons/television_up.png');
         game.load.image('washing_UP','assets/icons/washing_machine_up.png');
         game.load.image('bathroom_UP','assets/icons/bathroom_up.png');
+        game.load.image('oven_UP','assets/icons/oven_up.png');
         //buttons
         game.load.spritesheet('backButton', 'assets/buttons/back.png', 114, 40);
         //Spritesheets pnj + items
