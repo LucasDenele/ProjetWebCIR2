@@ -63,7 +63,6 @@ define(['phaser', 'NPC', 'ITEM'], function(phaser, NPC, ITEM){
         this._cursors = game.input.keyboard.createCursorKeys();
         
 	}
->>>>>>> d61b59897777cbc4f23bedba314ba82c51047ce2
 
 	return create;
 });

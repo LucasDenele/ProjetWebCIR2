@@ -42,10 +42,7 @@ define(['phaser'],function(phaser){
             this._npc.sprite.animations.stop();
             this._npc.sprite.frame = 1;
         }
-<<<<<<< HEAD
-=======
-        
->>>>>>> d61b59897777cbc4f23bedba314ba82c51047ce2
+
 	}
 
 	return update;
