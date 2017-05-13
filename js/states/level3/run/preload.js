@@ -6,7 +6,6 @@ define(['phaser'],function(phaser){
 
         //Backgrounds
 		game.load.image('background', 'assets/background.jpg');
-        game.load.image('interfaceBack','assets/icons/greyback.jpg');
         //Icons Shop
         game.load.image('Light_UP','assets/icons/Light_up.png');
         game.load.image('heat_UP','assets/icons/heat_up.png');
