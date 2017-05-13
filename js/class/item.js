@@ -57,6 +57,10 @@ Item.prototype.setLevel = function(level){
     this.level = level;
 };
 
+Item.prototype.putItemOn = function(npc, item){
+    item.animations.play('on');
+};
+
 Item.prototype.putItemOff = function(){
     console.log('item off');
     this.sprite.animations.stop();
