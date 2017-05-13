@@ -1,6 +1,6 @@
 //************************************
 //Constructor :
-var Room = function(game,id){
+var Room = function(game, id){
 	this._game = game;
 	this._id = id;
 	this._items = new Array();
@@ -49,7 +49,6 @@ Room.prototype.addSwitch = function(x, y){
 	this._button = this._game.add.button(x, y, 'lampOn', turnLamp.bind(this));
 	this._button.scale.setTo(0.3, 0.3);
 	this.autoSwitch();
-	
 };
 
 Room.prototype.autoSwitch = function(){
