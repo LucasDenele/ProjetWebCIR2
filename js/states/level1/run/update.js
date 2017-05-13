@@ -1,11 +1,6 @@
 define(['phaser'],function(phaser){
 	var update = function(game){
         
-        //Collision du PNJ avec Item
-        function putItemOn(npc, item){
-            item.animations.play('on');
-        }
-        
         game.physics.arcade.overlap(this._npc.sprite, this._tv.sprite, putItemOn, null, this);
         game.physics.arcade.overlap(this._npc.sprite, this._wash.sprite, putItemOn, null, this);
         game.physics.arcade.overlap(this._npc.sprite, this._pc.sprite, putItemOn, null, this);
