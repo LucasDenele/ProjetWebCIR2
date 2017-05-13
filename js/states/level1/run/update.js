@@ -4,12 +4,12 @@ define(['phaser'],function(phaser){
         //Collision du PNJ avec Item
         function putItemOn(npc, item){
             item.animations.play('on');
-            console.log('putItemOn');
         }
         
         game.physics.arcade.overlap(this._npc.sprite, this._tv.sprite, putItemOn, null, this);
         game.physics.arcade.overlap(this._npc.sprite, this._wash.sprite, putItemOn, null, this);
         game.physics.arcade.overlap(this._npc.sprite, this._pc.sprite, putItemOn, null, this);
+        game.physics.arcade.overlap(this._npc.sprite, this._sink.sprite, putItemOn, null, this);
         
         //Le PNJ se dirige vers le curseur
         //game.physics.arcade.moveToPointer(this._npc, 60, game.input.activePointer, 500);

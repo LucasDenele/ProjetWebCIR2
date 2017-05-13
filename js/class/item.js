@@ -72,6 +72,10 @@ Item.prototype.putItemOff = function(){
                 case 3:
                     this.sprite.frame = 0;
                     break;
+            
+                case 4:
+                    this.sprite.frame = 0;
+                    break;
                 }
 };
 
@@ -102,6 +106,16 @@ Item.prototype.setObjectType = function(game, type){
             this.sprite.animations.add('on', [1, 2, 3, 4], 5, true);
             this.sprite.scale.setTo(0.07, 0.07);
             this.type = 3;
+            this.sprite.inputEnabled = true;
+            this.sprite.events.onInputDown.add(this.putItemOff , this);
+            game.world.add(this.sprite);
+            break;
+            
+        case 4:
+            this.sprite = new Phaser.Sprite(game, 0, 0, 'sink', 0);
+            this.sprite.animations.add('on', [1, 2, 3, 4, 5], 3, true);
+            //this.sprite.scale.setTo(0.07, 0.07);
+            this.type = 4;
             this.sprite.inputEnabled = true;
             this.sprite.events.onInputDown.add(this.putItemOff , this);
             game.world.add(this.sprite);

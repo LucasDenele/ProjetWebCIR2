@@ -1,4 +1,4 @@
-define(['phaser', 'NPC', 'ITEM'], function(phaser, NPC, ITEM){
+define(['phaser'], function(phaser){
 	var create = function(game){
 		console.log('Create Lvl3');
 
@@ -7,12 +7,11 @@ define(['phaser', 'NPC', 'ITEM'], function(phaser, NPC, ITEM){
 		}
         
         //Déclaration Backgrounds
+        game.stage.backgroundColor="#363942";
+        
 		this._gameLocation = game.add.sprite(0,0,'background');
         this._gameLocation.width = 800;
         this._gameLocation.length = 640;
-        
-        this._gameInterface = game.add.sprite(0,0,'interfaceBack');
-        this._gameInterface.centerX = game.width - this._gameInterface.width/2;
         
         //Déclaration Textes
 		game.add.text(810, 10, 'Niveau 3 :', {font: '30px Courier', fill: '#ffffff'});

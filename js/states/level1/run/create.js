@@ -1,4 +1,4 @@
-define(['phaser', 'NPC', 'ITEM'], function(phaser, NPC, ITEM){
+define(['phaser'], function(phaser){
 	var create = function(game){
 		console.log('Create Lvl1');
 
@@ -53,6 +53,12 @@ define(['phaser', 'NPC', 'ITEM'], function(phaser, NPC, ITEM){
         this._wash.setObjectType(game, 3);
         this._wash.setY(100);
         game.physics.arcade.enable(this._wash.sprite);
+        
+        this._sink = new Item(game);
+        this._sink.setObjectType(game, 4);
+        this._sink.setX(100);
+        this._sink.setY(100);
+        game.physics.arcade.enable(this._sink.sprite);
         
         //Déclaration du PNJ
         this._npc = new Npc(game);

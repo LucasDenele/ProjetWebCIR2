@@ -21,6 +21,8 @@ define(['phaser'],function(phaser){
         game.load.spritesheet('tv', 'assets/spritesheets/tv.png', 264, 200);
         game.load.spritesheet('washmach', 'assets/spritesheets/washmach.png', 515, 569);
         game.load.spritesheet('pc', 'assets/spritesheets/pc.png', 250, 150);
+        game.load.spritesheet('sink', 'assets/spritesheets/sink.png', 25, 95);
+
 
 	}
 

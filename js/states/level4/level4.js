@@ -1,5 +1,5 @@
-define(['phaser', 'states/level4/run/preload', 'states/level4/run/create', 'states/level4/run/update'], 
-function(phaser, preload, create, update){
+define(['phaser', 'states/level4/run/preload', 'states/level4/run/create', 'states/level4/run/update', 'ROOM','NPC', 'ITEM'], 
+function(phaser, preload, create, update, Room, Npc, Item){
     var _lvl4State = function(game){
         
 	};
