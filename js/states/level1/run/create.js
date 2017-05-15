@@ -6,6 +6,10 @@ define(['phaser'], function(phaser){
 			game.state.start('home');
 		}
         
+        function test(button){
+			button.setFrames(2);
+		}
+        
         //Déclaration Backgrounds
         game.stage.backgroundColor="#363942";
         
@@ -13,24 +17,33 @@ define(['phaser'], function(phaser){
         this._gameLocation.width = 800;
         this._gameLocation.length = 640;
         
-        //Déclaration Textes
-		game.add.text(810, 10, 'Niveau 1 :', {font: '30px Courier', fill: '#ffffff'});
-        game.add.text(840, 100, 'Solde :', {font: '20px Courier', fill: '#ffffff'});
-        game.add.text(840, 175, 'Revenus :', {font: '20px Courier', fill: '#ffffff'});
-        game.add.text(840, 250, 'Consommation :', {font: '20px Courier', fill: '#ffffff'});
-        game.add.text(840, 325, 'Energie gagnée :', {font: '20px Courier', fill: '#ffffff'});
-        game.add.text(810, 400, 'Magasin :', {font: '30px Courier', fill: '#ffffff'});
+        //Variables
+        this._soldeVar = 0;
+        this._revenusVar = 500;
+        this._consomationVar = 20;
+        this._consomationNew = 20;
+        this._scoreVar = 0;
+        this._timer = (new Date()).getTime();
+        this._timer2 = this._timer;
         
-        //Déclaration Shop
-        this._light_Upgrade = game.add.button(810, 460, 'Light_UP1');
-        this._heat_upgrade = game.add.button(870, 460, 'heat_UP1');
-        this._computer_upgrade = game.add.button(930, 460, 'computer_UP1');
-        this._television_upgrade = game.add.button(990, 460, 'television_UP1');
-        this._washing_upgrade = game.add.button(1050, 460, 'washing_UP1');
-        this._bathroom_upgrade = game.add.button(1110, 460, 'bathroom_UP1');
-        this._oven_upgrade = game.add.button(1170, 460, 'oven_UP1');
-
-        //Menu Pause
+        //Déclaration Textes
+		game.add.text(900, 20, 'Niveau 1', {font: '30px Calibri', fill: '#ffffff', fontStyle: 'italic'});
+        this._solde = game.add.text(840, 100, 'Solde : '+this._soldeVar+' €', {font: '20px Calibri', fill: '#ffffff'});
+        this._revenus = game.add.text(840, 175, 'Revenus : '+this._revenusVar+' €', {font: '20px Calibri', fill: '#ffffff'});
+        this._consomation = game.add.text(840, 250, 'Consommation : '+this._consomationVar+' kWh', {font: '20px Calibri', fill: '#ffffff'});
+        this._score = game.add.text(840, 325, 'Score : '+this._scoreVar, {font: '20px Calibri', fill: '#ffffff'});
+        game.add.text(830, 500, 'Améliorations Disponibles', {font: '30px Calibri', fill: '#ffffff', fontStyle: 'italic'});
+        
+        //Déclaration Boutons Shop
+        this._light_Upgrade = game.add.button(830, 550, 'Light_UP', test, this, 0);
+        this._heat_upgrade = game.add.button(890, 550, 'heat_UP', test, this, 0);
+        this._computer_upgrade = game.add.button(950, 550, 'computer_UP', test, this, 0);
+        this._television_upgrade = game.add.button(1010, 550, 'television_UP', test, this, 0);
+        this._washing_upgrade = game.add.button(1070, 550, 'washing_UP', test, this, 0);
+        this._bathroom_upgrade = game.add.button(1130, 550, 'bathroom_UP', test, this, 0);
+        this._oven_upgrade = game.add.button(1190, 550, 'oven_UP', test, this, 0);
+        
+        //Retour Menu
 		this._back = game.add.button(0,0, 'backButton', backToMenu, this, 1, 0, 2);
         this._back.centerX = game.width - this._back.width/2 - 10; // -10 pour éviter qu'il colle à la bordure
 		this._back.centerY = game.height - this._back.height/2 - 570;
@@ -65,6 +78,12 @@ define(['phaser'], function(phaser){
         this._oven.setX(200);
         this._oven.setY(200);
         game.physics.arcade.enable(this._oven.sprite);
+        
+        this._heat = new Item(game);
+        this._heat.setObjectType(game, 6);
+        this._heat.setX(300);
+        this._heat.setY(200);
+        game.physics.arcade.enable(this._heat.sprite);
         
         //Déclaration du PNJ
         this._npc = new Npc(game);

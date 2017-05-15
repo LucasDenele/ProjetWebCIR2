@@ -7,30 +7,14 @@ define(['phaser'],function(phaser){
         //Backgrounds
 		game.load.image('background', 'assets/background.jpg');
         
-        //Icons Shop
-        game.load.image('Light_UP1','assets/icons/Light_up1.png');
-        game.load.image('heat_UP1','assets/icons/heat_up1.png');
-        game.load.image('computer_UP1','assets/icons/computer_up1.png');
-        game.load.image('television_UP1','assets/icons/television_up1.png');
-        game.load.image('washing_UP1','assets/icons/washing_machine_up1.png');
-        game.load.image('bathroom_UP1','assets/icons/bathroom_up1.png');
-        game.load.image('oven_UP1','assets/icons/oven_up1.png');
-        
-        game.load.image('Light_UP2','assets/icons/Light_up2.png');
-        game.load.image('heat_UP2','assets/icons/heat_up2.png');
-        game.load.image('computer_UP2','assets/icons/computer_up2.png');
-        game.load.image('television_UP2','assets/icons/television_up2.png');
-        game.load.image('washing_UP2','assets/icons/washing_machine_up2.png');
-        game.load.image('bathroom_UP2','assets/icons/bathroom_up2.png');
-        game.load.image('oven_UP2','assets/icons/oven_up2.png');
-        
-        game.load.image('Light_UP3','assets/icons/Light_up3.png');
-        game.load.image('heat_UP3','assets/icons/heat_up3.png');
-        game.load.image('computer_UP3','assets/icons/computer_up3.png');
-        game.load.image('television_UP3','assets/icons/television_up3.png');
-        game.load.image('washing_UP3','assets/icons/washing_machine_up3.png');
-        game.load.image('bathroom_UP3','assets/icons/bathroom_up3.png');
-        game.load.image('oven_UP3','assets/icons/oven_up3.png');
+        //Icons buttons Shop
+        game.load.spritesheet('Light_UP','assets/icons/Light_up.png', 52, 66);
+        game.load.spritesheet('heat_UP','assets/icons/heat_up.png', 52, 66);
+        game.load.spritesheet('computer_UP','assets/icons/computer_up.png', 52, 66);
+        game.load.spritesheet('television_UP','assets/icons/television_up.png', 52, 66);
+        game.load.spritesheet('washing_UP','assets/icons/washing_machine_up.png', 52, 66);
+        game.load.spritesheet('bathroom_UP', 'assets/icons/bathroom_up.png', 52, 66);
+        game.load.spritesheet('oven_UP','assets/icons/oven_up.png', 52, 66);
         
         //buttons
         game.load.spritesheet('backButton', 'assets/buttons/back.png', 114, 40);
@@ -41,7 +25,8 @@ define(['phaser'],function(phaser){
         game.load.spritesheet('washmach', 'assets/spritesheets/washmach.png', 515, 569);
         game.load.spritesheet('pc', 'assets/spritesheets/pc.png', 250, 150);
         game.load.spritesheet('sink', 'assets/spritesheets/sink.png', 25, 95);
-        game.load.spritesheet('oven','assets/spritesheets/oven.png',736,782);
+        game.load.spritesheet('oven', 'assets/spritesheets/oven.png', 736, 782);
+        game.load.spritesheet('heat', 'assets/spritesheets/heat.png', 121, 350);
 
 
 	}
