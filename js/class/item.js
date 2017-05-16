@@ -104,7 +104,7 @@ Item.prototype.setObjectType = function(game, type){
         case 3:
             this.sprite = new Phaser.Sprite(game, 0, 0, 'washmach', 0);
             this.sprite.animations.add('on', [1, 2, 3, 4], 5, true);
-            this.sprite.scale.setTo(0.07, 0.07);
+            this.sprite.scale.setTo(0.08, 0.08);
             this.type = 3;
             this.sprite.inputEnabled = true;
             this.sprite.events.onInputDown.add(this.putItemOff , this);
@@ -112,7 +112,7 @@ Item.prototype.setObjectType = function(game, type){
             break;
             
         case 4:
-            this.sprite = new Phaser.Sprite(game, 0, 0, 'sink', 0);
+            this.sprite = new Phaser.Sprite(game, 0, 0, 'sink_k', 0);
             this.sprite.animations.add('on', [1, 2, 3, 4, 5], 3, true);
             //this.sprite.scale.setTo(0.07, 0.07);
             this.type = 4;
@@ -124,7 +124,7 @@ Item.prototype.setObjectType = function(game, type){
         case 5:
             this.sprite = new Phaser.Sprite(game, 0, 0, 'oven', 0);
             this.sprite.animations.add('on', [1, 2], 2, true);
-            this.sprite.scale.setTo(0.06, 0.06);
+            this.sprite.scale.setTo(0.05, 0.05);
             this.type = 5;
             this.sprite.inputEnabled = true;
             this.sprite.events.onInputDown.add(this.putItemOff, this);
@@ -136,6 +136,26 @@ Item.prototype.setObjectType = function(game, type){
             this.sprite.animations.add('on', [1, 2, 3, 4, 5, 6], 2, true);
             this.sprite.scale.setTo(0.25, 0.25);
             this.type = 6;
+            this.sprite.inputEnabled = true;
+            this.sprite.events.onInputDown.add(this.putItemOff , this);
+            game.world.add(this.sprite);
+            break;
+            
+        case 7:
+            this.sprite = new Phaser.Sprite(game, 0, 0, 'bath', 0);
+            this.sprite.animations.add('on', [1, 2, 3, 4, 5, 6, 7, 8], 3, true);
+            //this.sprite.scale.setTo(0.25, 0.25);
+            this.type = 7;
+            this.sprite.inputEnabled = true;
+            this.sprite.events.onInputDown.add(this.putItemOff , this);
+            game.world.add(this.sprite);
+            break;
+            
+        case 8:
+            this.sprite = new Phaser.Sprite(game, 0, 0, 'sink_b', 0);
+            this.sprite.animations.add('on', [1, 2, 3, 4, 5, 6, 7], 3, true);
+            //this.sprite.scale.setTo(0.25, 0.25);
+            this.type = 8;
             this.sprite.inputEnabled = true;
             this.sprite.events.onInputDown.add(this.putItemOff , this);
             game.world.add(this.sprite);

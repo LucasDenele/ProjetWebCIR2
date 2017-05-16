@@ -5,7 +5,7 @@ define(['phaser'],function(phaser){
 		game.add.text(80, 150, 'loading...', {font: '30px Courier', fill: '#ffffff'});
 
         //Backgrounds
-		game.load.image('background', 'assets/background.jpg');
+		game.load.image('background', 'assets/level.png');
         
         //Icons buttons Shop
         game.load.spritesheet('Light_UP','assets/icons/Light_up.png', 52, 66);
@@ -24,9 +24,11 @@ define(['phaser'],function(phaser){
         game.load.spritesheet('tv', 'assets/spritesheets/tv.png', 264, 200);
         game.load.spritesheet('washmach', 'assets/spritesheets/washmach.png', 515, 569);
         game.load.spritesheet('pc', 'assets/spritesheets/pc.png', 250, 150);
-        game.load.spritesheet('sink', 'assets/spritesheets/sink.png', 25, 95);
+        game.load.spritesheet('sink_k', 'assets/spritesheets/sink_k.png', 25, 95);
         game.load.spritesheet('oven', 'assets/spritesheets/oven.png', 736, 782);
         game.load.spritesheet('heat', 'assets/spritesheets/heat.png', 121, 350);
+        game.load.spritesheet('bath', 'assets/spritesheets/bath.png', 32, 61);
+        game.load.spritesheet('sink_b', 'assets/spritesheets/sink_b.png', 24, 26);
 
 
 	}

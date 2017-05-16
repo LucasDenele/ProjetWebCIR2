@@ -87,33 +87,36 @@ define(['phaser'], function(phaser){
         //Déclaration des Items
         this._tv = new Item(game);
         this._tv.setObjectType(game, 1);
-        this._tv.setX(200);
+        this._tv.setX(640);
+        this._tv.setY(50);
         game.physics.arcade.enable(this._tv.sprite);
         this._room.addItem(this._tv);
         
         this._pc = new Item(game);
         this._pc.setObjectType(game, 2);
-        this._pc.setX(100);
+        this._pc.setX(710);
+        this._pc.setY(395);
         game.physics.arcade.enable(this._pc.sprite);
         this._room.addItem(this._pc);
         
         this._wash = new Item(game);
         this._wash.setObjectType(game, 3);
-        this._wash.setY(100);
+        this._wash.setX(480);
+        this._wash.setY(265);
         game.physics.arcade.enable(this._wash.sprite);
         this._room.addItem(this._wash);
         
-        this._sink = new Item(game);
-        this._sink.setObjectType(game, 4);
-        this._sink.setX(100);
-        this._sink.setY(100);
-        game.physics.arcade.enable(this._sink.sprite);
-        this._room.addItem(this._sink);
+        this._sink_k = new Item(game);
+        this._sink_k.setObjectType(game, 4);
+        this._sink_k.setX(8);
+        this._sink_k.setY(50);
+        game.physics.arcade.enable(this._sink_k.sprite);
+        this._room.addItem(this._sink_k);
         
         this._oven = new Item(game);
         this._oven.setObjectType(game, 5);
         this._oven.setX(200);
-        this._oven.setY(200);
+        this._oven.setY(30);
         game.physics.arcade.enable(this._oven.sprite);
         this._room.addItem(this._oven);
         
@@ -123,6 +126,50 @@ define(['phaser'], function(phaser){
         this._heat.setY(200);
         game.physics.arcade.enable(this._heat.sprite);
         this._room.addItem(this._heat);
+        
+        this._bath = new Item(game);
+        this._bath.setObjectType(game, 7);
+        this._bath.setX(8);
+        this._bath.setY(567);
+        game.physics.arcade.enable(this._bath.sprite);
+        this._room.addItem(this._bath);
+        
+        this._sink_b = new Item(game);
+        this._sink_b.setObjectType(game, 8);
+        this._sink_b.setX(40);
+        this._sink_b.setY(448);
+        game.physics.arcade.enable(this._sink_b.sprite);
+        this._room.addItem(this._sink_b);
+        
+        this._heat1 = new Item(game);//SdB
+        this._heat1.setObjectType(game, 6);
+        this._heat1.setX(4);
+        this._heat1.setY(330);
+        game.physics.arcade.enable(this._heat1.sprite);
+        this._room.addItem(this._heat1);
+        
+        this._heat2 = new Item(game);//Chambre
+        this._heat2.setObjectType(game, 6);
+        this._heat2.setX(650);
+        this._heat2.setY(632);
+        this._heat2.sprite.scale.x = -this._heat2.sprite.scale.x;
+        this._heat2.sprite.angle = 90;
+        game.physics.arcade.enable(this._heat2.sprite);
+        this._room.addItem(this._heat2);
+        
+        this._heat3 = new Item(game);
+        this._heat3.setObjectType(game, 6);
+        this._heat3.setX(300);
+        this._heat3.setY(200);
+        game.physics.arcade.enable(this._heat3.sprite);
+        this._room.addItem(this._heat3);
+        
+        this._heat4 = new Item(game);
+        this._heat4.setObjectType(game, 6);
+        this._heat4.setX(300);
+        this._heat4.setY(200);
+        game.physics.arcade.enable(this._heat4.sprite);
+        this._room.addItem(this._heat4);
         
         //Déclaration du PNJ
         this._npc = new Npc(game);

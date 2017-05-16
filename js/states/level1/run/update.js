@@ -5,10 +5,16 @@ define(['phaser'],function(phaser){
         game.physics.arcade.overlap(this._npc.sprite, this._tv.sprite, this._tv.putItemOn, null, this);
         game.physics.arcade.overlap(this._npc.sprite, this._wash.sprite, this._wash.putItemOn, null, this);
         game.physics.arcade.overlap(this._npc.sprite, this._pc.sprite, this._pc.putItemOn, null, this);
-        game.physics.arcade.overlap(this._npc.sprite, this._sink.sprite, this._sink.putItemOn, null, this);
-        game.physics.arcade.overlap(this._npc.sprite, this._oven.sprite,this._oven.putItemOn, null, this);
-        game.physics.arcade.overlap(this._npc.sprite, this._heat.sprite,this._heat.putItemOn, null, this);
-        
+        game.physics.arcade.overlap(this._npc.sprite, this._sink_k.sprite, this._sink_k.putItemOn, null, this);
+        game.physics.arcade.overlap(this._npc.sprite, this._oven.sprite, this._oven.putItemOn, null, this);
+        game.physics.arcade.overlap(this._npc.sprite, this._heat.sprite, this._heat.putItemOn, null, this);
+        game.physics.arcade.overlap(this._npc.sprite, this._bath.sprite, this._bath.putItemOn, null, this);
+        game.physics.arcade.overlap(this._npc.sprite, this._sink_b.sprite, this._sink_b.putItemOn, null, this);
+        game.physics.arcade.overlap(this._npc.sprite, this._heat1.sprite, this._heat1.putItemOn, null, this);
+        game.physics.arcade.overlap(this._npc.sprite, this._heat2.sprite, this._heat2.putItemOn, null, this);
+        game.physics.arcade.overlap(this._npc.sprite, this._heat3.sprite, this._heat3.putItemOn, null, this);
+        game.physics.arcade.overlap(this._npc.sprite, this._heat4.sprite, this._heat4.putItemOn, null, this);
+        game.debug.body(this._heat2.sprite);
         //Le PNJ se dirige vers le curseur
         //game.physics.arcade.moveToPointer(this._npc, 60, game.input.activePointer, 500);
         
@@ -38,7 +44,6 @@ define(['phaser'],function(phaser){
 
             this._npc.sprite.body.velocity.y = 0;
             this._npc.sprite.animations.stop();
-            this._npc.sprite.frame = 1;
         }
         
         //Timer et Textes
