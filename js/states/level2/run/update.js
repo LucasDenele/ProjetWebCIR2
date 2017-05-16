@@ -3,6 +3,7 @@ define(['phaser'],function(phaser){
 		game.debug.inputInfo(500, 500);
 
         if(this._path != undefined){
+            console.log('caca');
             if(this.timer + 100 <= (new Date()).getTime()){
                 this.timer = (new Date()).getTime();
                 if(this.count < this._path.length){

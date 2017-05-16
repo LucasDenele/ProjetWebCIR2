@@ -20,8 +20,6 @@ define(['phaser','easystar'],function(phaser,Easystar){
             	count++;
 			}
     	}
-    	//*********************************************************************************
-	    this._cursors = game.input.keyboard.createCursorKeys();
 
 	    //*********************************************************************************
 	    this._npc = (new Npc(game));
@@ -37,7 +35,9 @@ define(['phaser','easystar'],function(phaser,Easystar){
             }.bind(this));
             this._easyStar.calculate();
         }
-
+        
+        let actualPosGrid = this._npc.getPosGrid();
+        this.setupPath(actualPosGrid[0], actualPosGrid[1], 60, 20);
         this.timer = (new Date()).getTime();
         this.count = 1;
         //this.check = false;
