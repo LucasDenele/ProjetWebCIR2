@@ -7,18 +7,14 @@ function(phaser, Easystar, preload, create, update, Room, Npc, Item){
 	_lvl2State.prototype = {
 		preload: function(){
 			preload(this.game);
-			console.log("level2 - preload");
 		},
 
 		create: function(){
 			create(this.game);
-			console.log("level2 - create");
 		},
 
 		update: function(){
 			update(this.game);
-			if(this._d == 1)
-				this._test();
 		}
 	};
 
