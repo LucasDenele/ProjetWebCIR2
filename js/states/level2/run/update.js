@@ -1,9 +1,7 @@
 define(['phaser'],function(phaser){
 	var update = function(game){
-		game.physics.arcade.collide(this._npc.sprite, this.CollidersBlocks); 
 		game.debug.inputInfo(500, 500);
 
-		        //Le PNJ se dirige vers le curseur
         //game.physics.arcade.moveToPointer(this._npc, 60, game.input.activePointer, 500);
         
         //Le PNJ est controlé par les flèches
