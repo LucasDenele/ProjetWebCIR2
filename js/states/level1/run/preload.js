@@ -16,17 +16,21 @@ define(['phaser'],function(phaser){
         game.load.spritesheet('bathroom_UP', 'assets/icons/bathroom_up.png', 52, 66);
         game.load.spritesheet('oven_UP','assets/icons/oven_up.png', 52, 66);
         
-        //buttons
+        //bouton retour + lights
         game.load.spritesheet('backButton', 'assets/buttons/back.png', 114, 40);
+        game.load.image('light', 'assets/light.png');
+        game.load.image('lampOn', 'assets/lampOn.png');
+        game.load.image('lampOff', 'assets/lampOff.png');
         
         //Spritesheets pnj + items
         game.load.spritesheet('npc', 'assets/spritesheets/npc.png', 33, 37);
         game.load.spritesheet('tv', 'assets/spritesheets/tv.png', 264, 200);
         game.load.spritesheet('washmach', 'assets/spritesheets/washmach.png', 515, 569);
         game.load.spritesheet('pc', 'assets/spritesheets/pc.png', 250, 150);
-        game.load.spritesheet('sink_k', 'assets/spritesheets/sink_k.png', 25, 95);
+        game.load.spritesheet('sink_k', 'assets/spritesheets/sink_k.png', 30, 95);
         game.load.spritesheet('oven', 'assets/spritesheets/oven.png', 736, 782);
         game.load.spritesheet('heat', 'assets/spritesheets/heat.png', 121, 350);
+        game.load.spritesheet('heat_turn', 'assets/spritesheets/heat_turn.png', 350, 121);
         game.load.spritesheet('bath', 'assets/spritesheets/bath.png', 32, 61);
         game.load.spritesheet('sink_b', 'assets/spritesheets/sink_b.png', 24, 26);
 

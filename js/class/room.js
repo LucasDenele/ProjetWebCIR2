@@ -5,6 +5,7 @@ var Room = function(game, id){
 	this._id = id;
 	this._items = new Array();
 	this._lamps = new Array();
+    this._buttons = new Array();
 };
 
 //************************************
@@ -35,30 +36,42 @@ Room.prototype.addLamp = function(x, y, size){
 
 Room.prototype.addSwitch = function(x, y){
 	let turnLamp = function(){
-		for (var i = 0; i < this._lamps.length; i++) {
-			if (this._lamps[i].alive){
-	        	this._lamps[i].kill();
-	        	this._button.loadTexture('lampOff');
-	    	}else{
-	        	this._lamps[i].reset(this._lamps[i].x, this._lamps[i].y);
-	        	this._button.loadTexture('lampOn');
-	    	}
-		}
+        for (var i = 0; i < this._lamps.length; i++) {
+            if (this._lamps[i].alive){
+                this._lamps[i].kill();
+            }else{
+                this._lamps[i].reset(this._lamps[i].x, this._lamps[i].y);
+            }
+        }
+            for (var i = 0; i < this._buttons.length; i++) {
+            if (this._buttons[i].key == 'lampOff'){
+                this._buttons[i].loadTexture('lampOn');
+            }else{
+                this._buttons[i].loadTexture('lampOff');
+            }
+        }
 	};
 
-	this._button = this._game.add.button(x, y, 'lampOn', turnLamp.bind(this));
+	this._button = this._game.add.button(x, y, 'lampOff', turnLamp.bind(this));
+    console.log(this._button);
 	this._button.scale.setTo(0.3, 0.3);
-	this.autoSwitch();
+	if(this._lamps[0].alive) this.autoSwitch();
+    this._buttons.push(this._button);
 };
 
 Room.prototype.autoSwitch = function(){
 	for (var i = 0; i < this._lamps.length; i++) {
 		if (this._lamps[i].alive){
 	    	this._lamps[i].kill();
-	    	this._button.loadTexture('lampOff');
 		}else{
 	    	this._lamps[i].reset(this._lamps[i].x, this._lamps[i].y);
-	    	this._button.loadTexture('lampOn');
+		}
+	}
+    	for (var i = 0; i < this._buttons.length; i++) {
+		if (this._buttons[i].key == 'lampOff'){
+	    	this._buttons[i].loadTexture('lampOn');
+		}else{
+	    	this._buttons[i].loadTexture('lampOff');
 		}
 	}
 };

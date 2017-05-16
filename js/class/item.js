@@ -113,7 +113,7 @@ Item.prototype.setObjectType = function(game, type){
             
         case 4:
             this.sprite = new Phaser.Sprite(game, 0, 0, 'sink_k', 0);
-            this.sprite.animations.add('on', [1, 2, 3, 4, 5], 3, true);
+            this.sprite.animations.add('on', [1, 2, 3, 4, 5], 2, true);
             //this.sprite.scale.setTo(0.07, 0.07);
             this.type = 4;
             this.sprite.inputEnabled = true;
@@ -142,9 +142,9 @@ Item.prototype.setObjectType = function(game, type){
             break;
             
         case 7:
-            this.sprite = new Phaser.Sprite(game, 0, 0, 'bath', 0);
-            this.sprite.animations.add('on', [1, 2, 3, 4, 5, 6, 7, 8], 3, true);
-            //this.sprite.scale.setTo(0.25, 0.25);
+            this.sprite = new Phaser.Sprite(game, 0, 0, 'heat_turn', 0);
+            this.sprite.animations.add('on', [1, 2, 3, 4, 5, 6], 2, true);
+            this.sprite.scale.setTo(0.25, 0.25);
             this.type = 7;
             this.sprite.inputEnabled = true;
             this.sprite.events.onInputDown.add(this.putItemOff , this);
@@ -152,10 +152,20 @@ Item.prototype.setObjectType = function(game, type){
             break;
             
         case 8:
+            this.sprite = new Phaser.Sprite(game, 0, 0, 'bath', 0);
+            this.sprite.animations.add('on', [1, 2, 3, 4, 5, 6, 7, 8], 2, true);
+            //this.sprite.scale.setTo(0.25, 0.25);
+            this.type = 8;
+            this.sprite.inputEnabled = true;
+            this.sprite.events.onInputDown.add(this.putItemOff , this);
+            game.world.add(this.sprite);
+            break;
+            
+        case 9:
             this.sprite = new Phaser.Sprite(game, 0, 0, 'sink_b', 0);
             this.sprite.animations.add('on', [1, 2, 3, 4, 5, 6, 7], 3, true);
             //this.sprite.scale.setTo(0.25, 0.25);
-            this.type = 8;
+            this.type = 9;
             this.sprite.inputEnabled = true;
             this.sprite.events.onInputDown.add(this.putItemOff , this);
             game.world.add(this.sprite);
