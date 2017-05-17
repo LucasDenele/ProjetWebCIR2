@@ -8,6 +8,7 @@ require.config({
         phaser:     'libs/phaser',
         NPC:        'class/npc',
         ITEM:       'class/item',
+        ROOM:       'class/room', 
     },
     shim: {
         jquery: {

@@ -2,22 +2,26 @@ define(['phaser'],function(phaser){
 	var preload = function(game){
 		console.log('Preload Lvl2');
 		
-		game.load.spritesheet('npc', 'assets/npc.png', 33, 37);
-		
-		game.load.image('light', 'assets/light.png');
+		game.add.text(80, 150, 'loading...', {font: '30px Courier', fill: '#ffffff'});
 
-		game.load.tilemap('tilemap', 'json/test.json', null, Phaser.Tilemap.TILED_JSON);
-	    game.load.image('tiles1', 'assets/tileset_floor_1.png');
-	    game.load.image('tiles3', 'assets/tileset_fur.png');
-	    game.load.image('tiles2', 'assets/tileset_floor_2.png');
-	    game.load.image('tiles3', 'assets/tileset_floor_3.png');
-	    game.load.image('tiles4', 'assets/tileset_kitchen.png');
-	    game.load.image('tiles5', 'assets/tileset_modern.png');
-	    game.load.image('tiles6', 'assets/tileset_livingroom.png');
-	    
-
+        //Backgrounds
+		game.load.image('background', 'assets/background.jpg');
+        //Icons Shop
+        game.load.image('Light_UP','assets/icons/Light_up.png');
+        game.load.image('heat_UP','assets/icons/heat_up.png');
+        game.load.image('computer_UP','assets/icons/computer_up.png');
+        game.load.image('television_UP','assets/icons/television_up.png');
+        game.load.image('washing_UP','assets/icons/washing_machine_up.png');
+        game.load.image('bathroom_UP','assets/icons/bathroom_up.png');
+        game.load.image('oven_UP','assets/icons/oven_up.png');
+        //buttons
+        game.load.spritesheet('backButton', 'assets/buttons/back.png', 114, 40);
+        //Spritesheets pnj + items
+        game.load.spritesheet('npc', 'assets/spritesheets/npc.png', 33, 37);
+        game.load.spritesheet('tv', 'assets/spritesheets/tv.png', 264, 200);
+        game.load.spritesheet('washmach', 'assets/spritesheets/washmach.png', 515, 569);
+        game.load.spritesheet('pc', 'assets/spritesheets/pc.png', 250, 150);
 
 	}
-
 	return preload;
 });

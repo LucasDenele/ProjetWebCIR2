@@ -1,79 +1,75 @@
-define(['phaser'],function(phaser){
+define(['phaser'], function(phaser){
 	var create = function(game){
 		console.log('Create Lvl2');
 	     
 
 
-		function test(sprite){
-			if(sprite.alive){
-				sprite.kill();
-			}
+	       var gamePause = function(){
+                      var gameUnpause = function(){
+                        console.log('caca');
+                        this._unpauseButton.destroy();
+                        game.paused = false;
+                      }
+		      game.paused = true;
+                      this._unpauseButton = game.add.sprite(500,500, 'backButton');
+                      this._unpauseButton.events.onInputDown.add(gameUnpause);
 		};
-		//Start the Arcade Physics systems
-	    game.physics.startSystem(Phaser.Physics.ARCADE);
-	 
-	    //Change the background colour
-	    game.stage.backgroundColor = "#a9f0ff";
-	 
-	    //Add the tilemap and tileset image. The first parameter in addTilesetImage
-	    //is the name you gave the tilesheet when importing it into Tiled, the second
-	    //is the key to the asset in Phaser
-	    console.log('bite'); 
-	    this.map = game.add.tilemap('tilemap');
-	    console.log('bitee'); 
-	    console.log(this.map.tiles);
-	    
-	    this.map.addTilesetImage('tileset_floor_1', 'tiles1');
-	    this.map.addTilesetImage('tileset_floor_2', 'tiles2');
-	    this.map.addTilesetImage('tileset_kitchen', 'tiles4');
-	    this.map.addTilesetImage('tileset_modern', 'tiles5');
-	    this.map.addTilesetImage('tileset_livingroom', 'tiles6');
+        
+        //Déclaration Backgrounds
+        game.stage.backgroundColor="#363942";
+        
+		this._gameLocation = game.add.sprite(0,0,'background');
+        this._gameLocation.width = 800;
+        this._gameLocation.length = 640;
+        
+        //Déclaration Textes
+		game.add.text(810, 10, 'Niveau 2 :', {font: '30px Courier', fill: '#ffffff'});
+        game.add.text(840, 100, 'Solde :', {font: '20px Courier', fill: '#ffffff'});
+        game.add.text(840, 175, 'Revenus :', {font: '20px Courier', fill: '#ffffff'});
+        game.add.text(840, 250, 'Consommation :', {font: '20px Courier', fill: '#ffffff'});
+        game.add.text(840, 325, 'Energie gagnée :', {font: '20px Courier', fill: '#ffffff'});
+        game.add.text(810, 400, 'Magasin :', {font: '30px Courier', fill: '#ffffff'});
+        
+        //Déclaration Shop
+        this._light_Upgrade = game.add.button(810,460, 'Light_UP');
+        this._heat_upgrade = game.add.button(870,460, 'heat_UP');
+        this._computer_upgrade = game.add.button(930,460, 'computer_UP');
+        this._television_upgrade = game.add.button(990,460, 'television_UP');
+        this._washing_upgrade = game.add.button(1050,460, 'washing_UP');
+        this._bathroom_upgrade = game.add.button(1110,460, 'bathroom_UP');
+        this._oven_upgrade = game.add.button(1170, 460, 'oven_UP');
 
-
-	    console.log(game.cache.getTilemapData('tilemap').data); //.layers[0].data; 
-	    //Add both the background and ground layers. We won't be doing anything with the
-	    //GroundLayer though
-	    this.backgroundLayer = this.map.createLayer('background');
-	    //this.subBackgroundLayer = this.map.createLayer('SubBackground');
-	    this.blocksColliders = this.map.createLayer('collidersBlocks'); 
-	    //******************************************************************************* 
-	    //Before you can use the collide function you need to set what tiles can collide
-
-	    this.map.setCollisionBetween(1, 10000, true, 'collidersBlocks');
-	    //Change the world size to match the size of this layer
-	    //*******************************************************************************
-	    //  Player physics properties. Give the little guy a slight bounce.
-	    player = game.add.sprite(32, game.world.height - 500, 'npc');
-
-	    //  We need to enable physics on the player
-	    game.physics.arcade.enable(player);
-
-
-	    player.body.collideWorldBounds = true;
-
-	    //  Our two animations, walking left and right.
-	    player.animations.add('left', [0, 1, 2, 3], 10, true);
-	    player.animations.add('right', [5, 6, 7, 8], 10, true);
-
-	    this.blocksColliders.resizeWorld();
-
-	    cursors = game.input.keyboard.createCursorKeys();
-
-		this._npc = game.add.sprite(40, 40, 'npc');
-        this._npc.animations.add('left', [10, 11, 12], 10, true);
-        this._npc.animations.add('right', [3, 4, 5], 10, true);
-        this._npc.animations.add('down', [0, 1, 2], 10, true);
-        this._npc.animations.add('up', [6, 7, 8], 10, true);
-
-        this._npc.animations.play('down',5,true);
-		
-		this._light = game.add.sprite(0, 0, 'light');
-		this._light.centerX = this._npc.centerX;
-		this._light.centerY = this._npc.centerY;
-		this._light.alpha = 0.2;
-
-		this._light.inputEnabled = true;
-		this._light.events.onInputDown.add(test, this);
+                //Menu Pause
+        	this._back = game.add.button(0,0, 'backButton', gamePause, this, 1, 0, 2);
+                this._back.centerX = game.width - this._back.width/2 - 10; // -10 pour éviter qu'il colle à la bordure
+        	this._back.centerY = game.height - this._back.height/2 - 570;
+                
+                //Activation arcade pour collisions
+                game.physics.startSystem(Phaser.Physics.ARCADE);
+                
+                //Déclaration des Items
+                this._tv = new Item(game);
+                this._tv.setObjectType(game, 1);
+                this._tv.setX(200);
+                game.physics.arcade.enable(this._tv.sprite);
+                
+                this._pc = new Item(game);
+                this._pc.setObjectType(game, 2);
+                this._pc.setX(100);
+                game.physics.arcade.enable(this._pc.sprite);
+                
+                this._wash = new Item(game);
+                this._wash.setObjectType(game, 3);
+                this._wash.setY(100);
+                game.physics.arcade.enable(this._wash.sprite);
+                
+                //Déclaration du PNJ
+                this._npc = new Npc(game);
+                game.physics.arcade.enable(this._npc.sprite);
+                
+                //Déclaration commandes PNJ
+                this._cursors = game.input.keyboard.createCursorKeys();
+        
 	}
 
 	return create;

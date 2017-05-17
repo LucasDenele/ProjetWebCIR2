@@ -1,6 +1,6 @@
 //Constructeur
 var Npc = function(game) {
-    this.sprite = game.add.sprite(0, 0, 'npc'); //Attache le sprite au pnj
+    this.sprite = game.add.sprite(75, 75, 'npc'); //Attache le sprite au pnj
     
     //Déclaration des animations
     this.sprite.animations.add('left', [10, 11, 12], 10, true);

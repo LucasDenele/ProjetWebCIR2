@@ -1,49 +1,49 @@
 define(['phaser'],function(phaser){
 	var update = function(game){
+        
+        //Collision du PNJ avec Item
+        function putItemOn(npc, item){
+            item.animations.play('on');
+            console.log('putItemOn');
+        }
+        
+        game.physics.arcade.overlap(this._npc.sprite, this._tv.sprite, putItemOn, null, this);
+        game.physics.arcade.overlap(this._npc.sprite, this._wash.sprite, putItemOn, null, this);
+        game.physics.arcade.overlap(this._npc.sprite, this._pc.sprite, putItemOn, null, this);
+        
+        //Le PNJ se dirige vers le curseur
+        //game.physics.arcade.moveToPointer(this._npc, 60, game.input.activePointer, 500);
+        
+        //Le PNJ est controlé par les flèches
+        this._npc.sprite.body.velocity.x = 0;
+        if (this._cursors.left.isDown){
 
-		if(!this._light.alive){
-			this._npc.centerX = game.rnd.integerInRange(200,600);
-			this._npc.centerY = game.rnd.integerInRange(200,600);
-			this._light.reset(0, 0);
-			this._light.centerX = this._npc.centerX;
-			this._light.centerY = this._npc.centerY;
-		}
-	
-	game.physics.arcade.collide(player.body, this.blocksColliders);
+            this._npc.sprite.body.velocity.x = -150;
+            this._npc.sprite.animations.play('left');
+        }
+        else if (this._cursors.right.isDown){
 
-    player.body.velocity.x = 0;
-    player.body.velocity.y = 0;
-	if (cursors.left.isDown)
-    {
-        //  Move to the left
-        player.body.velocity.x = -150;
+            this._npc.sprite.body.velocity.x = 150;
+            this._npc.sprite.animations.play('right');
+        }
+        else if (this._cursors.up.isDown){
 
-        player.animations.play('left');
-    }
-    else if (cursors.right.isDown)
-    {
-        //  Move to the right
-        player.body.velocity.x = 150;
+            this._npc.sprite.body.velocity.y = -150;
+            this._npc.sprite.animations.play('up');
+        }
+        else if (this._cursors.down.isDown){
 
-        player.animations.play('right');
-    }
-    else if (cursors.up.isDown){
-        player.body.velocity.y = -150; 
+            this._npc.sprite.body.velocity.y = 150;
+            this._npc.sprite.animations.play('down');
+        }
+        else{
 
-        player.animations.play('left');
-    }
-    else if (cursors.down.isDown){
-        player.body.velocity.y = 150; 
+            this._npc.sprite.body.velocity.y = 0;
+            this._npc.sprite.animations.stop();
+            this._npc.sprite.frame = 1;
+        }
 
-        player.animations.play('left');
-    }
-    else
-    {
-        //  Stand still
-        player.animations.stop();
-
-        player.frame = 4;
-    }
 	}
+
 	return update;
 });
