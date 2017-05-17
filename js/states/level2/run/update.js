@@ -2,8 +2,7 @@ define(['phaser'],function(phaser){
 	var update = function(game){
 		game.debug.inputInfo(500, 500);
 
-        if(this._path != undefined){
-            console.log('caca');
+        if(this._path != undefined && !check){
             if(this.timer + 100 <= (new Date()).getTime()){
                 this.timer = (new Date()).getTime();
                 if(this.count < this._path.length){
@@ -11,20 +10,23 @@ define(['phaser'],function(phaser){
                     this.count++;
                 }
                 if(this.count == this._path.length){
+                    this.timer = (new Date()).getTime();
                     this._npc.sprite.animations.stop();
                     this._npc.sprite.body.velocity.x = 0;
                     this._npc.sprite.body.velocity.y = 0;
-                    //this.check = true;
+                    this.check = true;
                 }
             }
         }
-        /*if(this.check){
+        if(this.check && this.timer + 2000  <= (new Date()).getTime()){
+            this.timer = (new Date()).getTime();
             let actualPosGrid = this._npc.getPosGrid();
-            this.setupPath(actualPosGrid[0], actualPosGrid[1], 60, 20);
+            let nextPosGrid = this._npc.getNextPosGrid();
+            this.setupPath(actualPosGrid[0], actualPosGrid[1], nextPosGrid[0], nextPosGrid[1]);
             this.check = false;
             this.count = 1;
             this.timer = (new Date()).getTime();
-        }*/
+        }
 
 	}
 

@@ -37,10 +37,11 @@ define(['phaser','easystar'],function(phaser,Easystar){
         }
         
         let actualPosGrid = this._npc.getPosGrid();
-        this.setupPath(actualPosGrid[0], actualPosGrid[1], 60, 20);
+        let nextPosGrid = this._npc.getNextPosGrid();
+        this.setupPath(actualPosGrid[0], actualPosGrid[1], nextPosGrid[0], nextPosGrid[1]);
         this.timer = (new Date()).getTime();
         this.count = 1;
-        //this.check = false;
+        this.check = false;
 	}
 	return create;
 });
