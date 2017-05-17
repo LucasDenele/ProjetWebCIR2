@@ -81,12 +81,57 @@ define(['phaser'], function(phaser){
         //Activation arcade pour collisions
         game.physics.startSystem(Phaser.Physics.ARCADE);
         
-        //Déclaration Pièces
-        this._kitchen = new Room(game, 0);
-        this._kitchen.addLamp(125, 280, 150);
-        this._kitchen.addLamp(70, 50, 200);
-        this._kitchen.addSwitch(268, 170);
-        //this._room.addSwitch(200, 400);
+        //Déclaration Pièces + Items
+        
+        /********************************* Cuisine ***************************************/
+        /**/this._kitchen = new Room(game, 0);                                         /**/
+        /**/                                                                           /**/
+        /**/var item = new Item(game);                                                 /**/
+        /**/item.setObjectType(game, 4);                                               /**/
+        /**/item.setX(8);                                                              /**/
+        /**/item.setY(50);                                                             /**/
+        /**/game.physics.arcade.enable(item.sprite);                                   /**/
+        /**/this._kitchen.addItem(item);                                               /**/
+        /**/                                                                           /**/
+        /**/item = new Item(game);                                                     /**/
+        /**/item.setObjectType(game, 5);                                               /**/
+        /**/item.setX(200);                                                            /**/
+        /**/item.setY(30);                                                             /**/
+        /**/game.physics.arcade.enable(item.sprite);                                   /**/
+        /**/this._kitchen.addItem(item);                                               /**/
+        /**/                                                                           /**/
+        /**/item = new Item(game);                                                     /**/
+        /**/item.setObjectType(game, 6);                                               /**/
+        /**/item.setX(4);                                                              /**/
+        /**/item.setY(330);                                                            /**/
+        /**/game.physics.arcade.enable(item.sprite);                                   /**/
+        /**/this._kitchen.addItem(item);                                               /**/
+        /**/                                                                           /**/
+        /**/this._kitchen.addLamp(70, 60, 200);                                        /**/
+        /**/this._kitchen.addLamp(125, 280, 170);                                      /**/
+        /**/this._kitchen.addSwitch(268, 8);                                           /**/
+        /********************************* Cuisine ***************************************/
+        
+        /****************************** Salle de Bain ************************************/
+        this._bathroom = new Room(game, 1);
+        this._bathroom.addLamp(80, 470, 150);
+        this._bathroom.addSwitch(268, 604);
+        
+        this._bedroom = new Room(game, 2);
+        this._bedroom.addLamp(550, 440, 200);
+        this._bedroom.addSwitch(480, 605);
+        
+        this.cellar = new Room(game, 3);
+        this.cellar.addLamp(520, 260, 130);
+        this.cellar.addSwitch(571, 372);
+        
+        this._livingRoom = new Room(game, 4);
+        this._livingRoom.addLamp(585, 60, 200);
+        this._livingRoom.addLamp(390, 50, 150);
+        this._livingRoom.addLamp(310, 240, 150);
+        this._livingRoom.addLamp(310, 440, 150);
+        this._livingRoom.addSwitch(765, 8);
+        this._livingRoom.addSwitch(300, 380);
         
         //Déclaration des Items
         this._tv = new Item(game);
@@ -110,19 +155,6 @@ define(['phaser'], function(phaser){
         game.physics.arcade.enable(this._wash.sprite);
         //this._room.addItem(this._wash);
         
-        this._sink_k = new Item(game);
-        this._sink_k.setObjectType(game, 4);
-        this._sink_k.setX(8);
-        this._sink_k.setY(50);
-        game.physics.arcade.enable(this._sink_k.sprite);
-        //this._room.addItem(this._sink_k);
-        
-        this._oven = new Item(game);
-        this._oven.setObjectType(game, 5);
-        this._oven.setX(200);
-        this._oven.setY(30);
-        game.physics.arcade.enable(this._oven.sprite);
-        //this._room.addItem(this._oven);
         
         this._heat = new Item(game);
         this._heat.setObjectType(game, 6);
@@ -145,12 +177,6 @@ define(['phaser'], function(phaser){
         game.physics.arcade.enable(this._sink_b.sprite);
         //this._room.addItem(this._sink_b);
         
-        this._heat1 = new Item(game);//Cuisine
-        this._heat1.setObjectType(game, 6);
-        this._heat1.setX(4);
-        this._heat1.setY(330);
-        game.physics.arcade.enable(this._heat1.sprite);
-        //this._room.addItem(this._heat1);
         
         this._heat2 = new Item(game);//Chambre
         this._heat2.setObjectType(game, 7);

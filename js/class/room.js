@@ -53,7 +53,7 @@ Room.prototype.addSwitch = function(x, y){
 	};
 
 	this._button = this._game.add.button(x, y, 'lampOff', turnLamp.bind(this));
-    console.log(this._button);
+    //console.log(this._button);
 	this._button.scale.setTo(0.3, 0.3);
 	if(this._lamps[0].alive) this.autoSwitch();
     this._buttons.push(this._button);

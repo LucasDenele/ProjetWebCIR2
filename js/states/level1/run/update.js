@@ -5,16 +5,16 @@ define(['phaser'],function(phaser){
         game.physics.arcade.overlap(this._npc.sprite, this._tv.sprite, this._tv.putItemOn, null, this);
         game.physics.arcade.overlap(this._npc.sprite, this._wash.sprite, this._wash.putItemOn, null, this);
         game.physics.arcade.overlap(this._npc.sprite, this._pc.sprite, this._pc.putItemOn, null, this);
-        game.physics.arcade.overlap(this._npc.sprite, this._sink_k.sprite, this._sink_k.putItemOn, null, this);
-        game.physics.arcade.overlap(this._npc.sprite, this._oven.sprite, this._oven.putItemOn, null, this);
+        game.physics.arcade.overlap(this._npc.sprite, this._kitchen._items[0].sprite, this._kitchen._items[0].putItemOn, null, this);
+        game.physics.arcade.overlap(this._npc.sprite, this._kitchen._items[1].sprite, this._kitchen._items[1].putItemOn, null, this);
+        game.physics.arcade.overlap(this._npc.sprite, this._kitchen._items[2].sprite, this._kitchen._items[2].putItemOn, null, this);
         game.physics.arcade.overlap(this._npc.sprite, this._heat.sprite, this._heat.putItemOn, null, this);
         game.physics.arcade.overlap(this._npc.sprite, this._bath.sprite, this._bath.putItemOn, null, this);
         game.physics.arcade.overlap(this._npc.sprite, this._sink_b.sprite, this._sink_b.putItemOn, null, this);
-        game.physics.arcade.overlap(this._npc.sprite, this._heat1.sprite, this._heat1.putItemOn, null, this);
         game.physics.arcade.overlap(this._npc.sprite, this._heat2.sprite, this._heat2.putItemOn, null, this);
         game.physics.arcade.overlap(this._npc.sprite, this._heat3.sprite, this._heat3.putItemOn, null, this);
         game.physics.arcade.overlap(this._npc.sprite, this._heat4.sprite, this._heat4.putItemOn, null, this);
-        game.debug.inputInfo(500, 500);
+        //game.debug.inputInfo(500, 500);
         //Le PNJ se dirige vers le curseur
         //game.physics.arcade.moveToPointer(this._npc, 60, game.input.activePointer, 500);
         
