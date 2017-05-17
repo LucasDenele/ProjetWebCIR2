@@ -1,6 +1,8 @@
 define(['phaser'],function(phaser){
 	var create = function(game){
 		console.log('Create Lvl2');
+	     
+
 
 		function test(sprite){
 			if(sprite.alive){
@@ -16,19 +18,24 @@ define(['phaser'],function(phaser){
 	    //Add the tilemap and tileset image. The first parameter in addTilesetImage
 	    //is the name you gave the tilesheet when importing it into Tiled, the second
 	    //is the key to the asset in Phaser
+	    console.log('bite'); 
 	    this.map = game.add.tilemap('tilemap');
+	    console.log('bitee'); 
+	    console.log(this.map.tiles);
+	    
 	    this.map.addTilesetImage('tileset_floor_1', 'tiles1');
 	    this.map.addTilesetImage('tileset_floor_2', 'tiles2');
-	    this.map.addTilesetImage('tileset_floor_3', 'tiles3');
 	    this.map.addTilesetImage('tileset_kitchen', 'tiles4');
 	    this.map.addTilesetImage('tileset_modern', 'tiles5');
 	    this.map.addTilesetImage('tileset_livingroom', 'tiles6');
 
+
+	    console.log(game.cache.getTilemapData('tilemap').data); //.layers[0].data; 
 	    //Add both the background and ground layers. We won't be doing anything with the
 	    //GroundLayer though
 	    this.backgroundLayer = this.map.createLayer('background');
 	    //this.subBackgroundLayer = this.map.createLayer('SubBackground');
-	    this.CollidersBlocks = this.map.createLayer('collidersBlocks'); 
+	    this.blocksColliders = this.map.createLayer('collidersBlocks'); 
 	    //******************************************************************************* 
 	    //Before you can use the collide function you need to set what tiles can collide
 
@@ -48,11 +55,11 @@ define(['phaser'],function(phaser){
 	    player.animations.add('left', [0, 1, 2, 3], 10, true);
 	    player.animations.add('right', [5, 6, 7, 8], 10, true);
 
-	    this.CollidersBlocks.resizeWorld();
+	    this.blocksColliders.resizeWorld();
 
 	    cursors = game.input.keyboard.createCursorKeys();
 
-		this._npc = game.add.sprite(400, 400, 'npc');
+		this._npc = game.add.sprite(40, 40, 'npc');
         this._npc.animations.add('left', [10, 11, 12], 10, true);
         this._npc.animations.add('right', [3, 4, 5], 10, true);
         this._npc.animations.add('down', [0, 1, 2], 10, true);
