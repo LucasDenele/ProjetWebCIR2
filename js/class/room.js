@@ -26,7 +26,7 @@ Room.prototype.addItem = function(item){
 Room.prototype.addLamp = function(x, y, size){
 	this._lamps.push(this._game.add.sprite(0, 0, 'light'));
 	
-	let last = (this._lamps.length -1);
+	var last = this._lamps.length -1;
 
 	this._lamps[last].x = x;
 	this._lamps[last].y = y;
@@ -35,7 +35,7 @@ Room.prototype.addLamp = function(x, y, size){
 };
 
 Room.prototype.addSwitch = function(x, y){
-	let turnLamp = function(){
+	var turnLamp = function(){
         for (var i = 0; i < this._lamps.length; i++) {
             if (this._lamps[i].alive){
                 this._lamps[i].kill();
