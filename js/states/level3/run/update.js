@@ -19,6 +19,13 @@ define(['phaser'],function(phaser){
         game.physics.arcade.overlap(this._npc.sprite, this._livingRoom._items[1].sprite, this._livingRoom._items[1].putItemOn.bind(this._livingRoom._items[1]), null, this);
         game.physics.arcade.overlap(this._npc.sprite, this._livingRoom._items[2].sprite, this._livingRoom._items[2].putItemOn.bind(this._livingRoom._items[2]), null, this);
         
+        if(this._rooms[0]._lampsLevel == 3){
+            for(var i=0; i < this._rooms.length; i++){
+                if(!this._rooms[i].checkNpc(this._npc.sprite.position.x, this._npc.sprite.position.y)){
+                    this._rooms[i].turnLampsOff();
+                }
+            }
+        }
         //Pathfinding
         if(this._check && this._timerPathFinding + 2000  <= (new Date()).getTime()){
             this.timerPathFinding = (new Date()).getTime();
