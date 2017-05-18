@@ -83,7 +83,7 @@ define(['phaser'],function(phaser){
             this._consomation.setText('Consommation : '+_consomationVar+' kWh', {font: '20px Calibri', fill: '#ffffff'});
             this._revenus.setText('Revenus : '+_revenusVar+' €', {font: '20px Calibri', fill: '#ffffff'});
         //}
-    }
+        }
     }
 
     return update;
