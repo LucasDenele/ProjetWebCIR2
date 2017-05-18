@@ -23,7 +23,8 @@ define(['phaser'],function(phaser){
         this._restart = game.add.button(0,0, 'restartButton', launchLvl3, this, 1, 0, 2);
         this._restart.centerX = game.width/2 - 280;
 		this._restart.centerY = game.height/2;
-	
+        
+        game.add.text(game.width/2 - 100, game.height/2 + 150, 'Score : '+this._scoreVar, {font: '30px Calibri', fill: '#ffffff'});
 
 	}
 	return create;

@@ -9,6 +9,10 @@ define(['phaser'],function(phaser){
             game.state.start('win');
         }
         
+        //Win
+        if(this.win == 14){
+            launchWin();
+        }
         //Activation des collisions entre le PNJ et les Items
         game.physics.arcade.overlap(this._npc.sprite, this._kitchen._items[0].sprite, this._kitchen._items[0].putItemOn.bind(this._kitchen._items[0]), null, this);
         game.physics.arcade.overlap(this._npc.sprite, this._kitchen._items[1].sprite, this._kitchen._items[1].putItemOn.bind(this._kitchen._items[1]), null, this);
@@ -107,11 +111,6 @@ define(['phaser'],function(phaser){
         if(this._soldeVar<0){
             console.log("game over");
             launchGameOver();
-        }
-        
-        if(this._soldeVar > 1050){
-            console.log("win");
-            launchWin();
         }
         
         if(this._light_Upgrade.input.pointerOver()){

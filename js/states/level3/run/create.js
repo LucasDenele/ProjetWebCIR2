@@ -13,6 +13,7 @@ define(['phaser'], function(phaser){
                     if(this._rooms[0]._lampsLevel < 3){
                         this._rooms.forEach((room) => room.lampsLevelUp());
                         button.setFrames(this._rooms[0]._lampsLevel-1);
+                        this._win++;
                     }
                     break;
                 case 1://heat
@@ -21,6 +22,7 @@ define(['phaser'], function(phaser){
                         if((item.getType() == 7 || item.getType() == 6) && item.getLevel() < 3){ 
                         item.setLevel(item.getLevel()+1);
                         button.setFrames(item.getLevel()-1); 
+                        this._win++;
                     }}))
                     break;
                 case 2://computer
@@ -29,6 +31,7 @@ define(['phaser'], function(phaser){
                         if(item.getType() == 2 && item.getLevel() < 3){ 
                         item.setLevel(item.getLevel()+1);
                         button.setFrames(item.getLevel()-1); 
+                        this._win++;
                     }}))
                     break;
                 case 3://tv
@@ -37,6 +40,7 @@ define(['phaser'], function(phaser){
                         if(item.getType() == 1 && item.getLevel() < 3){ 
                         item.setLevel(item.getLevel()+1);
                         button.setFrames(item.getLevel()-1); 
+                        this._win++;
                     }}))
                     break;
                 case 4://washmach
@@ -45,6 +49,7 @@ define(['phaser'], function(phaser){
                         if(item.getType() == 3 && item.getLevel() < 3){ 
                         item.setLevel(item.getLevel()+1);
                         button.setFrames(item.getLevel()-1); 
+                        this._win++;
                     }}))
                     break;
                 case 5://water
@@ -52,7 +57,8 @@ define(['phaser'], function(phaser){
                     this._rooms.forEach((room) => room._items.forEach( (item) => { 
                         if((item.getType() == 4 || item.getType() == 8 || item.getType() == 9) && item.getLevel() < 3){ 
                         item.setLevel(item.getLevel()+1);
-                        button.setFrames(item.getLevel()-1); 
+                        button.setFrames(item.getLevel()-1);
+                        this.win++;
                     }}))
                     break;
                 case 6://oven
@@ -60,7 +66,8 @@ define(['phaser'], function(phaser){
                     this._rooms.forEach((room) => room._items.forEach( (item) => { 
                         if(item.getType() == 5 && item.getLevel() < 3){ 
                         item.setLevel(item.getLevel()+1);
-                        button.setFrames(item.getLevel()-1); 
+                        button.setFrames(item.getLevel()-1);
+                        this.win++;
                     }}))
                     break;
             }
@@ -74,6 +81,7 @@ define(['phaser'], function(phaser){
 		game.add.sprite(0, 0, 'background');
         
         //Variables
+        this._win = 0;
         this._soldeVar = 1000;
         this._revenusVar = 100;
         this._consomationVar = 0;
