@@ -4,34 +4,65 @@ define(['phaser'], function(phaser){
 
 		function backToMenu(){
 			game.state.start('home');
-		}
+		} 
         
+        this._rooms = new Array();
         function upgrade(button){
-			switch(button.id){
-                case 0:
+                        switch(button.id){
+                case 0://lamp
                     //button.setFrames(1);
                     console.log('id 0');
                     break;
-                case 1:
+                case 1://heat
                     console.log('id 1');
+                    this._rooms.forEach((room) => room._items.forEach( (item) => { 
+                        if((item.getType() == 7 || item.getType() == 6) && item.getLevel() < 3){ 
+                        item.setLevel(item.getLevel()+1);
+                        button.setFrames(item.getLevel()-1); 
+                    }}))
                     break;
-                case 2:
+                case 2://computer
                     console.log('id 2');
+                    this._rooms.forEach((room) => room._items.forEach( (item) => { 
+                        if(item.getType() == 2 && item.getLevel() < 3){ 
+                        item.setLevel(item.getLevel()+1);
+                        button.setFrames(item.getLevel()-1); 
+                    }}))
                     break;
-                case 3:
+                case 3://tv
                     console.log('id 3');
+                    this._rooms.forEach((room) => room._items.forEach( (item) => { 
+                        if(item.getType() == 1 && item.getLevel() < 3){ 
+                        item.setLevel(item.getLevel()+1);
+                        button.setFrames(item.getLevel()-1); 
+                    }}))
                     break;
-                case 4:
+                case 4://washmach
                     console.log('id 4');
+                    this._rooms.forEach((room) => room._items.forEach( (item) => { 
+                        if(item.getType() == 3 && item.getLevel() < 3){ 
+                        item.setLevel(item.getLevel()+1);
+                        button.setFrames(item.getLevel()-1); 
+                    }}))
                     break;
-                case 5:
+                case 5://water
                     console.log('id 5');
+                    this._rooms.forEach((room) => room._items.forEach( (item) => { 
+                        if((item.getType() == 4 || item.getType() == 8 || item.getType() == 9) && item.getLevel() < 3){ 
+                        item.setLevel(item.getLevel()+1);
+                        button.setFrames(item.getLevel()-1); 
+                    }}))
                     break;
-                case 6:
+                case 6://oven
                     console.log('id 6');
+                    this._rooms.forEach((room) => room._items.forEach( (item) => { 
+                        if(item.getType() == 5 && item.getLevel() < 3){ 
+                        item.setLevel(item.getLevel()+1);
+                        button.setFrames(item.getLevel()-1); 
+                    }}))
                     break;
             }
-		}
+                }
         
         //Activation arcade pour collisions
         game.physics.startSystem(Phaser.Physics.ARCADE);
@@ -41,10 +72,9 @@ define(['phaser'], function(phaser){
 		game.add.sprite(0, 0, 'background');
         
         //Variables
-        this._soldeVar = 0;
-        this._revenusVar = 500;
-        this._consomationVar = 20;
-        this._consomationNew = 20;
+        this._soldeVar = 1000;
+        this._revenusVar = 100;
+        this._consomationVar = 0;
         this._scoreVar = 0;
         this._timer = (new Date()).getTime();
         this._timer2 = this._timer;
@@ -113,22 +143,19 @@ define(['phaser'], function(phaser){
         /********************************* Cuisine ***************************************/
         this._kitchen = new Room(game, 0);
         //Lavabo
-        item = new Item(game);
-        item.setObjectType(game, 4);
+        item = new Item(game, 4);
         item.setX(8);
         item.setY(50);
         game.physics.arcade.enable(item.sprite);
         this._kitchen.addItem(item);
         //Four
-        item = new Item(game);
-        item.setObjectType(game, 5);
+        item = new Item(game, 5);
         item.setX(200);
         item.setY(30);
         game.physics.arcade.enable(item.sprite);
         this._kitchen.addItem(item);
         //Radiateur
-        item = new Item(game);
-        item.setObjectType(game, 6);
+        item = new Item(game, 6);
         item.setX(4);
         item.setY(330);
         game.physics.arcade.enable(item.sprite);
@@ -146,22 +173,19 @@ define(['phaser'], function(phaser){
         /****************************** Salle de Bain ************************************/
         this._bathroom = new Room(game, 1);
         //baignoire
-        item = new Item(game);
-        item.setObjectType(game, 8);
+        item = new Item(game, 8);
         item.setX(8);
         item.setY(567);
         game.physics.arcade.enable(item.sprite);
         this._bathroom.addItem(item);
         //Lavabo
-        item = new Item(game);
-        item.setObjectType(game, 9);
+        item = new Item(game, 9);
         item.setX(40);
         item.setY(448);
         game.physics.arcade.enable(item.sprite);
         this._bathroom.addItem(item);
         //Radiateur
-        item = new Item(game);
-        item.setObjectType(game, 7);
+        item = new Item(game, 7);
         item.setX(180);
         item.setY(445);
         game.physics.arcade.enable(item.sprite);
@@ -179,15 +203,13 @@ define(['phaser'], function(phaser){
         /********************************* Chambre ***************************************/
         this._bedroom = new Room(game, 2);
         //Pc
-        item = new Item(game);
-        item.setObjectType(game, 2);
+        item = new Item(game, 2);
         item.setX(710);
         item.setY(395);
         game.physics.arcade.enable(item.sprite);
         this._bedroom.addItem(item);
         //Radiateur
-        item = new Item(game);//Chambre
-        item.setObjectType(game, 7);
+        item = new Item(game, 7);
         item.setX(570);
         item.sprite.scale.y = -item.sprite.scale.y;
         item.setY(632);
@@ -205,8 +227,7 @@ define(['phaser'], function(phaser){
         /********************************* Cellier ***************************************/
         this._cellar = new Room(game, 3);
         //Machine
-        item = new Item(game);
-        item.setObjectType(game, 3);
+        item = new Item(game, 3);
         item.setX(480);
         item.setY(265);
         game.physics.arcade.enable(item.sprite);
@@ -223,22 +244,19 @@ define(['phaser'], function(phaser){
         /********************************** Salon ****************************************/
         this._livingRoom = new Room(game, 4);
         //Tv
-        item = new Item(game);
-        item.setObjectType(game, 1);
+        item = new Item(game, 1);
         item.setX(640);
         item.setY(50);
         game.physics.arcade.enable(item.sprite);
         this._livingRoom.addItem(item);
         //Radiateur vertical
-        item = new Item(game);
-        item.setObjectType(game, 6);
+        item = new Item(game, 6);
         item.setX(300);
         item.setY(200);
         game.physics.arcade.enable(item.sprite);
         this._livingRoom.addItem(item);
         //Radiateur Horizontal
-        item = new Item(game);
-        item.setObjectType(game, 7);
+        item = new Item(game, 7);
         item.setX(450);
         item.setY(8);
         game.physics.arcade.enable(item.sprite);

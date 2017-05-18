@@ -6,6 +6,7 @@ var Room = function(game, id){
 	this._items = new Array();
 	this._lamps = new Array();
     this._buttons = new Array();
+    this._lampsLevel = 1;
 	this._hitboxes = new Array();
 };
 
@@ -18,6 +19,22 @@ Room.prototype.getId = function(){
 Room.prototype.getItems = function(){
 	return this._items
 };
+
+Room.prototype.getLampOn = function(){
+	return this._lamps[0].alive;
+};
+
+Room.prototype.getNumberOfLamp = function(){
+	return this._lamps.length;
+};
+
+Room.prototype.getLampsConsomation = function(){
+	if(this._lampsLevel == 1){
+		return 0.4;
+	}else{
+		return 0.09;
+	}
+}
 
 Room.prototype.getLampState = function(){
 	return this._lamps[0].alive;
@@ -77,6 +94,11 @@ Room.prototype.autoSwitch = function(){
 	}
 };
 
+
+Room.prototype.lampsLevelUp = function(){
+	this._lampsLevel++;
+}
+
 Room.prototype.addHitbox = function(x, y, width, heigth){
 	this._hitboxes.push(new Array());
 	var last = this._hitboxes.length-1
@@ -93,3 +115,4 @@ Room.prototype.checkNpc = function(x ,y){
 	}
 	return false;
 };
+

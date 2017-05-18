@@ -1,19 +1,23 @@
 define(['phaser'],function(phaser){
 	var update = function(game){
         
+        function launchGameOver(){
+			game.state.start('game_over');
+		}
+        
         //Activation des collisions entre le PNJ et les Items
-        game.physics.arcade.overlap(this._npc.sprite, this._kitchen._items[0].sprite, this._kitchen._items[0].putItemOn, null, this);
-        game.physics.arcade.overlap(this._npc.sprite, this._kitchen._items[1].sprite, this._kitchen._items[1].putItemOn, null, this);
-        game.physics.arcade.overlap(this._npc.sprite, this._kitchen._items[2].sprite, this._kitchen._items[2].putItemOn, null, this);
-        game.physics.arcade.overlap(this._npc.sprite, this._bathroom._items[0].sprite, this._bathroom._items[0].putItemOn, null, this);
-        game.physics.arcade.overlap(this._npc.sprite, this._bathroom._items[1].sprite, this._bathroom._items[1].putItemOn, null, this);
-        game.physics.arcade.overlap(this._npc.sprite, this._bathroom._items[2].sprite, this._bathroom._items[2].putItemOn, null, this);
-        game.physics.arcade.overlap(this._npc.sprite, this._bedroom._items[0].sprite, this._bedroom._items[0].putItemOn, null, this);
-        game.physics.arcade.overlap(this._npc.sprite, this._bedroom._items[1].sprite, this._bedroom._items[1].putItemOn, null, this);
-        game.physics.arcade.overlap(this._npc.sprite, this._cellar._items[0].sprite, this._cellar._items[0].putItemOn, null, this);
-        game.physics.arcade.overlap(this._npc.sprite, this._livingRoom._items[0].sprite, this._livingRoom._items[0].putItemOn, null, this);
-        game.physics.arcade.overlap(this._npc.sprite, this._livingRoom._items[1].sprite, this._livingRoom._items[1].putItemOn, null, this);
-        game.physics.arcade.overlap(this._npc.sprite, this._livingRoom._items[2].sprite, this._livingRoom._items[2].putItemOn, null, this);
+        game.physics.arcade.overlap(this._npc.sprite, this._kitchen._items[0].sprite, this._kitchen._items[0].putItemOn.bind(this._kitchen._items[0]), null, this);
+        game.physics.arcade.overlap(this._npc.sprite, this._kitchen._items[1].sprite, this._kitchen._items[1].putItemOn.bind(this._kitchen._items[1]), null, this);
+        game.physics.arcade.overlap(this._npc.sprite, this._kitchen._items[2].sprite, this._kitchen._items[2].putItemOn.bind(this._kitchen._items[2]), null, this);
+        game.physics.arcade.overlap(this._npc.sprite, this._bathroom._items[0].sprite, this._bathroom._items[0].putItemOn.bind(this._bathroom._items[0]), null, this);
+        game.physics.arcade.overlap(this._npc.sprite, this._bathroom._items[1].sprite, this._bathroom._items[1].putItemOn.bind(this._bathroom._items[1]).bind(this._kitchen._items[1]), null, this);
+        game.physics.arcade.overlap(this._npc.sprite, this._bathroom._items[2].sprite, this._bathroom._items[2].putItemOn.bind(this._bathroom._items[2]), null, this);
+        game.physics.arcade.overlap(this._npc.sprite, this._bedroom._items[0].sprite, this._bedroom._items[0].putItemOn.bind(this._bedroom._items[0]), null, this);
+        game.physics.arcade.overlap(this._npc.sprite, this._bedroom._items[1].sprite, this._bedroom._items[1].putItemOn.bind(this._bedroom._items[1]), null, this);
+        game.physics.arcade.overlap(this._npc.sprite, this._cellar._items[0].sprite, this._cellar._items[0].putItemOn.bind(this._cellar._items[0]), null, this);
+        game.physics.arcade.overlap(this._npc.sprite, this._livingRoom._items[0].sprite, this._livingRoom._items[0].putItemOn.bind(this._livingRoom._items[0]), null, this);
+        game.physics.arcade.overlap(this._npc.sprite, this._livingRoom._items[1].sprite, this._livingRoom._items[1].putItemOn.bind(this._livingRoom._items[1]), null, this);
+        game.physics.arcade.overlap(this._npc.sprite, this._livingRoom._items[2].sprite, this._livingRoom._items[2].putItemOn.bind(this._livingRoom._items[2]), null, this);
         
         //Pathfinding
         if(this._check && this._timerPathFinding + 2000  <= (new Date()).getTime()){
@@ -50,36 +54,51 @@ define(['phaser'],function(phaser){
         }
         
         //Timer et Textes
+        var calculateConsomation = function(){
+            this._consomationVar = 0; 
+            this._rooms.forEach( (room) => {
+                room._items.forEach( (item) => {if(item.getIsOn()) this._consomationVar += item.getEnergyCosts()}); 
+                if(room.getLampOn()) this._consomationVar += room.getNumberOfLamp() * room.getLampsConsomation(); 
+            }); 
+            return this._consomationVar; 
+        }
         this._timerCheck = (new Date()).getTime();
 
-        if(this._timerCheck >= this._timer + 1000){
+        if(this._timerCheck >= this._timer + 10000){
             this._soldeVar += this._revenusVar;
             this._scoreVar += Math.round((this._revenusVar/2));
-            this._revenusVar = 500;
+            //this._revenusVar = 100;
 
 
-            this._solde.setText('Solde : '+_soldeVar+' €', {font: '20px Calibri', fill: '#ffffff'})
+            this._solde.setText('Solde : '+Math.round(_soldeVar*10)/10+' €', {font: '20px Calibri', fill: '#ffffff'})
             this._score.setText('Score : '+_scoreVar, {font: '20px Calibri', fill: '#ffffff'})
             this._revenus.setText('Revenus : '+_revenusVar+' €', {font: '20px Calibri', fill: '#ffffff'});    
             
             this._timer = this._timerCheck;
         }
         
-        if(this._timerCheck >= this._timer2 + 462){
-            this._consomationNew = Math.floor(Math.random() * 50) + 20; 
-
+        if(this._timerCheck >= this._timer2 + 1000){
+            console.log(this._kitchen._items[1].getIsOn());
+            this._consomationVar = calculateConsomation(); 
             this._timer2 = this._timerCheck;
-        }
         
-        if(this._consomationNew != this._consomationVar){
-            this._consomationVar = this._consomationNew;
+        
+        //if(this._consomationNew != this._consomationVar){
+            //this._consomationVar = this._consomationNew;
+            this._revenusVar = 100; 
             this._revenusVar -= this._consomationVar;
 
             this._consomation.setText('Consommation : '+_consomationVar+' kWh', {font: '20px Calibri', fill: '#ffffff'});
             this._revenus.setText('Revenus : '+_revenusVar+' €', {font: '20px Calibri', fill: '#ffffff'});
+        //}
+    }
+        
+        if(this._soldeVar<0){
+            console.log("game over");
+            launchGameOver();
         }
         
-            if(this._light_Upgrade.input.pointerOver()){
+        if(this._light_Upgrade.input.pointerOver()){
             this._light_text.revive();
         }else{
             this._light_text.kill();

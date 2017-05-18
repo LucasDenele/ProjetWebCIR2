@@ -3,8 +3,8 @@ define(['phaser'],function(phaser){
 		game.debug.inputInfo(500, 500);
         if(this._check && this._timer + 2000  <= (new Date()).getTime()){
             this.timer = (new Date()).getTime();
-            let actualPosGrid = this._npc.getPosGrid();
-            let nextPosGrid = this._npc.getNextPosGrid();
+            var actualPosGrid = this._npc.getPosGrid();
+            var nextPosGrid = this._npc.getNextPosGrid();
             console.log(nextPosGrid);
             this._view = nextPosGrid[2];
             this.setupPath(actualPosGrid[0], actualPosGrid[1], nextPosGrid[0], nextPosGrid[1]);
