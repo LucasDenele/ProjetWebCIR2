@@ -13,7 +13,6 @@ define(['phaser'], function(phaser){
         function upgrade(button){
                         switch(button.id){
                 case 0://lamp
-                    //button.setFrames
                     console.log('id 0');
                     if(this._rooms[0]._lampsLevel < 3){
                         this._rooms.forEach((room) => room.lampsLevelUp());
@@ -28,9 +27,9 @@ define(['phaser'], function(phaser){
                         this._rooms.forEach((room) => room._items.forEach( (item) => { 
                             if((item.getType() == 7 || item.getType() == 6)) item.setLevel(item.getLevel()+1);
                         })); 
-                    button.setFrames(item.getLevel()-1);
-                    this._soldeVar -= cost; 
                     this._upgradesLevel[1]++
+                    button.setFrames(this._upgradesLevel[1]-1);
+                    this._soldeVar -= cost; 
                     this._win++;
                     }
                     break;
@@ -41,9 +40,9 @@ define(['phaser'], function(phaser){
                         this._rooms.forEach((room) => room._items.forEach( (item) => { 
                         if(item.getType() == 2) item.setLevel(item.getLevel()+1);
                     })); 
-                    button.setFrames(item.getLevel()-1); 
-                    this._soldeVar -= cost; 
                     this._upgradesLevel[2]++
+                    button.setFrames(this._upgradesLevel[2]-1); 
+                    this._soldeVar -= cost; 
                     this._win++;
                     }
                     break;
@@ -54,9 +53,9 @@ define(['phaser'], function(phaser){
                         this._rooms.forEach((room) => room._items.forEach( (item) => { 
                         if(item.getType() == 1) item.setLevel(item.getLevel()+1);
                     })); 
-                    button.setFrames(item.getLevel()-1); 
-                    this._soldeVar -= cost; 
                     this._upgradesLevel[3]++
+                    button.setFrames(this._upgradesLevel[3]-1); 
+                    this._soldeVar -= cost; 
                     this._win++;
                     }
                     break;
@@ -67,9 +66,9 @@ define(['phaser'], function(phaser){
                         this._rooms.forEach((room) => room._items.forEach( (item) => { 
                         if(item.getType() == 3) item.setLevel(item.getLevel()+1);
                     })); 
-                    button.setFrames(item.getLevel()-1); 
-                    this._soldeVar -= cost; 
                     this._upgradesLevel[4]++
+                    button.setFrames(this._upgradesLevel[4]-1); 
+                    this._soldeVar -= cost; 
                     this._win++;
                     }
                     break;
@@ -80,9 +79,9 @@ define(['phaser'], function(phaser){
                         this._rooms.forEach((room) => room._items.forEach( (item) => { 
                         if(item.getType() == 4 || item.getType() == 8 || item.getType() == 9) item.setLevel(item.getLevel()+1);
                     })); 
-                    button.setFrames(item.getLevel()-1); 
-                    this._soldeVar -= cost; 
                     this._upgradesLevel[5]++
+                    button.setFrames(this._upgradesLevel[5]-1); 
+                    this._soldeVar -= cost; 
                     this._win++;
                     }
                     break;
@@ -93,9 +92,9 @@ define(['phaser'], function(phaser){
                         this._rooms.forEach((room) => room._items.forEach( (item) => { 
                         if(item.getType() == 5) item.setLevel(item.getLevel()+1);
                     })); 
-                    button.setFrames(item.getLevel()-1); 
-                    this._soldeVar -= cost; 
                     this._upgradesLevel[6]++
+                    button.setFrames(this._upgradesLevel[6]-1); 
+                    this._soldeVar -= cost; 
                     this._win++;
                     }
                     break;

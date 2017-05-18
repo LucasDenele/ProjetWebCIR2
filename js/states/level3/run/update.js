@@ -37,16 +37,14 @@ define(['phaser'],function(phaser){
                 }
             }
         }
-        if(this._rooms[0]._items.[2].getLevel() == 3){
-            this._rooms.forEach((room) => if(!this.room.checkNpc(this._npc.sprite.position.x, this._npc.sprite.position.y))){
-                function horizontal(element){
-                    return element.getType() == 6;
+        if(this._rooms[0]._items[2].getLevel() == 3){
+            for(var i=0; i < this._rooms.length; i++){
+                if(!this._rooms[i].checkNpc(this._npc.sprite.position.x, this._npc.sprite.position.y)){
+                    for(var j=0; j < this._rooms[i]._items.length; j++){
+                        if(this._rooms[i]._items[j].getType() == 6
+                            || this._rooms[i]._items[j].getType() == 7){this._rooms[i]._items[j].putItemOff();}
+                    }
                 }
-                function vertical(element){
-                    return element.getType() == 7;
-                }
-                if(room._items.find(horizontal) != undefined){room._items.find(horizontal).turnOff();}
-                if(room._items.find(vertical) != undefined){room._items.find(vertical).turnOff();}
             }
         }
         //Pathfinding
