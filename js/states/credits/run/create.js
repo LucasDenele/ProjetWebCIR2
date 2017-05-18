@@ -1,6 +1,5 @@
 define(['phaser'],function(phaser){
 	var create = function(game){
-		console.log('Create Options');
 
 		function backToMenu(){
 			game.state.start('home');
@@ -11,12 +10,12 @@ define(['phaser'],function(phaser){
 		this._background.width = game.width;
 		this._background.height = game.height;
 
-		game.add.text(10, 10, 'Credits :', {font: '30px Courier', fill: '#ffffff'});
-		game.add.text(50, 50, 'Jeu de :', {font: '30px Courier', fill: '#ffffff'});
-		this._briquet = game.add.text(90, 90, '- Thomas Briquet', {font: '30px Courier', fill: '#ffffff'});
-		this._carlier = game.add.text(130, 130, '- Anthony Carlier', {font: '30px Courier', fill: '#ffffff'});
-		this._decolnet = game.add.text(170, 170, '- Timothée de Colnet', {font: '30px Courier', fill: '#ffffff'});
-		this._denele = game.add.text(210, 210, '- Lucas Denèle', {font: '30px Courier', fill: '#ffffff'});
+		game.add.text(10, 10, 'Credits :', {font: '30px Courier', fill: '#000000'});
+		game.add.text(50, 50, 'Jeu de :', {font: '30px Courier', fill: '#000000'});
+		this._briquet = game.add.text(90, 90, '- Thomas Briquet', {font: '30px Courier', fill: '#000000'});
+		this._carlier = game.add.text(130, 130, '- Anthony Carlier', {font: '30px Courier', fill: '#000000'});
+		this._decolnet = game.add.text(170, 170, '- Timothée de Colnet', {font: '30px Courier', fill: '#000000'});
+		this._denele = game.add.text(210, 210, '- Lucas Denèle', {font: '30px Courier', fill: '#000000'});
 
 		this._briquet.inputEnabled = true;
 		this._carlier.inputEnabled = true;

@@ -1,11 +1,10 @@
 define(['phaser'],function(phaser){
 	var preload = function(game){
-		console.log('Preload Home');
 		
 		game.add.text(80, 150, 'loading...', {font: '30px Calibri', fill: '#ffffff'});
 
-		game.load.image('background', 'assets/background.jpg');
-        game.load.image('logo','assets/background1.png');
+		game.load.image('background', 'assets/backgrounds/background.jpg');
+        game.load.image('logo','assets/backgrounds/background1.png');
 	    
 	    game.load.spritesheet('Optionsbutton', 'assets/buttons/options.png',118,40);
 	    game.load.spritesheet('Creditsbutton', 'assets/buttons/credits.png', 110, 40);

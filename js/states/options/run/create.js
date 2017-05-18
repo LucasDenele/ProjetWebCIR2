@@ -1,7 +1,5 @@
 define(['phaser'],function(phaser){
 	var create = function(game){
-		console.log('Create Options');
-
 		function backToMenu(){
 			game.state.start('home');
 		}

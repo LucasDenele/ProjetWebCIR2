@@ -7,8 +7,6 @@ var Item = function(game, type){
     this.upgrades = new Array(); 
     this.type = this.setObjectType(game, type); 
     this.energyCosts = this.upgrades[this.getLevel()-1]; //Energie Consommée par l'objet
-    console.log('Item Class');
-};
 
 //Getters
 Item.prototype.getId = function(){
@@ -78,7 +76,6 @@ Item.prototype.putItemOn = function(npc, item){
 };
 
 Item.prototype.putItemOff = function(){
-    console.log('item off');
     this.sprite.animations.stop();
     switch (this.type){
                 case 1:
@@ -140,7 +137,6 @@ Item.prototype.setObjectType = function(game, type){
         case 4:
             this.sprite = new Phaser.Sprite(game, 0, 0, 'sink_k', 0);
             this.sprite.animations.add('on', [1, 2, 3, 4, 5], 2, true);
-            //this.sprite.scale.setTo(0.07, 0.07);
             this.type = 4;
             this.sprite.inputEnabled = true;
             this.sprite.events.onInputDown.add(this.putItemOff , this);
@@ -192,7 +188,6 @@ Item.prototype.setObjectType = function(game, type){
         case 8:
             this.sprite = new Phaser.Sprite(game, 0, 0, 'bath', 0);
             this.sprite.animations.add('on', [1, 2, 3, 4, 5, 6, 7, 8], 2, true);
-            //this.sprite.scale.setTo(0.25, 0.25);
             this.type = 8;
             this.sprite.inputEnabled = true;
             this.sprite.events.onInputDown.add(this.putItemOff , this);
@@ -205,7 +200,6 @@ Item.prototype.setObjectType = function(game, type){
         case 9:
             this.sprite = new Phaser.Sprite(game, 0, 0, 'sink_b', 0);
             this.sprite.animations.add('on', [1, 2, 3, 4, 5, 6, 7], 3, true);
-            //this.sprite.scale.setTo(0.25, 0.25);
             this.type = 9;
             this.sprite.inputEnabled = true;
             this.sprite.events.onInputDown.add(this.putItemOff , this);

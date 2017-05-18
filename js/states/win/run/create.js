@@ -1,6 +1,6 @@
 define(['phaser'],function(phaser){
 	var create = function(game){
-		console.log('Create Game over');
+		
         this._soundtrack = game.add.audio('win');
         this._soundtrack.play();
 		function backToMenu(){

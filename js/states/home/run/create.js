@@ -3,31 +3,26 @@ define(['phaser'],function(phaser){
         this._soundtrack = game.add.audio('menu');
         this._soundtrack.play();
 
-		function launchLvl1(){
+		function launchTuto(){
 			this._soundtrack.stop();
-            game.state.start('lvl1');
+            game.state.start('tuto');
 		}
-        function launchLvl2(){
-			game.state.start('lvl2');
-		}
-        function launchLvl3(){
-            this._soundtrack.stop();
-			game.state.start('lvl3');
-		}
-        function launchLvl4(){
-            this._soundtrack.stop();
-			game.state.start('lvl4');
+        function launchLevel(){
+        	this._soundtrack.stop();
+			game.state.start('lvl');
 		}
         function launchOptions(){
+        	this._soundtrack.stop();
 			game.state.start('options');
 		}
 		function launchCredits(){
+			this._soundtrack.stop();
 			game.state.start('credits');
 		}
 		function launchHelp(){
+			this._soundtrack.stop();
 			game.state.start('help');
-		}
-		console.log('Create Home');		
+		}	
 		
 		
 		//Ajout du fond d'écran :
@@ -55,13 +50,12 @@ define(['phaser'],function(phaser){
 		this._helpButton.centerY = game.height - this._helpButton.height/2 - 10;
 
         //Affichage des boutons niveaux
-        this._tutoButton = game.add.button(0, 0, 'tutobutton', launchLvl1, this, 1, 0, 2);
-        this._playButton = game.add.button(0, 0, 'playbutton', launchLvl3, this, 1, 0, 2);
-        
+        this._tutoButton = game.add.button(0, 0, 'tutobutton', launchTuto, this, 1, 0, 2);
         this._tutoButton.centerX = game.width/4 - 70  - this._tutoButton.width/2 +10; // + 10 pour éviter qu'il colle à la bordure
-        this._playButton.centerX = game.width/1.5 +250  - this._playButton.width/2  +10; // + 10 pour éviter qu'il colle à la bordure
-        
 		this._tutoButton.centerY = game.height/2 - this._tutoButton.height/2;
+        
+        this._playButton = game.add.button(0, 0, 'playbutton', launchLevel, this, 1, 0, 2);
+        this._playButton.centerX = game.width/1.5 +250  - this._playButton.width/2  +10; // + 10 pour éviter qu'il colle à la bordure
 		this._playButton.centerY = game.height/2 - this._playButton.height/2;
         
 	}

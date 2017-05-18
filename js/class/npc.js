@@ -12,8 +12,6 @@ var Npc = function(game, x, y, possibleCoordOnGrid) {
     this.sprite.animations.add('up', [6, 7, 8], 10, true);
 
     this.possibleCoordOnGrid = possibleCoordOnGrid;
-
-    console.log('NPC Class');
 };
 
 Npc.prototype.getPosGrid = function(){

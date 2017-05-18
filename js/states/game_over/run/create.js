@@ -1,6 +1,6 @@
 define(['phaser'],function(phaser){
 	var create = function(game){
-		console.log('Create Game over');
+
         this._soundtrack = game.add.audio('looser');
         this._soundtrack.play();
 		function backToMenu(){
@@ -13,8 +13,6 @@ define(['phaser'],function(phaser){
 			game.state.start('lvl3');
 		}
         
-        
-        //game.add.text(500, 350, 'Oh la merde il a perdu', {font: '30px Calibri', fill: '#ffffff', fontStyle: 'italic'});
         this._background = game.add.sprite(0,0,'background');
 		this._background.width = game.width;
 		this._background.height = game.height;
