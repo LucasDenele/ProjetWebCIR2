@@ -34,7 +34,6 @@ define(['phaser'],function(phaser){
         game.load.spritesheet('bath', 'assets/spritesheets/bath.png', 32, 61);
         game.load.spritesheet('sink_b', 'assets/spritesheets/sink_b.png', 24, 26);
 
-
 	}
 
 	return preload;

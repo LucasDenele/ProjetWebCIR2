@@ -212,7 +212,7 @@ define(['phaser'], function(phaser){
         //Déclaration du PNJ
         this._npc = new Npc(game);
         game.physics.arcade.enable(this._npc.sprite);
-        
+
         //Déclaration commandes PNJ
         this._cursors = game.input.keyboard.createCursorKeys();
         
