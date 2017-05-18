@@ -24,7 +24,7 @@ var Npc = function(game, grid) {
 };
 
 Npc.prototype.getPosGrid = function(){
-	let posGrid = new Array();
+	var posGrid = new Array();
 	posGrid.push( Math.round( this.sprite.centerX/8 ) );
 	posGrid.push( Math.round( this.sprite.centerY/8 ) );
 

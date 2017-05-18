@@ -1,9 +1,12 @@
-//Constructeur
-var Item = function(game){
+    //Constructeur
+var Item = function(game, type){
     this.id = 0;
-    this.energyCosts = 0; //Energie Consommée par l'objet
+    this.isOn = false; 
     this.upgradeCosts = 0; //Cout d'amélioration
     this.level = 1; //Niveau de l'objet
+    this.upgrades = new Array(); 
+    this.type = this.setObjectType(game, type); 
+    this.energyCosts = this.upgrades[this.getLevel()-1]; //Energie Consommée par l'objet
     console.log('Item Class');
 };
 
@@ -32,6 +35,14 @@ Item.prototype.getLevel = function(){
     return this.level;
 };
 
+Item.prototype.getIsOn = function(){
+    return this.isOn; 
+}
+
+Item.prototype.getType = function(){
+    return this.type; 
+}
+
 //Setters
 Item.prototype.setId = function(id){
     this.id = id;
@@ -45,20 +56,25 @@ Item.prototype.setY = function(y){
     this.sprite.y = y;
 };
 
-Item.prototype.setEnergyCosts = function(energyCosts){
-    this.energyCosts = energyCosts;
+Item.prototype.setEnergyCosts = function(){
+    this.energyCosts = this.upgrades[this.getLevel()-1];
 };
 
 Item.prototype.setUpgradeCosts = function(upgradeCosts){
     this.upgradeCosts = upgradeCosts;
 };
 
-Item.prototype.setLevel = function(level){
-    this.level = level;
+Item.prototype.setLevel = function(){
+    this.level++; 
+    this.setEnergyCosts(); 
 };
 
+Item.prototype.setIsOn = function(){
+    this.isOn ? this.isOn = false : this.isOn = true; 
+}
 Item.prototype.putItemOn = function(npc, item){
-    item.animations.play('on');
+    item.animations.play('on'); 
+    if(!this.getIsOn()) this.setIsOn(); 
 };
 
 Item.prototype.putItemOff = function(){
@@ -77,9 +93,10 @@ Item.prototype.putItemOff = function(){
                     this.sprite.frame = 0;
                     break;
                 }
+    if(this.getIsOn()) this.setIsOn(); 
 };
 
-Item.prototype.setObjectType = function(game, type){
+Item.prototype.setObjectType = function(game, type){    
     switch (type) {
         case 1:
             this.sprite = new Phaser.Sprite(game, 0, 0, 'tv', 10);
@@ -89,6 +106,9 @@ Item.prototype.setObjectType = function(game, type){
             this.sprite.inputEnabled = true;
             this.sprite.events.onInputDown.add(this.putItemOff , this);
             game.world.add(this.sprite);
+            this.upgrades.push(0.6);
+            this.upgrades.push(0.3);
+            this.upgrades.push(0.2);
             break;
             
         case 2:
@@ -99,6 +119,9 @@ Item.prototype.setObjectType = function(game, type){
             this.sprite.inputEnabled = true;
             this.sprite.events.onInputDown.add(this.putItemOff , this);
             game.world.add(this.sprite);
+            this.upgrades.push(0.4);
+            this.upgrades.push(0.2);
+            this.upgrades.push(0.1);
             break;
             
         case 3:
@@ -109,6 +132,9 @@ Item.prototype.setObjectType = function(game, type){
             this.sprite.inputEnabled = true;
             this.sprite.events.onInputDown.add(this.putItemOff , this);
             game.world.add(this.sprite);
+            this.upgrades.push(3);
+            this.upgrades.push(2.5);
+            this.upgrades.push(2);
             break;
             
         case 4:
@@ -119,6 +145,9 @@ Item.prototype.setObjectType = function(game, type){
             this.sprite.inputEnabled = true;
             this.sprite.events.onInputDown.add(this.putItemOff , this);
             game.world.add(this.sprite);
+            this.upgrades.push(0.1);
+            this.upgrades.push(0.05);
+            this.upgrades.push(0.025);
             break;
         
         case 5:
@@ -129,6 +158,9 @@ Item.prototype.setObjectType = function(game, type){
             this.sprite.inputEnabled = true;
             this.sprite.events.onInputDown.add(this.putItemOff, this);
             game.world.add(this.sprite);
+            this.upgrades.push(1);
+            this.upgrades.push(0.7);
+            this.upgrades.push(0.5);
             break;
             
         case 6:
@@ -139,6 +171,9 @@ Item.prototype.setObjectType = function(game, type){
             this.sprite.inputEnabled = true;
             this.sprite.events.onInputDown.add(this.putItemOff , this);
             game.world.add(this.sprite);
+            this.upgrades.push(1);
+            this.upgrades.push(0.6);
+            this.upgrades.push(0.6);
             break;
             
         case 7:
@@ -149,6 +184,9 @@ Item.prototype.setObjectType = function(game, type){
             this.sprite.inputEnabled = true;
             this.sprite.events.onInputDown.add(this.putItemOff , this);
             game.world.add(this.sprite);
+            this.upgrades.push(1);
+            this.upgrades.push(0.6);
+            this.upgrades.push(0.6);
             break;
             
         case 8:
@@ -159,6 +197,9 @@ Item.prototype.setObjectType = function(game, type){
             this.sprite.inputEnabled = true;
             this.sprite.events.onInputDown.add(this.putItemOff , this);
             game.world.add(this.sprite);
+            this.upgrades.push(0.2);
+            this.upgrades.push(0.1);
+            this.upgrades.push(0.05);
             break;
             
         case 9:
@@ -169,10 +210,14 @@ Item.prototype.setObjectType = function(game, type){
             this.sprite.inputEnabled = true;
             this.sprite.events.onInputDown.add(this.putItemOff , this);
             game.world.add(this.sprite);
+            this.upgrades.push(0.1);
+            this.upgrades.push(0.05);
+            this.upgrades.push(0.025);
             break;
             
         default:
             
             break;
         }
+        return this.type; 
 };

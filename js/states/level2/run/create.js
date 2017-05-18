@@ -12,8 +12,8 @@ define(['phaser','easystar'],function(phaser,Easystar){
 
 	    //*********************************************************************************
 		game.add.tilemap('hitbox');
-	    let starGrid = new Array();
-	    let count = 0
+	    var starGrid = new Array();
+	    var count = 0
 		for(var i=0; i<80; ++i){
         	starGrid.push(new Array());
         	for(var j=0; j<100; ++j){
@@ -37,8 +37,8 @@ define(['phaser','easystar'],function(phaser,Easystar){
             this._easyStar.calculate();
         }
         
-        let actualPosGrid = this._npc.getPosGrid();
-        let nextPosGrid = this._npc.getNextPosGrid();
+        var actualPosGrid = this._npc.getPosGrid();
+        var nextPosGrid = this._npc.getNextPosGrid();
         this.setupPath(actualPosGrid[0], actualPosGrid[1], nextPosGrid[0], nextPosGrid[1]);
         this.timer = (new Date()).getTime();
         this.count = 1;

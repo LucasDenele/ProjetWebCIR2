@@ -20,8 +20,8 @@ define(['phaser'],function(phaser){
         }
         if(this.check && this.timer + 2000  <= (new Date()).getTime()){
             this.timer = (new Date()).getTime();
-            let actualPosGrid = this._npc.getPosGrid();
-            let nextPosGrid = this._npc.getNextPosGrid();
+            var actualPosGrid = this._npc.getPosGrid();
+            var nextPosGrid = this._npc.getNextPosGrid();
             this.setupPath(actualPosGrid[0], actualPosGrid[1], nextPosGrid[0], nextPosGrid[1]);
             this.check = false;
             this.count = 1;
