@@ -6,7 +6,6 @@ define(['phaser'], function(phaser){
 			game.state.start('home');
 		} 
         
-        this._rooms = new Array();
         function upgrade(button){
                         switch(button.id){
                 case 0://lamp
@@ -62,7 +61,7 @@ define(['phaser'], function(phaser){
                     }}))
                     break;
             }
-                }
+        }
         
         //Activation arcade pour collisions
         game.physics.startSystem(Phaser.Physics.ARCADE);
