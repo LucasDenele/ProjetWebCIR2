@@ -106,22 +106,19 @@ define(['phaser'], function(phaser){
         /********************************* Cuisine ***************************************/
         this._kitchen = new Room(game, 0);
         //Lavabo
-        item = new Item(game);
-        item.setObjectType(game, 4);
+        item = new Item(game, 4);
         item.setX(208);
         item.setY(210);
         game.physics.arcade.enable(item.sprite);
         this._kitchen.addItem(item);
         //Four
-        item = new Item(game);
-        item.setObjectType(game, 5);
+        item = new Item(game, 5);
         item.setX(270);
         item.setY(185);
         game.physics.arcade.enable(item.sprite);
         this._kitchen.addItem(item);
         //Radiateur
-        item = new Item(game);
-        item.setObjectType(game, 6);
+        item = new Item(game, 6);
         item.setX(204);
         item.setY(350);
         game.physics.arcade.enable(item.sprite);
@@ -138,15 +135,13 @@ define(['phaser'], function(phaser){
         /********************************* Chambre ***************************************/
         this._bedroom = new Room(game, 1);
         //Pc
-        item = new Item(game);
-        item.setObjectType(game, 2);
+        item = new Item(game, 2);
         item.setX(463);
         item.setY(150);
         game.physics.arcade.enable(item.sprite);
         this._bedroom.addItem(item);
         //Radiateur
-        item = new Item(game);//Chambre
-        item.setObjectType(game, 7);
+        item = new Item(game, 7);
         item.setX(445);
         item.setY(475);
         item.sprite.scale.y = -item.sprite.scale.y;
