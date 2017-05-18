@@ -51,7 +51,7 @@ define(['phaser'],function(phaser){
 
         //Affichage des boutons niveaux
         this._tutoButton = game.add.button(0, 0, 'tutobutton', launchLvl1, this, 1, 0, 2);
-        this._playButton = game.add.button(0, 0, 'playbutton', launchLvl4, this, 1, 0, 2);
+        this._playButton = game.add.button(0, 0, 'playbutton', launchLvl3, this, 1, 0, 2);
         
         this._tutoButton.centerX = game.width/4 - 70  - this._tutoButton.width/2 +10; // + 10 pour éviter qu'il colle à la bordure
         this._playButton.centerX = game.width/1.5 +250  - this._playButton.width/2  +10; // + 10 pour éviter qu'il colle à la bordure

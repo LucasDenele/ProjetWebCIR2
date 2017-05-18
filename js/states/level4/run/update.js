@@ -85,7 +85,7 @@ define(['phaser'],function(phaser){
             this._revenus.setText('Dépenses : '+Math.round(_depensesVar*10)/10+' €', {font: '20px Calibri', fill: '#ffffff'});
             this._score.setText('Score : '+Math.round(_scoreVar*10)/10, {font: '20px Calibri', fill: '#ffffff'})
         //}
-    }
+        }
     }
 
     return update;
