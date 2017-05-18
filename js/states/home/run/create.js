@@ -15,6 +15,7 @@ define(['phaser'],function(phaser){
 			game.state.start('lvl3');
 		}
         function launchLvl4(){
+            this._soundtrack.stop();
 			game.state.start('lvl4');
 		}
         function launchOptions(){
