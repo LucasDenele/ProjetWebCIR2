@@ -60,17 +60,13 @@ define(['phaser'], function(phaser){
         
         //Déclaration Boutons Shop
         this._light_Upgrade = game.add.button(830, 550, 'Light_UP', upgrade, this, 0);
-        this._heat_upgrade = game.add.button(890, 550, 'heat_UP', upgrade, this, 0);
-        this._computer_upgrade = game.add.button(950, 550, 'computer_UP', upgrade, this, 0);
-        this._television_upgrade = game.add.button(1010, 550, 'television_UP', upgrade, this, 0);
-        this._washing_upgrade = game.add.button(1070, 550, 'washing_UP', upgrade, this, 0);
-        this._bathroom_upgrade = game.add.button(1130, 550, 'bathroom_UP', upgrade, this, 0);
+        this._heat_upgrade = game.add.button(920, 550, 'heat_UP', upgrade, this, 0);
+        this._computer_upgrade = game.add.button(1010, 550, 'computer_UP', upgrade, this, 0);
+        this._bathroom_upgrade = game.add.button(1100, 550, 'bathroom_UP', upgrade, this, 0);
         this._oven_upgrade = game.add.button(1190, 550, 'oven_UP', upgrade, this, 0);
         this._light_Upgrade.id = 0;
         this._heat_upgrade.id = 1;
         this._computer_upgrade.id = 2;
-        this._television_upgrade.id = 3;
-        this._washing_upgrade.id = 4;
         this._bathroom_upgrade.id = 5;
         this._oven_upgrade.id = 6;
         
@@ -78,16 +74,12 @@ define(['phaser'], function(phaser){
         this._light_text = game.add.sprite(830,450,'light_text');
         this._heat_text = game.add.sprite(860,450,'heat_text');
         this._computer_text = game.add.sprite(870,450,'computer_text');
-        this._tv_text = game.add.sprite(870,450,'tv_text');
-        this._washing_text = game.add.sprite(870,450,'washing_text');
         this._water_text = game.add.sprite(870,450,'water_text');
         this._oven_text = game.add.sprite(870,450,'oven_text');
 
         this._light_text.kill();
         this._heat_text.kill();
         this._computer_text.kill();
-        this._tv_text.kill();
-        this._washing_text.kill();
         this._water_text.kill();
         this._oven_text.kill();
         

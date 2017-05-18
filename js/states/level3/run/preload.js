@@ -16,6 +16,15 @@ define(['phaser'],function(phaser){
         game.load.spritesheet('bathroom_UP', 'assets/icons/bathroom_up.png', 52, 66);
         game.load.spritesheet('oven_UP','assets/icons/oven_up.png', 52, 66);
         
+        //Upgrade texts
+        game.load.image('light_text','assets/upgrade/light_text.png');
+        game.load.image('heat_text','assets/upgrade/heat_text.png');
+        game.load.image('computer_text','assets/upgrade/computer_text.png');
+        game.load.image('tv_text','assets/upgrade/tv_text.png');
+        game.load.image('washing_text','assets/upgrade/washmach_text.png');
+        game.load.image('water_text','assets/upgrade/water_text.png');
+        game.load.image('oven_text','assets/upgrade/oven_text.png');
+        
         //bouton retour + lights
         game.load.spritesheet('backButton', 'assets/buttons/back.png', 114, 40);
         game.load.image('light', 'assets/light.png');

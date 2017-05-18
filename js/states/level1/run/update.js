@@ -85,18 +85,6 @@ define(['phaser'],function(phaser){
             this._computer_text.kill();
         }
         
-        if(this._television_upgrade.input.pointerOver()){
-            this._tv_text.revive();
-        }else{
-            this._tv_text.kill();
-        }
-        
-        if(this._washing_upgrade.input.pointerOver()){
-            this._washing_text.revive();
-        }else{
-            this._washing_text.kill();
-        }
-        
         if(this._bathroom_upgrade.input.pointerOver()){
             this._water_text.revive();
         }else{
