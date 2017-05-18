@@ -12,7 +12,8 @@ define(['phaser'],function(phaser){
         }
         
         //Win
-        if(this.win == 14){
+        console.log(this._win); 
+        if(this._win == 14){
             launchWin();
         }
         //Activation des collisions entre le PNJ et les Items
@@ -34,6 +35,18 @@ define(['phaser'],function(phaser){
                 if(!this._rooms[i].checkNpc(this._npc.sprite.position.x, this._npc.sprite.position.y)){
                     this._rooms[i].turnLampsOff();
                 }
+            }
+        }
+        if(this._rooms[0]._items.[2].getLevel() == 3){
+            this._rooms.forEach((room) => if(!this.room.checkNpc(this._npc.sprite.position.x, this._npc.sprite.position.y))){
+                function horizontal(element){
+                    return element.getType() == 6;
+                }
+                function vertical(element){
+                    return element.getType() == 7;
+                }
+                if(room._items.find(horizontal) != undefined){room._items.find(horizontal).turnOff();}
+                if(room._items.find(vertical) != undefined){room._items.find(vertical).turnOff();}
             }
         }
         //Pathfinding

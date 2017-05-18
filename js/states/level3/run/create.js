@@ -23,12 +23,11 @@ define(['phaser'], function(phaser){
                     break;
                 case 1://heat
                     console.log(this._solde);
-                    this._upgradesLevel[1] == 1 ? cost = 150 : cost = 300; 
+                    this._upgradesLevel[1] == 1 ? cost = 150 : cost = 350; 
                     if(this._soldeVar >= cost && this._upgradesLevel[1] < 3){
-                    this._rooms.forEach((room) => room._items.forEach( (item) => { 
-                        if((item.getType() == 7 || item.getType() == 6)){ 
-                        item.setLevel(item.getLevel()+1);
-                    }})); 
+                        this._rooms.forEach((room) => room._items.forEach( (item) => { 
+                            if((item.getType() == 7 || item.getType() == 6)) item.setLevel(item.getLevel()+1);
+                        })); 
                     button.setFrames(item.getLevel()-1);
                     this._soldeVar -= cost; 
                     this._upgradesLevel[1]++
@@ -37,11 +36,11 @@ define(['phaser'], function(phaser){
                     break;
                 case 2://computer
                     console.log('id 2');
-                    this._upgradesLevel[2] == 1 ? cost = 150 : cost = 300; 
-                    if(this._soldeVar >= cost && this._upgradesLevel[1] < 3){this._rooms.forEach((room) => room._items.forEach( (item) => { 
-                        if(item.getType() == 2){ 
-                        item.setLevel(item.getLevel()+1);
-                    }})); 
+                    this._upgradesLevel[2] == 1 ? cost = 150 : cost = 350; 
+                    if(this._soldeVar >= cost && this._upgradesLevel[2] < 3){
+                        this._rooms.forEach((room) => room._items.forEach( (item) => { 
+                        if(item.getType() == 2) item.setLevel(item.getLevel()+1);
+                    })); 
                     button.setFrames(item.getLevel()-1); 
                     this._soldeVar -= cost; 
                     this._upgradesLevel[2]++
@@ -51,10 +50,10 @@ define(['phaser'], function(phaser){
                 case 3://tv
                     console.log('id 3');
                     this._upgradesLevel[3] == 1 ? cost = 150 : cost = 300; 
-                    if(this._soldeVar >= cost && this._upgradesLevel[1] < 3){this._rooms.forEach((room) => room._items.forEach( (item) => { 
-                        if(item.getType() == 1){ 
-                        item.setLevel(item.getLevel()+1);
-                    }})); 
+                    if(this._soldeVar >= cost && this._upgradesLevel[3] < 3){
+                        this._rooms.forEach((room) => room._items.forEach( (item) => { 
+                        if(item.getType() == 1) item.setLevel(item.getLevel()+1);
+                    })); 
                     button.setFrames(item.getLevel()-1); 
                     this._soldeVar -= cost; 
                     this._upgradesLevel[3]++
@@ -64,10 +63,10 @@ define(['phaser'], function(phaser){
                 case 4://washmach
                     console.log('id 4');
                     this._upgradesLevel[4] == 1 ? cost = 150 : cost = 300; 
-                    if(this._soldeVar >= cost && this._upgradesLevel[1] < 3){this._rooms.forEach((room) => room._items.forEach( (item) => { 
-                        if(item.getType() == 3){ 
-                        item.setLevel(item.getLevel()+1);
-                    }})); 
+                    if(this._soldeVar >= cost && this._upgradesLevel[4] < 3){
+                        this._rooms.forEach((room) => room._items.forEach( (item) => { 
+                        if(item.getType() == 3) item.setLevel(item.getLevel()+1);
+                    })); 
                     button.setFrames(item.getLevel()-1); 
                     this._soldeVar -= cost; 
                     this._upgradesLevel[4]++
@@ -77,27 +76,27 @@ define(['phaser'], function(phaser){
                 case 5://water
                     console.log('id 5');
                     this._upgradesLevel[5] == 1 ? cost = 150 : cost = 300; 
-                    if(this._soldeVar >= cost && this._upgradesLevel[1] < 3){this._rooms.forEach((room) => room._items.forEach( (item) => { 
-                        if(item.getType() == 4 || item.getType() == 8 || item.getType() == 9){ 
-                        item.setLevel(item.getLevel()+1);
-                    }})); 
+                    if(this._soldeVar >= cost && this._upgradesLevel[5] < 3){
+                        this._rooms.forEach((room) => room._items.forEach( (item) => { 
+                        if(item.getType() == 4 || item.getType() == 8 || item.getType() == 9) item.setLevel(item.getLevel()+1);
+                    })); 
                     button.setFrames(item.getLevel()-1); 
                     this._soldeVar -= cost; 
                     this._upgradesLevel[5]++
-                    this.win++;
+                    this._win++;
                     }
                     break;
                 case 6://oven
                     console.log('id 6');
                     this._upgradesLevel[6] == 1 ? cost = 150 : cost = 300; 
-                    if(this._soldeVar >= cost && this._upgradesLevel[1] < 3){this._rooms.forEach((room) => room._items.forEach( (item) => { 
-                        if(item.getType() == 5){ 
-                        item.setLevel(item.getLevel()+1);
-                    }})); 
+                    if(this._soldeVar >= cost && this._upgradesLevel[6] < 3){
+                        this._rooms.forEach((room) => room._items.forEach( (item) => { 
+                        if(item.getType() == 5) item.setLevel(item.getLevel()+1);
+                    })); 
                     button.setFrames(item.getLevel()-1); 
                     this._soldeVar -= cost; 
                     this._upgradesLevel[6]++
-                    this.win++;
+                    this._win++;
                     }
                     break;
             }
@@ -113,7 +112,7 @@ define(['phaser'], function(phaser){
         //Variables
         this._win = 0;
         this._soldeVar = 1000;
-        this._revenusVar = 100;
+        this._revenusVar = 200;
         this._consomationVar = 0;
         this._scoreVar = 0;
         this._timer = (new Date()).getTime();
