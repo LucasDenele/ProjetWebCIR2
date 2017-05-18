@@ -1,8 +1,8 @@
 //Constructeur
-var Npc = function(game, grid) {
+var Npc = function(game, x, y) {
 	this._game = game;
 
-    this.sprite = game.add.sprite(75, 75, 'npc'); //Attache le sprite au pnj
+    this.sprite = game.add.sprite(x, y, 'npc'); //Attache le sprite au pnj
     game.physics.arcade.enable(this.sprite);
     
     //Déclaration des animations
