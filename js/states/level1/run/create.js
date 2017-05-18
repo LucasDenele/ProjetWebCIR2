@@ -193,7 +193,33 @@ define(['phaser'], function(phaser){
         }
         
         /******************************** Aides Tuto *************************************/
-        this._left_arrow = game.add.sprite(0,0,'left_arrow');
+        
+        this._right_arrow = game.add.sprite(0,0,'right_arrow');
+        this._right_arrow.centerX = 800;
+        this._right_arrow.centerY = 570;
+        
+        this._down_arrow = game.add.sprite(0,0,'down_arrow');
+        this._down_arrow.centerX = 500;
+        this._down_arrow.centerY = 125;
+        this._down_arrow1 = game.add.sprite(0,0,'down_arrow');
+        this._down_arrow1.centerX = 285;
+        this._down_arrow1.centerY = 160;
+        this._down_arrow2 = game.add.sprite(0,0,'down_arrow');
+        this._down_arrow2.centerX = 580;
+        this._down_arrow2.centerY = 125;
+        
+        this._right_arrow1 = game.add.sprite(0,0,'right_arrow');
+        this._right_arrow1.centerX = 800;
+        this._right_arrow1.centerY = 250;
+        
+        game.add.text(450, 565, 'Cliquez ici pour améliorer vos appareils', {font: '15px Calibri', fill: '#ffffff', fontStyle: 'italic'});
+        game.add.text(280, 75, 'Cliquez ici pour éteindre des appareils', {font: '15px Calibri', fill: '#ffffff', fontStyle: 'italic'});
+        game.add.text(650, 200, 'Attention !', {font: '14px Calibri', fill: '#ffffff', fontStyle: 'italic'});
+        game.add.text(620, 220, 'La consommation influe', {font: '14px Calibri', fill: '#ffffff', fontStyle: 'italic'});
+        game.add.text(620, 240, 'sur vos revenues.', {font: '14px Calibri', fill: '#ffffff', fontStyle: 'italic'});
+        game.add.text(620, 280, 'Gardez un solde positif', {font: '14px Calibri', fill: '#ffffff', fontStyle: 'italic'});
+        game.add.text(620, 300, 'sinon ce sera perdu', {font: '14px Calibri', fill: '#ffffff', fontStyle: 'italic'});
+
         
         
         
