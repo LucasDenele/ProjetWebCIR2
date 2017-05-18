@@ -7,9 +7,6 @@ define(['phaser'],function(phaser){
         game.physics.arcade.overlap(this._npc.sprite, this._kitchen._items[2].sprite, this._kitchen._items[2].putItemOn, null, this);
         game.physics.arcade.overlap(this._npc.sprite, this._bedroom._items[0].sprite, this._bedroom._items[0].putItemOn, null, this);
         game.physics.arcade.overlap(this._npc.sprite, this._bedroom._items[1].sprite, this._bedroom._items[1].putItemOn, null, this);
-        game.physics.arcade.overlap(this._npc.sprite, this._bedroom.floor, this._npc.actualRoom(this._bedroom), null, this);
-        game.physics.arcade.overlap(this._npc.sprite, this._kitchen.floor, this._npc.actualRoom(this._kitchen), null, this);
-        console.log(this._npc.getRoom());
         
         //Le PNJ est controlé par les flèches
         this._npc.sprite.body.velocity.x = 0;
@@ -67,11 +64,7 @@ define(['phaser'],function(phaser){
 
             this._consomation.setText('Consommation : '+_consomationVar+' kWh', {font: '20px Calibri', fill: '#ffffff'});
             this._revenus.setText('Revenus : '+_revenusVar+' €', {font: '20px Calibri', fill: '#ffffff'});
-        }
-        
-        game.debug.body(this._kitchen.floor);
-        game.debug.body(this._bedroom.floor);
-        
+        }        
         
         if(this._light_Upgrade.input.pointerOver()){
             this._light_text.revive();

@@ -120,10 +120,6 @@ define(['phaser'], function(phaser){
         
         this._kitchen.addLamp(220, 250, 150);
         this._kitchen.addSwitch(340, 164);
-        this._kitchen.floor = game.add.sprite(208, 168, null);
-        game.physics.arcade.enable(this._kitchen.floor);
-        this._kitchen.floor.body.setSize(160, 304, 0, 0);
-        this._kitchen.floor.body.immovable = true;
         /********************************* Cuisine ***************************************/
                 
         /********************************* Chambre ***************************************/
@@ -146,10 +142,6 @@ define(['phaser'], function(phaser){
         
         this._bedroom.addLamp(380, 200, 200);
         this._bedroom.addSwitch(567, 164);
-        this._bedroom.floor = game.add.sprite(376, 168, null);
-        game.physics.arcade.enable(this._bedroom.floor);
-        this._bedroom.floor.body.setSize(217, 304, 0, 0);
-        this._bedroom.floor.body.immovable = true;
         /********************************* Chambre ***************************************/
                         
         //Déclaration du PNJ
