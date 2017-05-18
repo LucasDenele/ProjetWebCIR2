@@ -31,17 +31,19 @@ define(['phaser','easystar'],function(phaser,Easystar){
 
         this.setupPath = function(npcX , npcY, destinationX, destinationY){
             this._easyStar.findPath(npcX , npcY, destinationX, destinationY, function( path ) {
-                    this._path = path;
+            	//if(path == null)console.log('ca pue');
+                this._path = path;
             }.bind(this));
             this._easyStar.calculate();
         }
         
         let actualPosGrid = this._npc.getPosGrid();
         let nextPosGrid = this._npc.getNextPosGrid();
+        this._view = nextPosGrid[2];
+        console.log(nextPosGrid);
         this.setupPath(actualPosGrid[0], actualPosGrid[1], nextPosGrid[0], nextPosGrid[1]);
-        this.timer = (new Date()).getTime();
-        this.count = 2;
-        this.check = false;
+        this._count = 0;
+        this._check = false;
 	}
 	return create;
 });

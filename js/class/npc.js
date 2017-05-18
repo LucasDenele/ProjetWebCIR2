@@ -2,7 +2,7 @@
 var Npc = function(game, grid) {
 	this._game = game;
 
-    this.sprite = game.add.sprite(75, 75, 'npc'); //Attache le sprite au pnj
+    this.sprite = game.add.sprite(368, 544, 'npc'); //Attache le sprite au pnj
     game.physics.arcade.enable(this.sprite);
     
     //Déclaration des animations
@@ -12,12 +12,18 @@ var Npc = function(game, grid) {
     this.sprite.animations.add('up', [6, 7, 8], 10, true);
 
     this.possibleCoordOnGrid = [
-    	[9,9],
-    	[15,15],
-    	[20, 60],
-  		[67, 37],
-  		[84, 12],
-  		[10, 43]
+    	[25,56,'up'],
+    	[62,1,'up'],
+    	[55,34,'right'],
+		[91,70,'down'],
+    	[33,68,'right'],
+    	[62,33,'up'],
+		[92,53,'up'],
+    	[0,71, 'down'],
+    	[4,58, 'up'],
+    	[85,16, 'up'],
+    	[24,6, 'up'],
+    	[5,9, 'left'],
     ];
 
     console.log('NPC Class');
@@ -25,28 +31,43 @@ var Npc = function(game, grid) {
 
 Npc.prototype.getPosGrid = function(){
 	let posGrid = new Array();
-	posGrid.push( Math.round( this.sprite.centerX/8 ) );
-	posGrid.push( Math.round( this.sprite.centerY/8 ) );
+	posGrid.push( Math.round( this.sprite.position.x/8 ) );
+	posGrid.push( Math.round( this.sprite.position.y/8 ) );
 
 	return posGrid;
 };
 
 Npc.prototype.updatePosGrid = function(x, y){
-
-    if(Math.round(this.sprite.x) < x*8 && Math.round(this.sprite.y) == y*8)
+   if(Math.round(this.sprite.position.x) < x*8 
+    	&& this.sprite.position.y >= y*8-4 && this.sprite.position.y <= y*8+4){
         this.sprite.animations.play('right');
+    	this.sprite.body.velocity.x = 80;
+    	this.sprite.body.velocity.y = 0;
+    }
 
-    if(Math.round(this.sprite.x) > x*8 && Math.round(this.sprite.y) == y*8)
+
+    if(Math.round(this.sprite.position.x) > x*8 
+    	&& this.sprite.position.y >= y*8-4 && this.sprite.position.y <= y*8+4){
         this.sprite.animations.play('left');
+    	this.sprite.body.velocity.x = -80;
+    	this.sprite.body.velocity.y = 0;
+    }
 
-    if(Math.round(this.sprite.x) == x*8 && Math.round(this.sprite.y) < y*8)
+
+    if(this.sprite.position.x >= x*8-4 && this.sprite.position.x <= x*8+4
+     && Math.round(this.sprite.position.y) < y*8){
         this.sprite.animations.play('down');
-    
+    	this.sprite.body.velocity.x = 0;
+    	this.sprite.body.velocity.y = 80;
+    }
 
-    if(Math.round(this.sprite.x) == x*8 && Math.round(this.sprite.y) > y*8)
+
+    if(this.sprite.position.x >= x*8-4 && this.sprite.position.x <= x*8+4
+     && Math.round(this.sprite.position.y) > y*8){
         this.sprite.animations.play('up');
-    
-    this._game.physics.arcade.moveToXY( this.sprite, x*8, y*8, 90, 90);
+    	this.sprite.body.velocity.x = 0;
+    	this.sprite.body.velocity.y = -80;    	
+    }
 };
 
 Npc.prototype.getNextPosGrid = function(){
