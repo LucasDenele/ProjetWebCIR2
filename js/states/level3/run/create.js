@@ -114,8 +114,8 @@ define(['phaser'], function(phaser){
         this._oven_upgrade.id = 6;
         
         //Déclaration des textes d'amélioration
-        this._light_text = game.add.sprite(830,450,'light_text');
-        this._heat_text = game.add.sprite(860,450,'heat_text');
+        this._light_text = game.add.sprite(795,450,'light_text');
+        this._heat_text = game.add.sprite(840,450,'heat_text');
         this._computer_text = game.add.sprite(870,450,'computer_text');
         this._tv_text = game.add.sprite(870,450,'tv_text');
         this._washing_text = game.add.sprite(870,450,'washing_text');
