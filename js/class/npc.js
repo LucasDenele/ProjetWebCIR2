@@ -1,5 +1,5 @@
 //Constructeur
-var Npc = function(game, grid) {
+var Npc = function(game, possibleCoordOnGrid) {
 	this._game = game;
 
     this.sprite = game.add.sprite(368, 544, 'npc'); //Attache le sprite au pnj
@@ -11,20 +11,7 @@ var Npc = function(game, grid) {
     this.sprite.animations.add('down', [0, 1, 2], 10, true);
     this.sprite.animations.add('up', [6, 7, 8], 10, true);
 
-    this.possibleCoordOnGrid = [
-    	[25,56,'up'],
-    	[62,1,'up'],
-    	[55,34,'right'],
-		[91,70,'down'],
-    	[33,68,'right'],
-    	[62,33,'up'],
-		[92,53,'up'],
-    	[0,71, 'down'],
-    	[4,58, 'up'],
-    	[85,16, 'up'],
-    	[24,6, 'up'],
-    	[5,9, 'left'],
-    ];
+    this.possibleCoordOnGrid = possibleCoordOnGrid;
 
     console.log('NPC Class');
 };

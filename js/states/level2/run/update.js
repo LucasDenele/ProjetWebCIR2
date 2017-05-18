@@ -24,6 +24,11 @@ define(['phaser'],function(phaser){
                 && this._npc.sprite.position.y >= this._path[this._count].y*8-4 && this._npc.sprite.position.y <= this._path[this._count].y*8+4 ){
                     this._count++;
                     this._npc.updatePosGrid(this._path[_count].x, this._path[_count].y);
+                    if(this.test.checkNpc(this._npc.sprite.position.x, this._npc.sprite.position.y)){
+                        if(!this.test.getLampState()){
+                            this.test.autoSwitch();
+                        }
+                    }
             }
         }
 
