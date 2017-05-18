@@ -68,8 +68,41 @@ define(['phaser'],function(phaser){
             this._consomation.setText('Consommation : '+_consomationVar+' kWh', {font: '20px Calibri', fill: '#ffffff'});
             this._revenus.setText('Revenus : '+_revenusVar+' €', {font: '20px Calibri', fill: '#ffffff'});
         }
+        
         game.debug.body(this._kitchen.floor);
         game.debug.body(this._bedroom.floor);
+        
+        
+        if(this._light_Upgrade.input.pointerOver()){
+            this._light_text.revive();
+        }else{
+            this._light_text.kill();
+        }
+        
+        if(this._heat_upgrade.input.pointerOver()){
+            this._heat_text.revive();
+        }else{
+            this._heat_text.kill();
+        }
+        
+        if(this._computer_upgrade.input.pointerOver()){
+            this._computer_text.revive();
+        }else{
+            this._computer_text.kill();
+        }
+        
+        if(this._bathroom_upgrade.input.pointerOver()){
+            this._water_text.revive();
+        }else{
+            this._water_text.kill();
+        }
+        
+        if(this._oven_upgrade.input.pointerOver()){
+            this._oven_text.revive();
+        }else{
+            this._oven_text.kill();
+        }
+        
 	}
 
 	return update;

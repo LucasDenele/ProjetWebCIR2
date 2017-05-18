@@ -56,7 +56,7 @@ define(['phaser'], function(phaser){
         this._revenus = game.add.text(840, 175, 'Revenus : '+this._revenusVar+' €', {font: '20px Calibri', fill: '#ffffff'});
         this._consomation = game.add.text(840, 250, 'Consommation : '+this._consomationVar+' kWh', {font: '20px Calibri', fill: '#ffffff'});
         this._score = game.add.text(840, 325, 'Score : '+this._scoreVar, {font: '20px Calibri', fill: '#ffffff'});
-        game.add.text(830, 500, 'Améliorations Disponibles', {font: '30px Calibri', fill: '#ffffff', fontStyle: 'italic'});
+        game.add.text(830, 400, 'Améliorations Disponibles', {font: '30px Calibri', fill: '#ffffff', fontStyle: 'italic'});
         
         //Déclaration Boutons Shop
         this._light_Upgrade = game.add.button(830, 550, 'Light_UP', upgrade, this, 0);
@@ -69,6 +69,20 @@ define(['phaser'], function(phaser){
         this._computer_upgrade.id = 2;
         this._bathroom_upgrade.id = 3;
         this._oven_upgrade.id = 4;
+        
+        //Déclaration des textes d'amélioration
+        this._light_text = game.add.sprite(830,450,'light_text');
+        this._heat_text = game.add.sprite(860,450,'heat_text');
+        this._computer_text = game.add.sprite(870,450,'computer_text');
+        this._water_text = game.add.sprite(870,450,'water_text');
+        this._oven_text = game.add.sprite(870,450,'oven_text');
+
+        this._light_text.kill();
+        this._heat_text.kill();
+        this._computer_text.kill();
+        this._water_text.kill();
+        this._oven_text.kill();
+        
         
         //Retour Menu
 		this._back = game.add.button(0,0, 'backButton', backToMenu, this, 1, 0, 2);
