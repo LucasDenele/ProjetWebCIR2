@@ -52,3 +52,11 @@ Npc.prototype.updatePosGrid = function(x, y){
 Npc.prototype.getNextPosGrid = function(){
 	return this.possibleCoordOnGrid[Math.floor(Math.random() * (this.possibleCoordOnGrid.length-1))]; 
 }
+
+Npc.prototype.actualRoom = function(room){
+    this._roomPosition = room._id;
+}
+
+Npc.prototype.getRoom = function (){
+    return this._roomPosition;
+}

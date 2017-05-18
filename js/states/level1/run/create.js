@@ -37,7 +37,7 @@ define(['phaser'], function(phaser){
         this._load.destroy();
         game.stage.backgroundColor="#363942";
         
-		this._gameLocation = game.add.sprite(200, 150, 'background');
+		this._gameLocation = game.add.sprite(200, 160, 'background');
         this._gameLocation.width = 400;
         this._gameLocation.length = 320;
         
@@ -60,19 +60,15 @@ define(['phaser'], function(phaser){
         
         //Déclaration Boutons Shop
         this._light_Upgrade = game.add.button(830, 550, 'Light_UP', upgrade, this, 0);
-        this._heat_upgrade = game.add.button(890, 550, 'heat_UP', upgrade, this, 0);
-        this._computer_upgrade = game.add.button(950, 550, 'computer_UP', upgrade, this, 0);
-        this._television_upgrade = game.add.button(1010, 550, 'television_UP', upgrade, this, 0);
-        this._washing_upgrade = game.add.button(1070, 550, 'washing_UP', upgrade, this, 0);
-        this._bathroom_upgrade = game.add.button(1130, 550, 'bathroom_UP', upgrade, this, 0);
+        this._heat_upgrade = game.add.button(920, 550, 'heat_UP', upgrade, this, 0);
+        this._computer_upgrade = game.add.button(1010, 550, 'computer_UP', upgrade, this, 0);
+        this._bathroom_upgrade = game.add.button(1100, 550, 'bathroom_UP', upgrade, this, 0);
         this._oven_upgrade = game.add.button(1190, 550, 'oven_UP', upgrade, this, 0);
         this._light_Upgrade.id = 0;
         this._heat_upgrade.id = 1;
         this._computer_upgrade.id = 2;
-        this._television_upgrade.id = 3;
-        this._washing_upgrade.id = 4;
-        this._bathroom_upgrade.id = 5;
-        this._oven_upgrade.id = 6;
+        this._bathroom_upgrade.id = 3;
+        this._oven_upgrade.id = 4;
         
         //Retour Menu
 		this._back = game.add.button(0,0, 'backButton', backToMenu, this, 1, 0, 2);
@@ -90,48 +86,56 @@ define(['phaser'], function(phaser){
         item = new Item(game);
         item.setObjectType(game, 4);
         item.setX(208);
-        item.setY(200);
+        item.setY(210);
         game.physics.arcade.enable(item.sprite);
         this._kitchen.addItem(item);
         //Four
         item = new Item(game);
         item.setObjectType(game, 5);
         item.setX(270);
-        item.setY(165);
+        item.setY(185);
         game.physics.arcade.enable(item.sprite);
         this._kitchen.addItem(item);
         //Radiateur
         item = new Item(game);
         item.setObjectType(game, 6);
         item.setX(204);
-        item.setY(340);
+        item.setY(350);
         game.physics.arcade.enable(item.sprite);
         this._kitchen.addItem(item);
         
         this._kitchen.addLamp(220, 250, 150);
-        this._kitchen.addSwitch(340, 154);
+        this._kitchen.addSwitch(340, 164);
+        this._kitchen.floor = game.add.sprite(208, 168, null);
+        game.physics.arcade.enable(this._kitchen.floor);
+        this._kitchen.floor.body.setSize(160, 304, 0, 0);
+        this._kitchen.floor.body.immovable = true;
         /********************************* Cuisine ***************************************/
                 
         /********************************* Chambre ***************************************/
-        this._bedroom = new Room(game, 2);
+        this._bedroom = new Room(game, 1);
         //Pc
         item = new Item(game);
         item.setObjectType(game, 2);
         item.setX(463);
-        item.setY(140);
+        item.setY(150);
         game.physics.arcade.enable(item.sprite);
         this._bedroom.addItem(item);
         //Radiateur
         item = new Item(game);//Chambre
         item.setObjectType(game, 7);
         item.setX(445);
-        item.setY(465);
+        item.setY(475);
         item.sprite.scale.y = -item.sprite.scale.y;
         game.physics.arcade.enable(item.sprite);
         this._bedroom.addItem(item);
         
         this._bedroom.addLamp(380, 200, 200);
-        this._bedroom.addSwitch(567, 154);
+        this._bedroom.addSwitch(567, 164);
+        this._bedroom.floor = game.add.sprite(376, 168, null);
+        game.physics.arcade.enable(this._bedroom.floor);
+        this._bedroom.floor.body.setSize(217, 304, 0, 0);
+        this._bedroom.floor.body.immovable = true;
         /********************************* Chambre ***************************************/
                         
         //Déclaration du PNJ
