@@ -1,16 +1,22 @@
 define(['phaser'], function(phaser){
 	var create = function(game){
 		console.log('Create Lvl1');
-
+        this._soundtrack = game.add.audio('theme');
+        this._soundtrack.play();
+        
 		function backToMenu(){
+            this._soundtrack.stop();
 			game.state.start('home');
 		}
         
         function upgrade(button){
                         switch(button.id){
                 case 0://lamp
-                    //button.setFrames(1);
                     console.log('id 0');
+                    if(this._rooms[0]._lampsLevel < 3){
+                        this._rooms.forEach((room) => room.lampsLevelUp());
+                        button.setFrames(this._rooms[0]._lampsLevel-1);
+                    }
                     break;
                 case 1://heat
                     console.log('id 1');
@@ -235,10 +241,7 @@ define(['phaser'], function(phaser){
         game.add.text(620, 240, 'sur vos revenues.', {font: '14px Calibri', fill: '#ffffff', fontStyle: 'italic'});
         game.add.text(620, 280, 'Gardez un solde positif', {font: '14px Calibri', fill: '#ffffff', fontStyle: 'italic'});
         game.add.text(620, 300, 'sinon ce sera perdu', {font: '14px Calibri', fill: '#ffffff', fontStyle: 'italic'});
-
-        
-        
-        
+    
         let actualPosGrid = this._npc.getPosGrid();
         let nextPosGrid = this._npc.getNextPosGrid();
         this._view = nextPosGrid[2];

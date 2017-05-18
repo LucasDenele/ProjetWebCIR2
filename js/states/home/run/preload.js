@@ -14,6 +14,9 @@ define(['phaser'],function(phaser){
         //Boutons pour les niveaux
         game.load.spritesheet('tutobutton', 'assets/buttons/tuto.png', 118, 40);
         game.load.spritesheet('playbutton', 'assets/buttons/play.png', 95, 40);
+        
+        //Audio
+        game.load.audio('menu', ['assets/music/menu.mp3', 'assets/music/menu.ogg']);
 	}
 
 	return preload;

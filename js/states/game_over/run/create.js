@@ -1,12 +1,15 @@
 define(['phaser'],function(phaser){
 	var create = function(game){
 		console.log('Create Game over');
-
+        this._soundtrack = game.add.audio('looser');
+        this._soundtrack.play();
 		function backToMenu(){
+            this._soundtrack.stop();
 			game.state.start('home');
 		}
         
          function launchLvl3(){
+             this._soundtrack.stop();
 			game.state.start('lvl3');
 		}
         

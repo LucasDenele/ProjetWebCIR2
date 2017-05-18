@@ -46,6 +46,9 @@ define(['phaser'],function(phaser){
         //Hitbox Tilemap
         game.load.tilemap('hitbox', 'assets/maps/level_hitbox.json', null, phaser.Tilemap.TILED_JSON);
         game.load.image('tiles1', 'assets/maps/tileset.png');
+        
+        //Audio
+        game.load.audio('theme', ['assets/music/theme.mp3', 'assets/music/theme.ogg']);
 
 	}
 

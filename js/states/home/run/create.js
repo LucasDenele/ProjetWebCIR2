@@ -1,13 +1,17 @@
 define(['phaser'],function(phaser){
 	var create = function(game){
+        this._soundtrack = game.add.audio('menu');
+        this._soundtrack.play();
 
 		function launchLvl1(){
-			game.state.start('lvl1');
+			this._soundtrack.stop();
+            game.state.start('lvl1');
 		}
         function launchLvl2(){
 			game.state.start('lvl2');
 		}
         function launchLvl3(){
+            this._soundtrack.stop();
 			game.state.start('lvl3');
 		}
         function launchLvl4(){
@@ -58,6 +62,7 @@ define(['phaser'],function(phaser){
         
 		this._tutoButton.centerY = game.height/2 - this._tutoButton.height/2;
 		this._playButton.centerY = game.height/2 - this._playButton.height/2;
+        
 	}
 
 	return create;
