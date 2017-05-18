@@ -2,7 +2,7 @@ define(['phaser'],function(phaser){
 	var preload = function(game){
 		console.log('Preload Lvl1');
 		
-		game.add.text(80, 150, 'loading...', {font: '30px Courier', fill: '#ffffff'});
+		game.add.text(80, 150, 'loading...', {font: '30px Calibri', fill: '#ffffff'});
 
         //Backgrounds
 		game.load.image('background', 'assets/level.png');
