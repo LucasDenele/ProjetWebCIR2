@@ -6,59 +6,85 @@ define(['phaser'], function(phaser){
                         game.state.start('home');
                 }
         this._rooms = new Array();
+        this._upgradesLevel = [1, 1, 1, 1, 1, 1, 1]; 
         function upgrade(button){
                         switch(button.id){
                 case 0://lamp
-                    //button.setFrames(1);
+                    //button.setFrames
                     console.log('id 0');
                     break;
                 case 1://heat
-                    console.log('id 1');
+                    console.log(this._solde);
+                    this._upgradesLevel[1] == 1 ? cost = 150 : cost = 300; 
+                    if(this._soldeVar >= cost && this._upgradesLevel[1] < 3){
                     this._rooms.forEach((room) => room._items.forEach( (item) => { 
-                        if((item.getType() == 7 || item.getType() == 6) && item.getLevel() < 3){ 
+                        if((item.getType() == 7 || item.getType() == 6)){ 
                         item.setLevel(item.getLevel()+1);
                         button.setFrames(item.getLevel()-1); 
-                    }}))
+                    }})); 
+                    this._soldeVar -= cost; 
+                    this._upgradesLevel[1]++
+                    }
                     break;
                 case 2://computer
                     console.log('id 2');
-                    this._rooms.forEach((room) => room._items.forEach( (item) => { 
-                        if(item.getType() == 2 && item.getLevel() < 3){ 
+                    this._upgradesLevel[2] == 1 ? cost = 150 : cost = 300; 
+                    if(this._soldeVar >= cost && this._upgradesLevel[1] < 3){this._rooms.forEach((room) => room._items.forEach( (item) => { 
+                        if(item.getType() == 2){ 
                         item.setLevel(item.getLevel()+1);
                         button.setFrames(item.getLevel()-1); 
-                    }}))
+                    }})); 
+                    this._soldeVar -= cost; 
+                    this._upgradesLevel[2]++
+                    }
                     break;
                 case 3://tv
                     console.log('id 3');
-                    this._rooms.forEach((room) => room._items.forEach( (item) => { 
-                        if(item.getType() == 1 && item.getLevel() < 3){ 
+                    this._upgradesLevel[3] == 1 ? cost = 150 : cost = 300; 
+                    if(this._soldeVar >= cost && this._upgradesLevel[1] < 3){this._rooms.forEach((room) => room._items.forEach( (item) => { 
+                        if(item.getType() == 1){ 
                         item.setLevel(item.getLevel()+1);
                         button.setFrames(item.getLevel()-1); 
-                    }}))
+                    }})); 
+                    this._soldeVar -= cost; 
+                    this._upgradesLevel[3]++
+                    }
                     break;
                 case 4://washmach
                     console.log('id 4');
-                    this._rooms.forEach((room) => room._items.forEach( (item) => { 
-                        if(item.getType() == 3 && item.getLevel() < 3){ 
+                    this._upgradesLevel[4] == 1 ? cost = 150 : cost = 300; 
+                    if(this._soldeVar >= cost && this._upgradesLevel[1] < 3){this._rooms.forEach((room) => room._items.forEach( (item) => { 
+                        if(item.getType() == 3){ 
                         item.setLevel(item.getLevel()+1);
                         button.setFrames(item.getLevel()-1); 
-                    }}))
+                    }})); 
+                    this._soldeVar -= cost; 
+                    this._upgradesLevel[4]++
+                    }
                     break;
                 case 5://water
                     console.log('id 5');
-                    this._rooms.forEach((room) => room._items.forEach( (item) => { 
-                        if((item.getType() == 4 || item.getType() == 8 || item.getType() == 9) && item.getLevel() < 3){ 
+                    this._upgradesLevel[5] == 1 ? cost = 150 : cost = 300; 
+                    if(this._soldeVar >= cost && this._upgradesLevel[1] < 3){this._rooms.forEach((room) => room._items.forEach( (item) => { 
+                        if(item.getType() == 4 || item.getType() == 8 || item.getType() == 9){ 
                         item.setLevel(item.getLevel()+1);
                         button.setFrames(item.getLevel()-1); 
-                    }}))
+                    }})); 
+                    this._soldeVar -= cost; 
+                    this._upgradesLevel[5]++
+                    }
                     break;
                 case 6://oven
                     console.log('id 6');
-                    this._rooms.forEach((room) => room._items.forEach( (item) => { 
-                        if(item.getType() == 5 && item.getLevel() < 3){ 
+                    this._upgradesLevel[6] == 1 ? cost = 150 : cost = 300; 
+                    if(this._soldeVar >= cost && this._upgradesLevel[1] < 3){this._rooms.forEach((room) => room._items.forEach( (item) => { 
+                        if(item.getType() == 5){ 
                         item.setLevel(item.getLevel()+1);
                         button.setFrames(item.getLevel()-1); 
-                    }}))
+                    }})); 
+                    this._soldeVar -= cost; 
+                    this._upgradesLevel[6]++
+                    }
                     break;
             }
                 }
@@ -73,6 +99,7 @@ define(['phaser'], function(phaser){
         //Variables
         this._soldeVar = 1000;
         this._revenusVar = 100;
+        this._depensesVar = 0; 
         this._consomationVar = 0;
         this._scoreVar = 0;
         this._timer = (new Date()).getTime();
@@ -81,7 +108,7 @@ define(['phaser'], function(phaser){
         //Déclaration Textes
                 game.add.text(900, 20, 'Niveau 1', {font: '30px Calibri', fill: '#ffffff', fontStyle: 'italic'});
         this._solde = game.add.text(840, 100, 'Solde : '+this._soldeVar+' €', {font: '20px Calibri', fill: '#ffffff'});
-        this._revenus = game.add.text(840, 175, 'Revenus : '+this._revenusVar+' €', {font: '20px Calibri', fill: '#ffffff'});
+        this._revenus = game.add.text(840, 175, 'Dépenses : '+this.depenseseVar+' €', {font: '20px Calibri', fill: '#ffffff'});
         this._consomation = game.add.text(840, 250, 'Consommation : '+this._consomationVar+' kWh', {font: '20px Calibri', fill: '#ffffff'});
         this._score = game.add.text(840, 325, 'Score : '+this._scoreVar, {font: '20px Calibri', fill: '#ffffff'});
         game.add.text(830, 500, 'Améliorations Disponibles', {font: '30px Calibri', fill: '#ffffff', fontStyle: 'italic'});

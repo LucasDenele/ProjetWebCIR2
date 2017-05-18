@@ -58,30 +58,32 @@ define(['phaser'],function(phaser){
 
         if(this._timerCheck >= this._timer + 10000){
             this._soldeVar += this._revenusVar;
-            this._scoreVar += Math.round((this._revenusVar/2));
             //this._revenusVar = 100;
 
 
             this._solde.setText('Solde : '+Math.round(_soldeVar*10)/10+' €', {font: '20px Calibri', fill: '#ffffff'})
-            this._score.setText('Score : '+_scoreVar, {font: '20px Calibri', fill: '#ffffff'})
-            this._revenus.setText('Revenus : '+_revenusVar+' €', {font: '20px Calibri', fill: '#ffffff'});    
+            //this._revenus.setText('Dépenses : -'+_revenusVar+' €', {font: '20px Calibri', fill: '#ffffff'});    
             
             this._timer = this._timerCheck;
         }
         
         if(this._timerCheck >= this._timer2 + 1000){
             console.log(this._kitchen._items[1].getIsOn());
-            this._consomationVar = calculateConsomation(); 
+            this._consomationVar = calculateConsomation()*5; 
             this._timer2 = this._timerCheck;
         
         
         //if(this._consomationNew != this._consomationVar){
             //this._consomationVar = this._consomationNew;
-            this._revenusVar = 100; 
-            this._revenusVar -= this._consomationVar;
+            this._depensesVar = 0; 
+            this._depensesVar -= this._consomationVar;
+            this._soldeVar += this._depensesVar; 
+            this._scoreVar += (this._revenusVar-this._depensesVar)/2;
 
-            this._consomation.setText('Consommation : '+_consomationVar+' kWh', {font: '20px Calibri', fill: '#ffffff'});
-            this._revenus.setText('Revenus : '+_revenusVar+' €', {font: '20px Calibri', fill: '#ffffff'});
+            this._solde.setText('Solde : '+Math.round(_soldeVar*10)/10+' €', {font: '20px Calibri', fill: '#ffffff'})
+            this._consomation.setText('Consommation : '+Math.round(_consomationVar*10)/10+' kWh', {font: '20px Calibri', fill: '#ffffff'});
+            this._revenus.setText('Dépenses : '+Math.round(_depensesVar*10)/10+' €', {font: '20px Calibri', fill: '#ffffff'});
+            this._score.setText('Score : '+Math.round(_scoreVar*10)/10, {font: '20px Calibri', fill: '#ffffff'})
         //}
     }
     }
