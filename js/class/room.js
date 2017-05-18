@@ -116,3 +116,8 @@ Room.prototype.checkNpc = function(x ,y){
 	return false;
 };
 
+Room.prototype.turnLampsOff = function(){
+	for(var i=0; i < this._lamps.length; i++){
+		this._lamps[i].kill();
+	}
+}

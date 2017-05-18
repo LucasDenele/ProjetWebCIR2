@@ -20,7 +20,7 @@
         {
          "columns":64,
          "firstgid":1,
-         "image":"..\/assets\/tileset.png",
+         "image":"tileset.png",
          "imageheight":480,
          "imagewidth":512,
          "margin":0,

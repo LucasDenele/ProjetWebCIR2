@@ -6,12 +6,14 @@ define(['phaser'], function(phaser){
 			game.state.start('home');
 		} 
         
-        this._rooms = new Array();
         function upgrade(button){
                         switch(button.id){
                 case 0://lamp
-                    //button.setFrames(1);
                     console.log('id 0');
+                    if(this._rooms[0]._lampsLevel < 3){
+                        this._rooms.forEach((room) => room.lampsLevelUp());
+                        button.setFrames(this._rooms[0]._lampsLevel-1);
+                    }
                     break;
                 case 1://heat
                     console.log('id 1');
@@ -62,7 +64,7 @@ define(['phaser'], function(phaser){
                     }}))
                     break;
             }
-                }
+        }
         
         //Activation arcade pour collisions
         game.physics.startSystem(Phaser.Physics.ARCADE);

@@ -2,23 +2,28 @@ define(['phaser'],function(phaser){
 	var update = function(game){
         
         //Activation des collisions entre le PNJ et les Items
-        game.physics.arcade.overlap(this._npc.sprite, this._kitchen._items[0].sprite, this._kitchen._items[0].putItemOn, null, this);
-        game.physics.arcade.overlap(this._npc.sprite, this._kitchen._items[1].sprite, this._kitchen._items[1].putItemOn, null, this);
-        game.physics.arcade.overlap(this._npc.sprite, this._kitchen._items[2].sprite, this._kitchen._items[2].putItemOn, null, this);
-        game.physics.arcade.overlap(this._npc.sprite, this._bedroom._items[0].sprite, this._bedroom._items[0].putItemOn, null, this);
-        game.physics.arcade.overlap(this._npc.sprite, this._bedroom._items[1].sprite, this._bedroom._items[1].putItemOn, null, this);
+        game.physics.arcade.overlap(this._npc.sprite, this._kitchen._items[0].sprite, this._kitchen._items[0].putItemOn.bind(this._kitchen._items[0]), null, this);
+        game.physics.arcade.overlap(this._npc.sprite, this._kitchen._items[1].sprite, this._kitchen._items[1].putItemOn.bind(this._kitchen._items[1]), null, this);
+        game.physics.arcade.overlap(this._npc.sprite, this._kitchen._items[2].sprite, this._kitchen._items[2].putItemOn.bind(this._kitchen._items[2]), null, this);
+        game.physics.arcade.overlap(this._npc.sprite, this._bedroom._items[0].sprite, this._bedroom._items[0].putItemOn.bind(this._bedroom._items[0]), null, this);
+        game.physics.arcade.overlap(this._npc.sprite, this._bedroom._items[1].sprite, this._bedroom._items[1].putItemOn.bind(this._bedroom._items[1]), null, this);
         
         //Pathfinding
         if(this._check && this._timerPathFinding + 2000  <= (new Date()).getTime()){
+            this._npc.sprite.animations.stop();
             this.timerPathFinding = (new Date()).getTime();
             let actualPosGrid = this._npc.getPosGrid();
             let nextPosGrid = this._npc.getNextPosGrid();
+            while( (actualPosGrid[0]+1 == nextPosGrid[0] || actualPosGrid[0]-1 == nextPosGrid[0] || actualPosGrid[0] == nextPosGrid[0])
+                && (actualPosGrid[1]+1 == nextPosGrid[1] || actualPosGrid[1]-1 == nextPosGrid[1] || actualPosGrid[1] == nextPosGrid[1])){
+                nextPosGrid = this._npc.getNextPosGrid();
+            }
             console.log(nextPosGrid);
             this._view = nextPosGrid[2];
             this.setupPath(actualPosGrid[0], actualPosGrid[1], nextPosGrid[0], nextPosGrid[1]);
             this._check = false;
             this._count = 0;
-            this._timer = (new Date()).getTime();
+            this._timerPathFinding = (new Date()).getTime();
         }
         if(this._path != undefined && !this._check){
             if(this._count == this._path.length-1){
@@ -31,7 +36,7 @@ define(['phaser'],function(phaser){
             }else if(this._npc.sprite.position.x >= this._path[this._count].x*8-4 && this._npc.sprite.position.x <= this._path[this._count].x*8+4 
                 && this._npc.sprite.position.y >= this._path[this._count].y*8-4 && this._npc.sprite.position.y <= this._path[this._count].y*8+4 ){
                     this._count++;
-                    this._npc.updatePosGrid(this._path[_count].x, this._path[_count].y);
+                    this._npc.updatePosGrid(this._path[this._count].x, this._path[this._count].y);
                     for(var i = 0; i < this._rooms.length; i++){
                         if(this._rooms[i].checkNpc(this._npc.sprite.position.x, this._npc.sprite.position.y)){
                             if(!this._rooms[i].getLampState()){

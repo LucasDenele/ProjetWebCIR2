@@ -37,11 +37,11 @@ Item.prototype.getLevel = function(){
 
 Item.prototype.getIsOn = function(){
     return this.isOn; 
-}
+};
 
 Item.prototype.getType = function(){
     return this.type; 
-}
+};
 
 //Setters
 Item.prototype.setId = function(id){
