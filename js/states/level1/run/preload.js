@@ -21,7 +21,6 @@ define(['phaser'],function(phaser){
         game.load.image('water_text','assets/upgrade/water_text.png');
         game.load.image('oven_text','assets/upgrade/oven_text.png');
 
-        
         //bouton retour + lights
         game.load.spritesheet('backButton', 'assets/buttons/back.png', 114, 40);
         game.load.image('light', 'assets/light.png');
@@ -37,6 +36,10 @@ define(['phaser'],function(phaser){
         game.load.spritesheet('heat_turn', 'assets/spritesheets/heat_turn.png', 350, 121);
         game.load.spritesheet('bath', 'assets/spritesheets/bath.png', 32, 61);
         game.load.spritesheet('sink_b', 'assets/spritesheets/sink_b.png', 24, 26);
+        
+        //Hitbox Tilemap
+        game.load.tilemap('hitbox', 'assets/maps/level_hitbox.json', null, phaser.Tilemap.TILED_JSON);
+        game.load.image('tiles1', 'assets/maps/tileset.png');
         
 	}
 
