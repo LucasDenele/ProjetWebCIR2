@@ -46,7 +46,7 @@ Npc.prototype.updatePosGrid = function(x, y){
     if(Math.round(this.sprite.x) == x*8 && Math.round(this.sprite.y) > y*8)
         this.sprite.animations.play('up');
     
-    this._game.physics.arcade.moveToXY( this.sprite, x*8, y*8, 90, 100);
+    this._game.physics.arcade.moveToXY( this.sprite, x*8, y*8, 90, 90);
 };
 
 Npc.prototype.getNextPosGrid = function(){

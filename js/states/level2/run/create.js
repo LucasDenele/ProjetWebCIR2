@@ -40,7 +40,7 @@ define(['phaser','easystar'],function(phaser,Easystar){
         let nextPosGrid = this._npc.getNextPosGrid();
         this.setupPath(actualPosGrid[0], actualPosGrid[1], nextPosGrid[0], nextPosGrid[1]);
         this.timer = (new Date()).getTime();
-        this.count = 1;
+        this.count = 2;
         this.check = false;
 	}
 	return create;
