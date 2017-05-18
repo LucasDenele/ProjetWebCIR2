@@ -2,22 +2,21 @@ define(['phaser'],function(phaser){
 	var update = function(game){
         
         //Activation des collisions entre le PNJ et les Items
-        game.physics.arcade.overlap(this._npc.sprite, this._tv.sprite, this._tv.putItemOn, null, this);
-        game.physics.arcade.overlap(this._npc.sprite, this._wash.sprite, this._wash.putItemOn, null, this);
-        game.physics.arcade.overlap(this._npc.sprite, this._pc.sprite, this._pc.putItemOn, null, this);
         game.physics.arcade.overlap(this._npc.sprite, this._kitchen._items[0].sprite, this._kitchen._items[0].putItemOn, null, this);
         game.physics.arcade.overlap(this._npc.sprite, this._kitchen._items[1].sprite, this._kitchen._items[1].putItemOn, null, this);
         game.physics.arcade.overlap(this._npc.sprite, this._kitchen._items[2].sprite, this._kitchen._items[2].putItemOn, null, this);
-        game.physics.arcade.overlap(this._npc.sprite, this._heat.sprite, this._heat.putItemOn, null, this);
-        game.physics.arcade.overlap(this._npc.sprite, this._bath.sprite, this._bath.putItemOn, null, this);
-        game.physics.arcade.overlap(this._npc.sprite, this._sink_b.sprite, this._sink_b.putItemOn, null, this);
-        game.physics.arcade.overlap(this._npc.sprite, this._heat2.sprite, this._heat2.putItemOn, null, this);
-        game.physics.arcade.overlap(this._npc.sprite, this._heat3.sprite, this._heat3.putItemOn, null, this);
-        game.physics.arcade.overlap(this._npc.sprite, this._heat4.sprite, this._heat4.putItemOn, null, this);
-        //game.debug.inputInfo(500, 500);
-        //Le PNJ se dirige vers le curseur
-        //game.physics.arcade.moveToPointer(this._npc, 60, game.input.activePointer, 500);
+        game.physics.arcade.overlap(this._npc.sprite, this._bathroom._items[0].sprite, this._bathroom._items[0].putItemOn, null, this);
+        game.physics.arcade.overlap(this._npc.sprite, this._bathroom._items[1].sprite, this._bathroom._items[1].putItemOn, null, this);
+        game.physics.arcade.overlap(this._npc.sprite, this._bathroom._items[2].sprite, this._bathroom._items[2].putItemOn, null, this);
+        game.physics.arcade.overlap(this._npc.sprite, this._bedroom._items[0].sprite, this._bedroom._items[0].putItemOn, null, this);
+        game.physics.arcade.overlap(this._npc.sprite, this._bedroom._items[1].sprite, this._bedroom._items[1].putItemOn, null, this);
+        game.physics.arcade.overlap(this._npc.sprite, this._cellar._items[0].sprite, this._cellar._items[0].putItemOn, null, this);
+        game.physics.arcade.overlap(this._npc.sprite, this._livingRoom._items[0].sprite, this._livingRoom._items[0].putItemOn, null, this);
+        game.physics.arcade.overlap(this._npc.sprite, this._livingRoom._items[1].sprite, this._livingRoom._items[1].putItemOn, null, this);
+        game.physics.arcade.overlap(this._npc.sprite, this._livingRoom._items[2].sprite, this._livingRoom._items[2].putItemOn, null, this);
         
+        //game.debug.inputInfo(500, 500);
+            
         //Le PNJ est controlé par les flèches
         this._npc.sprite.body.velocity.x = 0;
         if (this._cursors.left.isDown){
