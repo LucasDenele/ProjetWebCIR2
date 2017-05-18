@@ -32,7 +32,7 @@
         {
          "columns":32,
          "firstgid":1,
-         "image":"..\/img\/tileset_floor_1.png",
+         "image":"..\/..\/..\/..\/..\/tutoPhaser\/assets\/img\/tileset_floor_1.png",
          "imageheight":480,
          "imagewidth":512,
          "margin":0,
@@ -45,7 +45,7 @@
         {
          "columns":32,
          "firstgid":961,
-         "image":"..\/img\/tileset_livingroom.png",
+         "image":"..\/..\/..\/..\/..\/tutoPhaser\/assets\/img\/tileset_livingroom.png",
          "imageheight":512,
          "imagewidth":512,
          "margin":0,
@@ -58,7 +58,7 @@
         {
          "columns":32,
          "firstgid":1985,
-         "image":"..\/img\/tileset_floor_2.png",
+         "image":"..\/..\/..\/..\/..\/tutoPhaser\/assets\/img\/tileset_floor_2.png",
          "imageheight":384,
          "imagewidth":512,
          "margin":0,
@@ -71,7 +71,7 @@
         {
          "columns":32,
          "firstgid":2753,
-         "image":"..\/img\/tileset_floor_3.png",
+         "image":"..\/..\/..\/..\/..\/tutoPhaser\/assets\/img\/tileset_floor_3.png",
          "imageheight":480,
          "imagewidth":512,
          "margin":0,
@@ -84,7 +84,7 @@
         {
          "columns":32,
          "firstgid":3713,
-         "image":"..\/img\/tileset_modern.png",
+         "image":"..\/..\/..\/..\/..\/tutoPhaser\/assets\/img\/tileset_modern.png",
          "imageheight":512,
          "imagewidth":512,
          "margin":0,
@@ -97,7 +97,7 @@
         {
          "columns":32,
          "firstgid":4737,
-         "image":"..\/img\/tileset_kitchen.png",
+         "image":"..\/..\/..\/..\/..\/tutoPhaser\/assets\/img\/tileset_kitchen.png",
          "imageheight":384,
          "imagewidth":512,
          "margin":0,

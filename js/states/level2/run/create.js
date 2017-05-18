@@ -1,6 +1,8 @@
 define(['phaser'], function(phaser){
 	var create = function(game){
 		console.log('Create Lvl2');
+	     
+
 
 	       var gamePause = function(){
                       var gameUnpause = function(){
