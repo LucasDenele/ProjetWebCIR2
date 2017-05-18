@@ -130,7 +130,7 @@ define(['phaser'], function(phaser){
         this._kitchen.addLamp(220, 250, 150);
         this._kitchen.addSwitch(340, 164);
         //Hitbox pièce
-        this._kitchen.addHitbox(0, 0, 296, 440);
+        this._kitchen.addHitbox(200, 160, 22*8, 39*8);
         //Ajout à l'appartement
         this._rooms.push(this._kitchen);
         /********************************* Cuisine ***************************************/
@@ -156,25 +156,18 @@ define(['phaser'], function(phaser){
         this._bedroom.addLamp(380, 200, 200);
         this._bedroom.addSwitch(567, 164);
         //Hitbox
-        this._bedroom.addHitbox(480, 408, 792-480, 632-408);
+        this._bedroom.addHitbox(553, 138, 100*8, 100*8);
         //Ajout à l'appartement
         this._rooms.push(this._bedroom);
         /********************************* Chambre ***************************************/
                         
         //Déclaration du PNJ
-        this._npc = (new Npc(game, 290, 308, 
-							    [[25,56,'up'],
-						    	[62,1,'up'],
-						    	[55,34,'right'],
-								[91,70,'down'],
-						    	[33,68,'right'],
-						    	[62,33,'up'],
-								[92,53,'up'],
-						    	[0,71, 'down'],
-						    	[4,58, 'up'],
-						    	[85,11, 'up'],
-						    	[24,6, 'up'],
-						    	[5,9, 'left']]
+        this._npc = (new Npc(game, 61*8, 41*8, 
+							    [[28,49,'left'],
+						    	[61,54,'down'],
+						    	[36,26,'up'],
+								[28,30,'left'],
+						    	[28,52,'left']]
 					));
 
 
@@ -186,7 +179,6 @@ define(['phaser'], function(phaser){
 
         this.setupPath = function(npcX , npcY, destinationX, destinationY){
             this._easyStar.findPath(npcX , npcY, destinationX, destinationY, function( path ) {
-            	//if(path == null)console.log('ca pue');
                 this._path = path;
             }.bind(this));
             this._easyStar.calculate();
