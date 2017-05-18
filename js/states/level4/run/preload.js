@@ -5,7 +5,7 @@ define(['phaser'],function(phaser){
                 game.add.text(80, 150, 'loading...', {font: '30px Calibri', fill: '#ffffff'});
 
         //Backgrounds
-                game.load.image('background', 'assets/level.png');
+                game.load.image('background', 'assets/maps/level.png');
         
         //Icons buttons Shop
         game.load.spritesheet('Light_UP','assets/icons/Light_up.png', 52, 66);
