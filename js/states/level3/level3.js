@@ -1,8 +1,8 @@
-define(['phaser', 'states/level3/run/preload', 'states/level3/run/create', 'states/level3/run/update', 'ROOM','NPC', 'ITEM'], 
-function(phaser, preload, create, update, Room, Npc, Item){
+define(['phaser', 'easystar', 'ROOM', 'NPC', 'ITEM', 'states/level3/run/preload', 'states/level3/run/create', 'states/level3/run/update'], 
+function(phaser, Easystar, Room, NPC, Item, preload, create, update){
     var _lvl3State = function(game){
-
-    };
+        
+	};
     
 	_lvl3State.prototype = {
 		preload: function(){

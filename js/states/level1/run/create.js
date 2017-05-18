@@ -34,11 +34,12 @@ define(['phaser'], function(phaser){
 		}
         
         //Déclaration Backgrounds
+        this._load.destroy();
         game.stage.backgroundColor="#363942";
         
-		this._gameLocation = game.add.sprite(0,0,'background');
-        this._gameLocation.width = 800;
-        this._gameLocation.length = 640;
+		this._gameLocation = game.add.sprite(200, 150, 'background');
+        this._gameLocation.width = 400;
+        this._gameLocation.length = 320;
         
         //Variables
         this._soldeVar = 0;
@@ -88,129 +89,53 @@ define(['phaser'], function(phaser){
         //Lavabo
         item = new Item(game);
         item.setObjectType(game, 4);
-        item.setX(8);
-        item.setY(50);
+        item.setX(208);
+        item.setY(200);
         game.physics.arcade.enable(item.sprite);
         this._kitchen.addItem(item);
         //Four
         item = new Item(game);
         item.setObjectType(game, 5);
-        item.setX(200);
-        item.setY(30);
+        item.setX(270);
+        item.setY(165);
         game.physics.arcade.enable(item.sprite);
         this._kitchen.addItem(item);
         //Radiateur
         item = new Item(game);
         item.setObjectType(game, 6);
-        item.setX(4);
-        item.setY(330);
+        item.setX(204);
+        item.setY(340);
         game.physics.arcade.enable(item.sprite);
         this._kitchen.addItem(item);
         
-        this._kitchen.addLamp(70, 60, 200);
-        this._kitchen.addLamp(125, 280, 170);
-        this._kitchen.addSwitch(268, 8);
+        this._kitchen.addLamp(220, 250, 150);
+        this._kitchen.addSwitch(340, 154);
         /********************************* Cuisine ***************************************/
-        
-        /****************************** Salle de Bain ************************************/
-        this._bathroom = new Room(game, 1);
-        //baignoire
-        item = new Item(game);
-        item.setObjectType(game, 8);
-        item.setX(8);
-        item.setY(567);
-        game.physics.arcade.enable(item.sprite);
-        this._bathroom.addItem(item);
-        //Lavabo
-        item = new Item(game);
-        item.setObjectType(game, 9);
-        item.setX(40);
-        item.setY(448);
-        game.physics.arcade.enable(item.sprite);
-        this._bathroom.addItem(item);
-        //Radiateur
-        item = new Item(game);
-        item.setObjectType(game, 7);
-        item.setX(180);
-        item.setY(445);
-        game.physics.arcade.enable(item.sprite);
-        this._bathroom.addItem(item);
-        
-        this._bathroom.addLamp(80, 470, 150);
-        this._bathroom.addSwitch(268, 604);
-        /****************************** Salle de Bain ************************************/
-        
-        
+                
         /********************************* Chambre ***************************************/
         this._bedroom = new Room(game, 2);
         //Pc
         item = new Item(game);
         item.setObjectType(game, 2);
-        item.setX(710);
-        item.setY(395);
+        item.setX(463);
+        item.setY(140);
         game.physics.arcade.enable(item.sprite);
         this._bedroom.addItem(item);
         //Radiateur
         item = new Item(game);//Chambre
         item.setObjectType(game, 7);
-        item.setX(570);
+        item.setX(445);
+        item.setY(465);
         item.sprite.scale.y = -item.sprite.scale.y;
-        item.setY(632);
         game.physics.arcade.enable(item.sprite);
         this._bedroom.addItem(item);
         
-        this._bedroom.addLamp(550, 440, 200);
-        this._bedroom.addSwitch(480, 605);
+        this._bedroom.addLamp(380, 200, 200);
+        this._bedroom.addSwitch(567, 154);
         /********************************* Chambre ***************************************/
-        
-        /********************************* Cellier ***************************************/
-        this._cellar = new Room(game, 3);
-        //Machine
-        item = new Item(game);
-        item.setObjectType(game, 3);
-        item.setX(480);
-        item.setY(265);
-        game.physics.arcade.enable(item.sprite);
-        this._cellar.addItem(item);
-        
-        this._cellar.addLamp(520, 260, 130);
-        this._cellar.addSwitch(571, 372);
-        /********************************* Cellier ***************************************/
-        
-        /********************************** Salon ****************************************/
-        this._livingRoom = new Room(game, 4);
-        //Tv
-        item = new Item(game);
-        item.setObjectType(game, 1);
-        item.setX(640);
-        item.setY(50);
-        game.physics.arcade.enable(item.sprite);
-        this._livingRoom.addItem(item);
-        //Radiateur vertical
-        item = new Item(game);
-        item.setObjectType(game, 6);
-        item.setX(300);
-        item.setY(200);
-        game.physics.arcade.enable(item.sprite);
-        this._livingRoom.addItem(item);
-        //Radiateur Horizontal
-        item = new Item(game);
-        item.setObjectType(game, 7);
-        item.setX(450);
-        item.setY(8);
-        game.physics.arcade.enable(item.sprite);
-        this._livingRoom.addItem(item);
-        
-        this._livingRoom.addLamp(585, 60, 200);
-        this._livingRoom.addLamp(390, 50, 150);
-        this._livingRoom.addLamp(310, 240, 150);
-        this._livingRoom.addLamp(310, 440, 150);
-        this._livingRoom.addSwitch(765, 8);
-        this._livingRoom.addSwitch(300, 380);
-        /********************************** Salon ****************************************/
-                
+                        
         //Déclaration du PNJ
-        this._npc = new Npc(game);
+        this._npc = new Npc(game, 300, 250);
         game.physics.arcade.enable(this._npc.sprite);
 
         //Déclaration commandes PNJ

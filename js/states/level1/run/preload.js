@@ -2,10 +2,10 @@ define(['phaser'],function(phaser){
 	var preload = function(game){
 		console.log('Preload Lvl1');
 		
-		game.add.text(80, 150, 'loading...', {font: '30px Calibri', fill: '#ffffff'});
+		this._load = game.add.text(80, 150, 'loading...', {font: '30px Calibri', fill: '#ffffff'});
 
         //Backgrounds
-		game.load.image('background', 'assets/level.png');
+		game.load.image('background', 'assets/maps/tuto.png');
         
         //Icons buttons Shop
         game.load.spritesheet('Light_UP','assets/icons/Light_up.png', 52, 66);
@@ -33,7 +33,7 @@ define(['phaser'],function(phaser){
         game.load.spritesheet('heat_turn', 'assets/spritesheets/heat_turn.png', 350, 121);
         game.load.spritesheet('bath', 'assets/spritesheets/bath.png', 32, 61);
         game.load.spritesheet('sink_b', 'assets/spritesheets/sink_b.png', 24, 26);
-
+        
 	}
 
 	return preload;
