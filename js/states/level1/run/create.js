@@ -7,31 +7,61 @@ define(['phaser'], function(phaser){
 		}
         
         function upgrade(button){
-			switch(button.id){
-                case 0:
+                        switch(button.id){
+                case 0://lamp
                     //button.setFrames(1);
                     console.log('id 0');
                     break;
-                case 1:
+                case 1://heat
                     console.log('id 1');
+                    this._rooms.forEach((room) => room._items.forEach( (item) => { 
+                        if((item.getType() == 7 || item.getType() == 6) && item.getLevel() < 3){ 
+                        item.setLevel(item.getLevel()+1);
+                        button.setFrames(item.getLevel()-1); 
+                    }}))
                     break;
-                case 2:
+                case 2://computer
                     console.log('id 2');
+                    this._rooms.forEach((room) => room._items.forEach( (item) => { 
+                        if(item.getType() == 2 && item.getLevel() < 3){ 
+                        item.setLevel(item.getLevel()+1);
+                        button.setFrames(item.getLevel()-1); 
+                    }}))
                     break;
-                case 3:
+                case 3://tv
                     console.log('id 3');
+                    this._rooms.forEach((room) => room._items.forEach( (item) => { 
+                        if(item.getType() == 1 && item.getLevel() < 3){ 
+                        item.setLevel(item.getLevel()+1);
+                        button.setFrames(item.getLevel()-1); 
+                    }}))
                     break;
-                case 4:
+                case 4://washmach
                     console.log('id 4');
+                    this._rooms.forEach((room) => room._items.forEach( (item) => { 
+                        if(item.getType() == 3 && item.getLevel() < 3){ 
+                        item.setLevel(item.getLevel()+1);
+                        button.setFrames(item.getLevel()-1); 
+                    }}))
                     break;
-                case 5:
+                case 5://water
                     console.log('id 5');
+                    this._rooms.forEach((room) => room._items.forEach( (item) => { 
+                        if((item.getType() == 4 || item.getType() == 8 || item.getType() == 9) && item.getLevel() < 3){ 
+                        item.setLevel(item.getLevel()+1);
+                        button.setFrames(item.getLevel()-1); 
+                    }}))
                     break;
-                case 6:
+                case 6://oven
                     console.log('id 6');
+                    this._rooms.forEach((room) => room._items.forEach( (item) => { 
+                        if(item.getType() == 5 && item.getLevel() < 3){ 
+                        item.setLevel(item.getLevel()+1);
+                        button.setFrames(item.getLevel()-1); 
+                    }}))
                     break;
             }
-		}
+        }
         
         //Activation arcade pour collisions
         game.physics.startSystem(Phaser.Physics.ARCADE);
@@ -42,10 +72,9 @@ define(['phaser'], function(phaser){
 		game.add.sprite(200, 160, 'background');
         
         //Variables
-        this._soldeVar = 0;
-        this._revenusVar = 500;
-        this._consomationVar = 20;
-        this._consomationNew = 20;
+        this._soldeVar = 1000;
+        this._revenusVar = 100;
+        this._consomationVar = 0;
         this._scoreVar = 0;
         this._timer = (new Date()).getTime();
         this._timer2 = this._timer;
@@ -67,8 +96,8 @@ define(['phaser'], function(phaser){
         this._light_Upgrade.id = 0;
         this._heat_upgrade.id = 1;
         this._computer_upgrade.id = 2;
-        this._bathroom_upgrade.id = 3;
-        this._oven_upgrade.id = 4;
+        this._bathroom_upgrade.id = 5;
+        this._oven_upgrade.id = 6;
         
         //Déclaration des textes d'amélioration
         this._light_text = game.add.sprite(830,450,'light_text');
@@ -106,22 +135,19 @@ define(['phaser'], function(phaser){
         /********************************* Cuisine ***************************************/
         this._kitchen = new Room(game, 0);
         //Lavabo
-        item = new Item(game);
-        item.setObjectType(game, 4);
+        item = new Item(game, 4);
         item.setX(208);
         item.setY(210);
         game.physics.arcade.enable(item.sprite);
         this._kitchen.addItem(item);
         //Four
-        item = new Item(game);
-        item.setObjectType(game, 5);
+        item = new Item(game, 5);
         item.setX(270);
         item.setY(185);
         game.physics.arcade.enable(item.sprite);
         this._kitchen.addItem(item);
         //Radiateur
-        item = new Item(game);
-        item.setObjectType(game, 6);
+        item = new Item(game, 6);
         item.setX(204);
         item.setY(350);
         game.physics.arcade.enable(item.sprite);
@@ -138,15 +164,13 @@ define(['phaser'], function(phaser){
         /********************************* Chambre ***************************************/
         this._bedroom = new Room(game, 1);
         //Pc
-        item = new Item(game);
-        item.setObjectType(game, 2);
+        item = new Item(game, 2);
         item.setX(463);
         item.setY(150);
         game.physics.arcade.enable(item.sprite);
         this._bedroom.addItem(item);
         //Radiateur
-        item = new Item(game);//Chambre
-        item.setObjectType(game, 7);
+        item = new Item(game, 7);
         item.setX(445);
         item.setY(475);
         item.sprite.scale.y = -item.sprite.scale.y;
