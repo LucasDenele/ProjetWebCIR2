@@ -6,6 +6,7 @@ define(['phaser'], function(phaser){
 			game.state.start('home');
 		}
         
+        
         function upgrade(button){
 			switch(button.id){
                 case 0:

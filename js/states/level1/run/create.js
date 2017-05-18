@@ -151,6 +151,9 @@ define(['phaser'], function(phaser){
         //Déclaration commandes PNJ
         this._cursors = game.input.keyboard.createCursorKeys();
         
+        /******************************** Aides Tuto *************************************/
+        this._left_arrow = game.add.sprite(0,0,'left_arrow');
+        
 	}
 
 	return create;

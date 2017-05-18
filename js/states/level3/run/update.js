@@ -1,6 +1,10 @@
 define(['phaser'],function(phaser){
 	var update = function(game){
         
+        function launchGameOver(){
+			game.state.start('game_over');
+		}
+        
         //Activation des collisions entre le PNJ et les Items
         game.physics.arcade.overlap(this._npc.sprite, this._kitchen._items[0].sprite, this._kitchen._items[0].putItemOn, null, this);
         game.physics.arcade.overlap(this._npc.sprite, this._kitchen._items[1].sprite, this._kitchen._items[1].putItemOn, null, this);
@@ -75,7 +79,12 @@ define(['phaser'],function(phaser){
             this._revenus.setText('Revenus : '+_revenusVar+' €', {font: '20px Calibri', fill: '#ffffff'});
         }
         
-            if(this._light_Upgrade.input.pointerOver()){
+        if(this._soldeVar<0){
+            console.log("game over");
+            launchGameOver();
+        }
+        
+        if(this._light_Upgrade.input.pointerOver()){
             this._light_text.revive();
         }else{
             this._light_text.kill();

@@ -20,6 +20,9 @@ define(['phaser'],function(phaser){
         game.load.image('computer_text','assets/upgrade/computer_text.png');
         game.load.image('water_text','assets/upgrade/water_text.png');
         game.load.image('oven_text','assets/upgrade/oven_text.png');
+        
+        //Flèches pour tutoriel
+        game.load.image('left_arrow','assets/arrow/arrow_left.png');
 
         
         //bouton retour + lights
