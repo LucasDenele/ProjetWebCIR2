@@ -42,6 +42,10 @@ define(['phaser'],function(phaser){
         game.load.spritesheet('heat_turn', 'assets/spritesheets/heat_turn.png', 350, 121);
         game.load.spritesheet('bath', 'assets/spritesheets/bath.png', 32, 61);
         game.load.spritesheet('sink_b', 'assets/spritesheets/sink_b.png', 24, 26);
+        
+        //Hitbox Tilemap
+        game.load.tilemap('hitbox', 'assets/maps/level_hitbox.json', null, phaser.Tilemap.TILED_JSON);
+        game.load.image('tiles1', 'assets/maps/tileset.png');
 
 	}
 

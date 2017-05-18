@@ -33,13 +33,13 @@ define(['phaser'], function(phaser){
             }
 		}
         
+        //Activation arcade pour collisions
+        game.physics.startSystem(Phaser.Physics.ARCADE);
+        
         //Déclaration Backgrounds
         this._load.destroy();
         game.stage.backgroundColor="#363942";
-        
-		this._gameLocation = game.add.sprite(200, 150, 'background');
-        this._gameLocation.width = 400;
-        this._gameLocation.length = 320;
+		game.add.sprite(200, 160, 'background');
         
         //Variables
         this._soldeVar = 0;
@@ -67,8 +67,8 @@ define(['phaser'], function(phaser){
         this._light_Upgrade.id = 0;
         this._heat_upgrade.id = 1;
         this._computer_upgrade.id = 2;
-        this._bathroom_upgrade.id = 5;
-        this._oven_upgrade.id = 6;
+        this._bathroom_upgrade.id = 3;
+        this._oven_upgrade.id = 4;
         
         //Déclaration des textes d'amélioration
         this._light_text = game.add.sprite(830,450,'light_text');
@@ -83,77 +83,127 @@ define(['phaser'], function(phaser){
         this._water_text.kill();
         this._oven_text.kill();
         
-        
         //Retour Menu
 		this._back = game.add.button(0,0, 'backButton', backToMenu, this, 1, 0, 2);
         this._back.centerX = game.width - this._back.width/2 - 10; // -10 pour éviter qu'il colle à la bordure
 		this._back.centerY = game.height - this._back.height/2 - 570;
         
-        //Activation arcade pour collisions
-        game.physics.startSystem(Phaser.Physics.ARCADE);
+        //Mise en place de la hitbox de la map
+        game.add.tilemap('hitbox');
+	    let starGrid = new Array();
+	    let count = 0
+		for(var i=0; i<80; ++i){
+        	starGrid.push(new Array());
+        	for(var j=0; j<100; ++j){
+            	starGrid[i].push(game.cache.getTilemapData('hitbox').data.layers[0].data[count])
+            	count++;
+			}
+    	}
         
         //Déclaration Pièces + Items
         var item;
+        this._rooms = new Array();
         /********************************* Cuisine ***************************************/
         this._kitchen = new Room(game, 0);
         //Lavabo
         item = new Item(game);
         item.setObjectType(game, 4);
         item.setX(208);
-        item.setY(200);
+        item.setY(210);
         game.physics.arcade.enable(item.sprite);
         this._kitchen.addItem(item);
         //Four
         item = new Item(game);
         item.setObjectType(game, 5);
         item.setX(270);
-        item.setY(165);
+        item.setY(185);
         game.physics.arcade.enable(item.sprite);
         this._kitchen.addItem(item);
         //Radiateur
         item = new Item(game);
         item.setObjectType(game, 6);
         item.setX(204);
-        item.setY(340);
+        item.setY(350);
         game.physics.arcade.enable(item.sprite);
         this._kitchen.addItem(item);
-        
+        //Lampes
         this._kitchen.addLamp(220, 250, 150);
-        this._kitchen.addSwitch(340, 154);
+        this._kitchen.addSwitch(340, 164);
+        //Hitbox pièce
+        this._kitchen.addHitbox(0, 0, 296, 440);
+        //Ajout à l'appartement
+        this._rooms.push(this._kitchen);
         /********************************* Cuisine ***************************************/
                 
         /********************************* Chambre ***************************************/
-        this._bedroom = new Room(game, 2);
+        this._bedroom = new Room(game, 1);
         //Pc
         item = new Item(game);
         item.setObjectType(game, 2);
         item.setX(463);
-        item.setY(140);
+        item.setY(150);
         game.physics.arcade.enable(item.sprite);
         this._bedroom.addItem(item);
         //Radiateur
         item = new Item(game);//Chambre
         item.setObjectType(game, 7);
         item.setX(445);
-        item.setY(465);
+        item.setY(475);
         item.sprite.scale.y = -item.sprite.scale.y;
         game.physics.arcade.enable(item.sprite);
         this._bedroom.addItem(item);
-        
+        //Lampes
         this._bedroom.addLamp(380, 200, 200);
-        this._bedroom.addSwitch(567, 154);
+        this._bedroom.addSwitch(567, 164);
+        //Hitbox
+        this._bedroom.addHitbox(480, 408, 792-480, 632-408);
+        //Ajout à l'appartement
+        this._rooms.push(this._bedroom);
         /********************************* Chambre ***************************************/
                         
         //Déclaration du PNJ
-        this._npc = new Npc(game, 300, 250);
-        game.physics.arcade.enable(this._npc.sprite);
+        this._npc = (new Npc(game, 290, 308, 
+							    [[25,56,'up'],
+						    	[62,1,'up'],
+						    	[55,34,'right'],
+								[91,70,'down'],
+						    	[33,68,'right'],
+						    	[62,33,'up'],
+								[92,53,'up'],
+						    	[0,71, 'down'],
+						    	[4,58, 'up'],
+						    	[85,11, 'up'],
+						    	[24,6, 'up'],
+						    	[5,9, 'left']]
+					));
 
-        //Déclaration commandes PNJ
-        this._cursors = game.input.keyboard.createCursorKeys();
+
+        //Lancement du pathFinding
+        this._easyStar = new EasyStar.js();
+		this._easyStar.setGrid(starGrid);
+		this._easyStar.setAcceptableTiles([0]);
+		this._easyStar.disableDiagonals();
+
+        this.setupPath = function(npcX , npcY, destinationX, destinationY){
+            this._easyStar.findPath(npcX , npcY, destinationX, destinationY, function( path ) {
+            	//if(path == null)console.log('ca pue');
+                this._path = path;
+            }.bind(this));
+            this._easyStar.calculate();
+        }
         
         /******************************** Aides Tuto *************************************/
         this._left_arrow = game.add.sprite(0,0,'left_arrow');
         
+        
+        
+        let actualPosGrid = this._npc.getPosGrid();
+        let nextPosGrid = this._npc.getNextPosGrid();
+        this._view = nextPosGrid[2];
+        console.log(nextPosGrid);
+        this.setupPath(actualPosGrid[0], actualPosGrid[1], nextPosGrid[0], nextPosGrid[1]);
+        this._count = 0;
+        this._check = false;
 	}
 
 	return create;
