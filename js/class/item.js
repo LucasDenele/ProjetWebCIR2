@@ -7,7 +7,7 @@ var Item = function(game, type){
     this.upgrades = new Array(); 
     this.type = this.setObjectType(game, type); 
     this.energyCosts = this.upgrades[this.getLevel()-1]; //Energie Consommée par l'objet
-
+}
 //Getters
 Item.prototype.getId = function(){
     return this.id;
