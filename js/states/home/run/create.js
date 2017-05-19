@@ -2,6 +2,7 @@ define(['phaser'],function(phaser){
 	var create = function(game){
         this._soundtrack = game.add.audio('menu');
         this._soundtrack.play();
+        this._soundtrack.loopFull();
 
 		function launchTuto(){
 			this._soundtrack.stop();

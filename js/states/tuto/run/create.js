@@ -3,6 +3,7 @@ define(['phaser'], function(phaser){
 
         this._soundtrack = game.add.audio('theme');
         this._soundtrack.play();
+        this._soundtrack.loopFull();
         
 		function backToMenu(){
             this._soundtrack.stop();

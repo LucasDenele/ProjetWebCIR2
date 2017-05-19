@@ -3,6 +3,8 @@ define(['phaser'],function(phaser){
 		
         this._soundtrack = game.add.audio('win');
         this._soundtrack.play();
+        this._soundtrack.loopFull();
+        
 		function backToMenu(){
             this._soundtrack.stop();
 			game.state.start('home');
@@ -10,7 +12,7 @@ define(['phaser'],function(phaser){
         
          function launchLvl3(){
              this._soundtrack.stop();
-			game.state.start('lvl3');
+			game.state.start('lvl');
 		}
         
         

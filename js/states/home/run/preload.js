@@ -15,7 +15,7 @@ define(['phaser'],function(phaser){
         game.load.spritesheet('playbutton', 'assets/buttons/play.png', 95, 40);
         
         //Audio
-        game.load.audio('menu', ['assets/music/menu.mp3', 'assets/music/menu.ogg']);
+        game.load.audio('menu', 'assets/music/menu.ogg');
 	}
 
 	return preload;

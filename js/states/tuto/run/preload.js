@@ -45,7 +45,7 @@ define(['phaser'],function(phaser){
         game.load.image('tiles1', 'assets/maps/tileset.png');
         
         //Audio
-        game.load.audio('theme', ['assets/music/theme.mp3', 'assets/music/theme.ogg']);
+        game.load.audio('theme', 'assets/music/theme.ogg');
 	}
 
 	return preload;
